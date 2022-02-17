@@ -297,5 +297,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"""""" Exit terminal
+"""""" terminal
+set shell=powershell
 tnoremap <leader><ESC> <C-\><C-n>
