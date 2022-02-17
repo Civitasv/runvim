@@ -82,7 +82,7 @@ call plug#begin()
     Plug 'morhetz/gruvbox'
     Plug 'NLKNguyen/papercolor-theme'
     " Fuzzy file, buffer, mru, tag
-    Plug 'kien/ctrlp.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
     " Indent Line
     Plug 'Yggdroot/indentLine'
     " Clear unuseful whitespaces
@@ -91,6 +91,9 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
     " comment
     Plug 'preservim/nerdcommenter'
+    " Fuzzy search
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
 """""" Color Scheme
