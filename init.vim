@@ -302,4 +302,4 @@ set shell=powershell
 tnoremap <leader><ESC> <C-\><C-n>
 
 """""" autosave
-autocmd TextChanged, TextChangedI <buffer> silent write
+autocmd TextChanged,TextChangedI <buffer> silent write
