@@ -13,20 +13,22 @@ set title " show the file title
 set ttimeoutlen=0 " time in milliseconds to run commands
 set wildmenu " show a more advanced menu for auto-completion suggestions
 set autoread " after change file, revert it
-set encoding=utf-8 " file encoding
-set fileencoding=utf-8
+
+let $LC_ALL="en_US.UTF-8"
+language en_US.UTF-8
+set encoding=UTF-8
+set fileencodings=UTF-8
+
 set nobackup
 set nowritebackup
 let mapleader=","
-language en_US
-
 
 """" GUI
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-set guifont=Fira\ Code\ Retina:h14
+set guifont=Fira\ Code\ Retina:h12
 
 """""" Tabs size
 set expandtab " transform tabs into spaces
@@ -299,7 +301,6 @@ nnoremap <C-l> <C-w>l
 
 """""" terminal
 set shell=powershell
+set shellcmdflag=-c
 tnoremap <leader><ESC> <C-\><C-n>
 
-"""""" autosave
-autocmd TextChanged,TextChangedI <buffer> silent write
