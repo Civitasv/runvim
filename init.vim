@@ -92,7 +92,7 @@ call plug#begin()
     " comment
     Plug 'preservim/nerdcommenter'
     " Fuzzy search
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 call plug#end()
 
@@ -303,3 +303,50 @@ nnoremap <C-l> <C-w>l
 """""" terminal
 set shell=powershell
 tnoremap <leader><ESC> <C-\><C-n>
+
+"""""" FZF
+let $FZF_DEFAULT_OPTS .= ' --inline-info'
+
+let g:fzf_colors =
+\ { 'fg':         ['fg', 'Normal'],
+  \ 'bg':         ['bg', 'Normal'],
+  \ 'preview-bg': ['bg', 'NormalFloat'],
+  \ 'hl':         ['fg', 'Comment'],
+  \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':        ['fg', 'Statement'],
+  \ 'info':       ['fg', 'PreProc'],
+  \ 'border':     ['fg', 'Ignore'],
+  \ 'prompt':     ['fg', 'Conditional'],
+  \ 'pointer':    ['fg', 'Exception'],
+  \ 'marker':     ['fg', 'Keyword'],
+  \ 'spinner':    ['fg', 'Label'],
+  \ 'header':     ['fg', 'Comment'] }
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+nnoremap <silent> <Leader><Leader> :MoveBack<BAR>Files<CR>
+nnoremap <silent> <Leader><Enter>  :MoveBack<BAR>Buffers<CR>
+nnoremap <silent> <Leader>C        :Colors<CR>
+nnoremap <silent> <Leader>L        :Lines<CR>
+nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
+xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
+nnoremap <silent> <Leader>`        :Marks<CR>
+
+function! s:plug_help_sink(line)
+  let dir = g:plugs[a:line].dir
+  for pat in ['doc/*.txt', 'README.md']
+    let match = get(split(globpath(dir, pat), "\n"), 0, '')
+    if len(match)
+      execute 'tabedit' match
+      return
+    endif
+  endfor
+  tabnew
+  execute 'Explore' dir
+endfunction
+
+command! PlugHelp call fzf#run(fzf#wrap({
+  \ 'source': sort(keys(g:plugs)),
+  \ 'sink':   function('s:plug_help_sink')}))
