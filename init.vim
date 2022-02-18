@@ -14,9 +14,12 @@ set ttimeoutlen=0 " time in milliseconds to run commands
 set wildmenu " show a more advanced menu for auto-completion suggestions
 set autoread " after change file, revert it
 set encoding=utf-8 " file encoding
+set fileencoding=utf-8
 set nobackup
 set nowritebackup
 let mapleader=","
+language en_US
+
 
 """" GUI
 set guioptions-=m  "remove menu bar
@@ -253,13 +256,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" Suggestion box
-let border="false"
-let highlight="#fff"
-let title="TEST"
-
-
-
 """ Keyboard shortcuts
 " Normal mode remappings, <CR> means Enter
 nnoremap <C-q> :q!<CR>
@@ -290,10 +286,12 @@ tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
+
 inoremap <C-h> <C-\><C-N><C-w>h
 inoremap <C-j> <C-\><C-N><C-w>j
 inoremap <C-k> <C-\><C-N><C-w>k
 inoremap <C-l> <C-\><C-N><C-w>l
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -303,4 +301,5 @@ nnoremap <C-l> <C-w>l
 set shell=powershell
 tnoremap <leader><ESC> <C-\><C-n>
 
-
+"""""" autosave
+autocmd TextChanged, TextChangedI <buffer> silent write
