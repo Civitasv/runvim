@@ -6,7 +6,6 @@ set cursorline " highlights the current line in the editor
 set hidden " hide unused buffers
 set inccommand=split " show replacements in a split screen, before applying to the file
 set mouse=a " allows the use of the mouse
-set number " show line numbers
 set relativenumber " show relative line numbers
 set splitbelow splitright " changes split screen behavior with the command :split (split horizontally) and :vsplit (vertically). In this case, the screens will always split below the current screen and to the right.
 set title " show the file title
@@ -28,7 +27,7 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-set guifont=Fira\ Code\ Retina:h12
+set guifont=FiraCode\ Nerd\ Font\ Mono:h12
 
 """""" Tabs size
 set expandtab " transform tabs into spaces
@@ -99,10 +98,17 @@ call plug#begin()
 call plug#end()
 
 """""" Color Scheme
-colorscheme PaperColor
+set bg=dark
+let g:gruvbox_transparent_bg=1
+let g:gruvbox_contrast_dark="hard"
+
+colorscheme gruvbox
+
+"""""" Transparent background
+hi Normal guibg=NONE ctermbg=NONE
 
 """""" Airline
-let g:airline_theme='papercolor'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
@@ -265,11 +271,11 @@ nnoremap <C-q> :q!<CR>
 nnoremap <F4> :bd<CR>
 " show or hide nerdtree
 nnoremap <F5> :NERDTreeToggle<CR>
-" opens a terminal in a lower split window
-nnoremap <F6> :sp<CR>:terminal<CR>
+
 " Tabs
 " create a new tab
 nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <tab> gt
 
 """""" Automatic commands
 
@@ -300,7 +306,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 """""" terminal
-set shell=powershell
-set shellcmdflag=-c
-tnoremap <leader><ESC> <C-\><C-n>
+if has("win64")
+  set shell=powershell
+  set shellcmdflag=-c
+  tnoremap <leader><ESC> <C-\><C-n>
+endif
 
