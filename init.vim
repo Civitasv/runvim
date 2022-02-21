@@ -80,6 +80,7 @@ call plug#begin()
     " Completion / linters / formatters
     Plug 'neoclide/coc.nvim',  {'branch': 'release'} " provides auto-completion
     Plug 'plasticboy/vim-markdown' " markdown support
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
     " Git
     Plug 'airblade/vim-gitgutter' " show git changes in open files
     " Color Scheme
@@ -127,6 +128,8 @@ nnoremap <silent> <leader>l :CtrlPLine<CR>
 let g:tex_conceal = ''
 let g:vim_markdown_math = 1
 
+nmap <C-s> <Plug>MarkdownPreview
+nmap <M-s> <Plug>MarkdownPreviewStop
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
@@ -309,6 +312,7 @@ nnoremap <C-l> <C-w>l
 if has("win64")
   set shell=powershell
   set shellcmdflag=-c
-  tnoremap <leader><ESC> <C-\><C-n>
 endif
+
+tnoremap <leader><ESC> <C-\><C-n>
 
