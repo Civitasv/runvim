@@ -115,6 +115,7 @@ let g:airline#extensions#tabline#enabled=1
 
 """""" NerdTree
 let NERDTreeShowHidden=1
+map <leader>r :NERDTreeFind<cr>
 
 """""" CTRLP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -312,6 +313,10 @@ nnoremap <C-l> <C-w>l
 if has("win64")
   set shell=powershell
   set shellcmdflag=-c
+endif
+
+if has("unix")
+  set shell=zsh
 endif
 
 tnoremap <leader><ESC> <C-\><C-n>
