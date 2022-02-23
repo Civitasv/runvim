@@ -131,6 +131,7 @@ let g:vim_markdown_math = 1
 
 nmap <C-s> <Plug>MarkdownPreview
 nmap <M-s> <Plug>MarkdownPreviewStop
+let g:mkdp_auto_close = 0
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
@@ -294,16 +295,6 @@ let g:indentLine_setConceal=0
 set laststatus=2
 
 """""" toggle between windows
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
-
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -321,3 +312,6 @@ endif
 
 tnoremap <leader><ESC> <C-\><C-n>
 
+"""""" let j, k move for visual lines
+nmap j gj
+nmap k gk
