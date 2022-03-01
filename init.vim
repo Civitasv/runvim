@@ -21,6 +21,7 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <leader>g :Commits<CR>
 nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>y :History<CR>
 " - down / up / left / right
 let g:fzf_layout = { 'down': '30%' }
 
