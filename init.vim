@@ -43,5 +43,3 @@ let g:vim_markdown_fenced_languages = ['tsx=typescriptreact']
 let g:better_whiteleader_enabled=1
 let g:strip_whiteleader_on_save=1
 let g:strip_whiteleader_confirm=0
-
-"""
