@@ -8,5 +8,5 @@ if has("unix")
   set shell=zsh
 endif
 
-nnoremap <nowait> <leader>t :sp<CR> :term<CR> :resize 10N<CR> i
+nnoremap <nowait> <leader>t :term<CR> i
 tnoremap <silent> <Esc> <C-\><C-n>

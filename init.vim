@@ -1,10 +1,10 @@
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/basics.vim
-source ~/.config/nvim/terminal.vim
 source ~/.config/nvim/gui.vim
 source ~/.config/nvim/theme.vim
 source ~/.config/nvim/autoload.vim
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/terminal.vim
 
 """""" Syntax
 filetype plugin indent on
