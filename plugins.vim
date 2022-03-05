@@ -24,7 +24,13 @@ call plug#begin()
     Plug 'tpope/vim-commentary'
     " vim surround
     Plug 'tpope/vim-surround'
-    " fzf
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    " fuzzy finder
+    if has('win32')
+        Plug 'ctrlpvim/ctrlp.vim'
+    endif
+    if has('unix')
+        " fzf
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+    endif
 call plug#end()
