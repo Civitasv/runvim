@@ -52,6 +52,13 @@ if !exists('g:vscode')
   nmap j gj
   nmap k gk
 else
+  nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+  nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>
+  nnoremap <leader>h <Cmd>call VSCodeNotify('workbench.action.navigateLeft')<CR>
+  nnoremap <leader>l <Cmd>call VSCodeNotify('workbench.action.navigateRight')<CR>
+  nnoremap <leader>k <Cmd>call VSCodeNotify('workbench.action.navigateUp')<CR>
+  nnoremap <leader>j <Cmd>call VSCodeNotify('workbench.action.navigateDown')<CR>
+
   nnoremap ? <Cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
 
   nnoremap vs <cmd>call <SID>splitNew('j', '__vscode_new__')<CR>
