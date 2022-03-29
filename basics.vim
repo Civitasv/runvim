@@ -57,6 +57,10 @@ if !exists('g:vscode')
   nmap k gk
 else
   nnoremap ? <Cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
+  nnoremap gb <Cmd>call VSCodeNotify('workbench.action.navigateBack')<CR>
+  nnoremap gf <cmd>call VSCodeNotify('workbench.action.navigateForward')<CR>
+  nnoremap gr <cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
+  nnoremap gd <cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>
 
   nnoremap vs <cmd>call <SID>splitNew('j', '__vscode_new__')<CR>
   nnoremap sp <cmd>call <SID>splitNew('h', '__vscode_new__')<CR>
