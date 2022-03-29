@@ -34,7 +34,6 @@ call plug#begin()
           Plug 'junegunn/fzf.vim'
       endif
     else
-      Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
       " Clear unuseful whitespaces
       Plug 'ntpeters/vim-better-whitespace'
       " vim surround

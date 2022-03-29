@@ -48,6 +48,10 @@ if !exists('g:vscode')
   nnoremap <leader>j <C-w>j
   nnoremap <leader>k <C-w>k
   nnoremap <leader>l <C-w>l
+  nnoremap ' `
+  vnoremap . :normal .<CR>
+  vnoremap ` :normal @a<CR>
+  nnoremap ` @a
 
   nmap j gj
   nmap k gk
@@ -61,6 +65,11 @@ else
   nmap gc  <Plug>VSCodeCommentary
   omap gc  <Plug>VSCodeCommentary
   nmap gcc <Plug>VSCodeCommentaryLine
+
+  nnoremap ' `
+  vnoremap . :normal .<CR>
+  vnoremap ` :normal @a<CR>
+  nnoremap ` @a
 
   nmap j gj
   nmap k gk
