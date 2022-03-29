@@ -64,6 +64,9 @@ else
 
   nnoremap vs <cmd>call <SID>splitNew('j', '__vscode_new__')<CR>
   nnoremap sp <cmd>call <SID>splitNew('h', '__vscode_new__')<CR>
+  nnoremap z= <cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
+  nnoremap nh :noh<CR>
+  nnoremap <leader> <cmd>call VSCodeNotify('whichkey.show')<CR>
 
   xmap gc  <Plug>VSCodeCommentary
   nmap gc  <Plug>VSCodeCommentary
