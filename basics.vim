@@ -33,10 +33,6 @@ if !exists('g:vscode')
 
   nnoremap vs :vs<CR>
   nnoremap sp :sp<CR>
-  nnoremap tn :tabnew<CR>
-  nnoremap tk :tabnext<CR>
-  nnoremap tj :tabprev<CR>
-  nnoremap to :tabo<CR>
 
   nnoremap bk :bn<CR>
   nnoremap bj :bp<CR>
@@ -57,15 +53,26 @@ if !exists('g:vscode')
   nmap k gk
 else
   nnoremap ? <Cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
-  nnoremap gb <Cmd>call VSCodeNotify('workbench.action.navigateBack')<CR>
-  nnoremap gf <cmd>call VSCodeNotify('workbench.action.navigateForward')<CR>
+  nnoremap gU <Cmd>call VSCodeNotify('workbench.action.navigateBack')<CR>
+  nnoremap gu <cmd>call VSCodeNotify('workbench.action.navigateForward')<CR>
   nnoremap gr <cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
   nnoremap gd <cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>
+  nnoremap gi <cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>
 
   nnoremap vs <cmd>call <SID>splitNew('j', '__vscode_new__')<CR>
   nnoremap sp <cmd>call <SID>splitNew('h', '__vscode_new__')<CR>
   nnoremap z= <cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
   nnoremap nh :noh<CR>
+  nnoremap bn <cmd>call VSCodeNotify('workbench.action.files.newUntitledFile')<CR>
+  nnoremap bd <cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
+  nnoremap bb <cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>
+  nnoremap bj <cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>
+  nnoremap bk <cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>
+  nnoremap bo <cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>
+
+  nmap <silent> ]g <cmd>call VSCodeNotify('editor.action.marker.next')<CR>
+  nmap <silent> [g <cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
+
   nnoremap <leader> <cmd>call VSCodeNotify('whichkey.show')<CR>
 
   xmap gc  <Plug>VSCodeCommentary
@@ -80,6 +87,18 @@ else
 
   nmap j gj
   nmap k gk
+  nnoremap U <C-R>
+
+  nnoremap <Esc>> <Cmd>call <SID>manageEditorSize(v:count, 'increase')<CR>
+  nnoremap <Esc>< <Cmd>call <SID>manageEditorSize(v:count, 'decrease')<CR>
+
+  function! s:manageEditorSize(...)
+      let count = a:1
+      let to = a:2
+      for i in range(1, count ? count : 1)
+          call VSCodeNotify(to ==# 'increase' ? 'workbench.action.increaseViewSize' : 'workbench.action.decreaseViewSize')
+      endfor
+  endfunction
 
   function! s:split(...) abort
     let direction = a:1
@@ -96,4 +115,3 @@ else
   endfunction
 
 endif
-
