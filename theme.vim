@@ -1,5 +1,5 @@
 """""" Color Scheme
-if !exists('g:vscode') 
+if !exists('g:vscode')
   set bg=dark
   let g:gruvbox_transparent_bg=1
   let g:gruvbox_contrast_dark="hard"

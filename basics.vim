@@ -62,17 +62,17 @@ else
   nnoremap vs <cmd>call <SID>splitNew('j', '__vscode_new__')<CR>
   nnoremap sp <cmd>call <SID>splitNew('h', '__vscode_new__')<CR>
   nnoremap z= <cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
-  nnoremap nh :noh<CR>
+  nnoremap <nowait><silent> <ESC>nh :noh<CR>
   nnoremap bn <cmd>call VSCodeNotify('workbench.action.files.newUntitledFile')<CR>
   nnoremap bd <cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
   nnoremap bb <cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>
-  nnoremap bj <cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>
-  nnoremap bk <cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>
+  nnoremap bj <cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>
+  nnoremap bk <cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>
   nnoremap bo <cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>
-
   nmap <silent> ]g <cmd>call VSCodeNotify('editor.action.marker.next')<CR>
   nmap <silent> [g <cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
 
+  nnoremap K <cmd>call VSCodeNotify('editor.action.showHover')<CR>
   nnoremap <leader> <cmd>call VSCodeNotify('whichkey.show')<CR>
 
   xmap gc  <Plug>VSCodeCommentary
