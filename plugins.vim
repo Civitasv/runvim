@@ -24,6 +24,7 @@ call plug#begin()
       Plug 'tpope/vim-commentary'
       " vim surround
       Plug 'tpope/vim-surround'
+      Plug 'rust-lang/rust.vim'
       " fuzzy finder
       if has('win32')
           Plug 'ctrlpvim/ctrlp.vim'
