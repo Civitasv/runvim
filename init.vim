@@ -75,6 +75,12 @@ if !exists('g:vscode')
   let g:strip_whiteleader_on_save=1
   let g:strip_whiteleader_confirm=0
 else
-  source ~/.config/nvim/vscode/init.vim
+  if has("unix")
+    source ~/.config/nvim/vscode/init.vim
+  endif
+
+  if has("win32")
+    source ~/AppData/Local/nvim/vscode/init.vim
+  endif
 endif
 
