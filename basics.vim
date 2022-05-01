@@ -73,7 +73,6 @@ else
   nmap <silent> [g <cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
 
   nnoremap K <cmd>call VSCodeNotify('editor.action.showHover')<CR>
-  nnoremap <leader> <cmd>call VSCodeNotify('whichkey.show')<CR>
 
   xmap gc  <Plug>VSCodeCommentary
   nmap gc  <Plug>VSCodeCommentary
