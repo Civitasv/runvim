@@ -1,3 +1,4 @@
+let g:coc_config_home = "~/.config/nvim/viml"
 """""" Conquer of Completion
 set cmdheight=2 " more space for displaying messages
 set updatetime=300 " make it smooth

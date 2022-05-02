@@ -1,5 +1,12 @@
 let mapleader=" "
 set clipboard=unnamedplus " enables the clipboard between Neovim and other applications
+if has('wsl')
+  """Copy vim to Windows"""
+  augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ', @")
+  augroup END
+endif
 set incsearch
 set hlsearch
 set ignorecase
@@ -48,5 +55,5 @@ vnoremap . :normal .<CR>
 vnoremap ` :normal @a<CR>
 nnoremap ` @a
 
-nmap j gj
-nmap k gk
+nmap <silent> j gj
+nmap <silent> k gk
