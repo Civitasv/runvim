@@ -39,8 +39,8 @@ local setup = {
     group = "+", -- symbol prepended to a group
   },
   popup_mappings = {
-    scroll_down = "<c-d>", -- binding to scroll down inside the popup
-    scroll_up = "<c-u>", -- binding to scroll up inside the popup
+    scroll_down = "<c-j>", -- binding to scroll down inside the popup
+    scroll_up = "<c-k>", -- binding to scroll up inside the popup
   },
   window = {
     border = "rounded", -- none, single, double, shadow

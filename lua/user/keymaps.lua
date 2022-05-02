@@ -1,6 +1,5 @@
 local opts = {noremap=true, silent=true}
 local opts2 = {silent = true}
-local term_opts = {silent=true}
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -43,10 +42,12 @@ keymap("n", "bk", ":bn<CR>", opts)
 keymap("n", "bd", ":bd<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
+keymap("n", "<A-Down>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<A-Up>", "<Esc>:m .-2<CR>==", opts)
 
 -- Split windows
-keymap("n", "sv", ":vs<CR>", opts)
+keymap("n", "vs", ":vs<CR>", opts)
 keymap("n", "sp", ":sp<CR>", opts)
 
 -- No highlight
@@ -82,11 +83,4 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
