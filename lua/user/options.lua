@@ -31,7 +31,6 @@ local options = {
   relativenumber = true,                   -- set relative numbered lines
   numberwidth = 4,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = true,                             -- display lines as multi lines
   linebreak = true,                        -- a better looking after wrapping lines
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
