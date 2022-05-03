@@ -74,6 +74,8 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
+require("user.dap-config.adapter.lldb")
+require("user.dap-config.settings.hover")
 require("user.dap-config.settings.lua")
 require("user.dap-config.settings.python")
 require("user.dap-config.settings.cpp")
