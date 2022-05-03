@@ -23,6 +23,8 @@ else
   require("user.colorscheme")
   require("user.cmp")
   require("user.lsp")
+  require("user.dap")
+  require("user.renamer")
   require("user.telescope")
   require("user.treesitter")
   require("user.autopairs")

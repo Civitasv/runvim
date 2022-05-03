@@ -93,6 +93,14 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use 'filipdutescu/renamer.nvim'    -- vscode like renamer
+
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  -- Debugger management
+  use "Pocco81/DAPInstall.nvim"
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'

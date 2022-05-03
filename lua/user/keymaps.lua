@@ -18,6 +18,8 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
+-- Redo
+keymap("n", "U", "<C-r>", opts)
 -- Move down and up only one visual line
 keymap("n", "j", "gj", opts2)
 keymap("n", "k", "gk", opts2)
