@@ -103,7 +103,17 @@ return packer.startup(function(use)
   use "rcarriga/nvim-dap-ui"
   -- Debugger management
   use "Pocco81/DAPInstall.nvim"
-
+  use "mfussenegger/nvim-dap-python"
+  use "nvim-telescope/telescope-dap.nvim"
+  use  {
+    "leoluz/nvim-dap-go",
+    module = "dap-go"
+  }
+  use {
+    "jbyuki/one-small-step-for-vimkind",
+    module = "osv"
+  }
+  use "Shatur/neovim-cmake"
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   -- Automatically set up your configuration after cloning packer.nvim

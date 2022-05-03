@@ -18,6 +18,21 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
+-- Debug
+keymap("n", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<F6>", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<F8>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<F10>", "<cmd>lua require'dap'.disconnect()<cr>", opts)
+
+keymap("i", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("i", "<F6>", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("i", "<F7>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("i", "<F8>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("i", "<F9>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("i", "<F10>", "<cmd>lua require'dap'.disconnect()<cr>", opts)
+
 -- Redo
 keymap("n", "U", "<C-r>", opts)
 -- Move down and up only one visual line
@@ -66,6 +81,9 @@ keymap("n", "`", "@a", opts)
 
 -- Find text in file
 keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+
+-- Find files
+keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 
 -- Insert --
 -- Press jk fast to enter
