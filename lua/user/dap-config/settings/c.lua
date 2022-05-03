@@ -1,5 +1,4 @@
 local file = require("user.utils.file")
-local lldb = require("user.utils.lldb")
 local dap = require('dap')
 
 local is_unix = vim.fn.has("unix")
@@ -22,9 +21,9 @@ elseif is_win32 then
   }
 end
 
-dap.configurations.cpp = {
+dap.configurations.c = {
   {
-    name = "C++ Debug And Run",
+    name = "C Debug And Run",
     type = "cppdbg",
     request = "launch",
     program = function ()
@@ -33,7 +32,7 @@ dap.configurations.cpp = {
         -- create this directory
         os.execute("mkdir " .. "bin")
       end
-      local cmd = "!g++ -g % -o bin/" .. fileName
+      local cmd = "!gcc -g % -o bin/" .. fileName
       -- First, compile it
       vim.cmd(cmd)
       -- Then, return it

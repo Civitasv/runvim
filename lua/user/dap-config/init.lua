@@ -77,3 +77,5 @@ end
 require("user.dap-config.settings.lua")
 require("user.dap-config.settings.python")
 require("user.dap-config.settings.cpp")
+require("user.dap-config.settings.c")
+require("user.dap-config.settings.rust")

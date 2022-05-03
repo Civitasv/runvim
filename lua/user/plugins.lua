@@ -114,6 +114,8 @@ return packer.startup(function(use)
     module = "osv"
   }
   use "Shatur/neovim-cmake"
+  use "simrat39/rust-tools.nvim"
+
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   -- Automatically set up your configuration after cloning packer.nvim

@@ -59,7 +59,7 @@ keymap("n", "<Tab>", ":bn<CR>", opts)
 keymap("n", "<S-Tab>", ":bp<CR>", opts)
 
 -- Buffers remove
-keymap("n", "bd", ":Bdelete<CR>", opts)
+keymap("n", "bd", ":Bdelete!<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-Down>", "<Esc>:m .+1<CR>==", opts)

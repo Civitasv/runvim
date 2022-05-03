@@ -273,6 +273,11 @@ _G.packer_plugins = {
     path = "/home/civitasv/.local/share/nvim/site/pack/packer/start/renamer.nvim",
     url = "https://github.com/filipdutescu/renamer.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/civitasv/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/home/civitasv/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
