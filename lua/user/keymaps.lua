@@ -29,6 +29,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- Resize
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -40,7 +41,7 @@ keymap("n", "<C-Right>", ":vertical :resize +2<CR>", opts)
 keymap("n", "bj", ":bp<CR>", opts)
 keymap("n", "bk", ":bn<CR>", opts)
 keymap("n", "<Tab>", ":bn<CR>", opts)
-keymap("n", "<S-Tab>", ":bn<CR>", opts)
+keymap("n", "<S-Tab>", ":bp<CR>", opts)
 
 -- Buffers remove
 keymap("n", "bd", ":Bdelete<CR>", opts)
@@ -62,6 +63,9 @@ keymap("n", "'", "`", opts)
 
 -- Repeat and macro
 keymap("n", "`", "@a", opts)
+
+-- Find text in file
+keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 
 -- Insert --
 -- Press jk fast to enter

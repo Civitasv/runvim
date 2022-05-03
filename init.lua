@@ -24,6 +24,7 @@ else
   require("user.cmp")
   require("user.lsp")
   require("user.dap")
+  require("user.code-runner")
   require("user.renamer")
   require("user.telescope")
   require("user.treesitter")

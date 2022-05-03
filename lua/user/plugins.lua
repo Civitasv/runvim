@@ -85,6 +85,8 @@ return packer.startup(function(use)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
+  -- Code runner
+  use "CRAG666/code_runner.nvim"
   -- Git
   use "lewis6991/gitsigns.nvim"
   use 'tpope/vim-fugitive'
@@ -93,7 +95,7 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use 'filipdutescu/renamer.nvim'    -- vscode like renamer
+  use "filipdutescu/renamer.nvim"    -- vscode like renamer
 
   -- Debugging
   use "mfussenegger/nvim-dap"

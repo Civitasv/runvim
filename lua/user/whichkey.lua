@@ -69,9 +69,9 @@ local setup = {
   },
 }
 
-local ctrl_opts = {
+local me_opts = {
   mode = "n", -- Normal mode
-  prefix = "",
+  prefix = "m",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
@@ -87,8 +87,7 @@ local leader_opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-local ctrl_mappings = {
-  ["<C-n>"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
+local me_mappings = {
 }
 
 local leader_mappings = {
@@ -196,6 +195,12 @@ local leader_mappings = {
     },
   },
 
+  r = {
+    name = "Code Runner",
+    r = {":RunFile<CR>", "Run File"},
+    p = {":RunProject<CR>", "Run Project"},
+    c = {":RunClose<CR>", "Close"}
+  },
   t = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
@@ -208,11 +213,10 @@ local leader_mappings = {
   },
   T = {
     name = "Treesitter",
-    h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
-    p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
+    h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" }
   },
 }
 
 which_key.setup(setup)
 which_key.register(leader_mappings, leader_opts)
-which_key.register(ctrl_mappings, ctrl_opts)
+which_key.register(me_mappings, me_opts)
