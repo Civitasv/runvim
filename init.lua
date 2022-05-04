@@ -1,8 +1,8 @@
 local use_viml = false
 
 local exists_vscode = vim.api.nvim_eval('exists("g:vscode")') == 1
-local is_unix = vim.fn.has("unix")
-local is_win32 = vim.fn.has("win32")
+local is_unix = vim.fn.has("unix") == 1
+local is_win32 = vim.fn.has("win32") == 1
 
 if exists_vscode then
   if is_unix then
