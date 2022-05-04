@@ -1,20 +1,18 @@
+local scan = require "plenary.scandir"
+
+local contains = function(tbl, str)
+  for _, v in ipairs(tbl) do
+    if v == str then
+      return true
+    end
+  end
+  return false
+end
+
 local M = {}
---- Check if a file or directory exists in this path
-M.exists = function (file)
-   local ok, err, code = os.rename(file, file)
-   if not ok then
-      if code == 13 then
-         -- Permission denied, but it exists
-         return true
-      end
-   end
-   return ok, err
+--- Check if a path
+M.exists = function (dir, file_pattern)
+  local dirs=  scan.scan_dir(dir, {depth=1, search_pattern=file_pattern})
+  return contains(dirs, dir .. "/" .. file_pattern)
 end
-
---- Check if a directory exists in this path
-M.isdir = function (path)
-   -- "/" works on both Unix and Windows
-   return M.exists(path.."/")
-end
-
 return M

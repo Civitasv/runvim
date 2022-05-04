@@ -99,11 +99,17 @@ local leader_mappings = {
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   c = {
+    -- Typical cmake workflow:
+    -- 1. CMake configure (only once)
+    -- 2. CMake selec_target (ususally once)
+    -- 3. CMake build (once change, build it)
     name = "CMake",
-    r = { "<cmd>CMake build_and_run<cr>", "Run" },
-    d = { "<cmd>CMake build and debug<cr>", "Deubg" },
-    s = { "<cmd>CMake select_target<cr>", "Select Target" },
-    b = { "<cmd>CMake select_build_type<cr>", "Select Build Type" }
+    b = { "<cmd>CMake build<cr>", "Build" },
+    g = { "<cmd>CMake configure<cr>", "Generate" },
+    c = { "<cmd>CMake clean<cr>", "Clean" },
+    t = { "<cmd>CMake cancel<cr>", "Cancel" },
+    s = { "<cmd>CMake select_target<cr>", "Select" },
+    y = { "<cmd>CMake select_build_type<cr>", "Select Build Type" }
   },
   d = {
     name = "Debug",
@@ -204,12 +210,23 @@ local leader_mappings = {
       "Workspace Symbols",
     },
   },
-
   r = {
     name = "Code Runner",
-    r = {":RunFile<CR>", "Run File"},
-    p = {":RunProject<CR>", "Run Project"},
-    c = {":RunClose<CR>", "Close"}
+    r = {"<cmd>RunFile<CR>", "Run File"},
+    p = {"<cmd>RunProject<CR>", "Run Project"},
+    c = {"<cmd>RunClose<CR>", "Close"}
+  },
+
+  s = {
+    name = "Rust Tools",
+    r = { "<cmd>RustRunnables<CR>", "Runnables List" },
+    e = { "<cmd>RustExpandMacro<CR>", "Expand Macro" },
+    j = { "<cmd>RustMoveItemDown<CR>", "Move Item Down" },
+    k = { "<cmd>RustMoveItemUp<CR>", "Move Item Up" },
+    K = { "<cmd>RustHoverActions<CR>", "Hover Me" },
+    R = { "<cmd>RustHoverRange<CR>", "Hover Range Me" },
+    o = { "<cmd>RustOpenCargo<CR>", "Open Cargo" },
+    l = { "<cmd>RustJoinLines<CR>", "Join Lines" }
   },
   t = {
     name = "Terminal",

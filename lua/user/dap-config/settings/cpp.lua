@@ -8,14 +8,14 @@ dap.configurations.cpp = {
     request = "launch",
     program = function ()
       -- First, check if exists CMakeLists.txt
-      if(file.exists("CMakeLists.txt"))then
-        -- Then invoke cmake commands
-        local cwd = vim.fn.getcwd()
-        vim.cmd("CMakeOpen")
-
+      local cwd = vim.fn.getcwd()
+      if(file.exists(cwd, "CMakeLists.txt"))then
+        -- Todo. Then invoke cmake commands
+        -- Then ask user to provide execute file
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
       else
         local fileName = vim.fn.expand('%:t:r')
-        if(not file.exists("bin")) then
+        if(not file.exists(cwd, "bin")) then
           -- create this directory
           os.execute("mkdir " .. "bin")
         end
@@ -27,7 +27,7 @@ dap.configurations.cpp = {
       end
     end,
     cwd = '${workspaceFolder}',
-    stopOnEntry = true
+    stopOnEntry = false
   },
 }
 

@@ -56,7 +56,7 @@ nvim_tree.setup {
   },
   open_on_tab = false,
   hijack_cursor = false,
-  update_cwd = true,
+  update_cwd = false,
   diagnostics = {
     enable = true,
     icons = {
@@ -67,8 +67,8 @@ nvim_tree.setup {
     },
   },
   update_focused_file = {
-    enable = true,
-    update_cwd = true,
+    enable = false,
+    update_cwd = false,
     ignore_list = {},
   },
   system_open = {
