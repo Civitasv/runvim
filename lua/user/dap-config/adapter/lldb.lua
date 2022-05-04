@@ -1,7 +1,7 @@
 -- Adjust the path to your executable
-local is_unix = vim.fn.has("unix")
-local is_win32 = vim.fn.has("win32")
-local is_wsl = vim.fn.has("wsl")
+local is_unix = vim.fn.has("unix") == 1
+local is_win32 = vim.fn.has("win32") == 1
+local is_wsl = vim.fn.has("wsl") == 1
 local extension_path
 local cmd
 
