@@ -4,9 +4,9 @@
 
 vim.cmd [[
 try
-" colorscheme tokyonight
+colorscheme tokyonight
 set background=dark
-colorscheme everforest
+" colorscheme everforest
 catch /^Vim\%((\a\+)\)\=:E185/
 colorscheme default
 set background=dark
