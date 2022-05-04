@@ -3,13 +3,13 @@
 ## Timeline
 
 - 2022-05-04:
- - Rewite configuration in lua
- - It's more consistent and more useful
- - Telescope
- - Lsp
- - Dap
- - Treesitter
- - and more
+  - Rewrite configuration in lua
+  - It's more consistent and more useful
+  - Telescope
+  - Lsp
+  - Dap
+  - Treesitter
+  - and more
 
 ## Looks Pretty
 

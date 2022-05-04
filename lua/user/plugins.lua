@@ -59,12 +59,12 @@ return packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
-
   use "folke/which-key.nvim" -- vim which key
 
   -- Colorschemes
   use 'folke/tokyonight.nvim'
-  use 'Mofiqul/dracula.nvim'
+  use 'NLKNguyen/papercolor-theme'
+  use 'sainnhe/everforest'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -87,9 +87,11 @@ return packer.startup(function(use)
 
   -- Code runner
   use "CRAG666/code_runner.nvim"
+
   -- Git
   use "lewis6991/gitsigns.nvim"
   use 'tpope/vim-fugitive'
+
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
@@ -101,6 +103,7 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
+
   -- Debugger management
   use "Pocco81/DAPInstall.nvim"
   use "mfussenegger/nvim-dap-python"
@@ -114,12 +117,22 @@ return packer.startup(function(use)
     module = "osv"
   }
   use "Shatur/neovim-cmake"
-
   use "simrat39/rust-tools.nvim"
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-ui-select.nvim'
+
+  -- Markdown
+  -- preview
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = {"markdown"}
+  }
+  use "godlygeek/tabular"
+  use "preservim/vim-markdown"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

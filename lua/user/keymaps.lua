@@ -49,8 +49,8 @@ keymap("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", opts)
 -- Resize
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical :resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical :resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical :resize +2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical :resize -2<CR>", opts)
 
 -- Buffers navigate
 keymap("n", "bj", ":bp<CR>", opts)

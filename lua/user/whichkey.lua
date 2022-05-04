@@ -128,6 +128,20 @@ local leader_mappings = {
     q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     l = { "<cmd>lua require'osv'.run_this()<cr>", "Debug Lua"}
   },
+
+  m = {
+    name = "Markdown",
+    p = { "<Plug>MarkdownPreview", "Preview Markdown" },
+    s = { "<Plug>MarkdownPreviewStop", "Stop Preview Markdown" },
+    r = { "zr", "Expand Levels" },
+    R = { "zr", "Expand Everything" },
+    m = { "zm", "Fold" },
+    M = { "zm", "Fold Everything" },
+    a = { "za", "Expand Current" },
+    A = { "za", "Expand Current Recursively" },
+    c = { "za", "Fold Current" },
+    C = { "za", "Fold Current Recursively" }
+  },
   f = {
     name = "Find",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
