@@ -43,6 +43,6 @@ else
   require("user.whichkey")
   require("user.indentline")
   require("user.autocommands")
-  require("user.vimwiki")
+  require("user.markdown")
 end
 
