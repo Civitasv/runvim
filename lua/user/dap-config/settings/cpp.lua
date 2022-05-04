@@ -6,28 +6,28 @@ dap.configurations.cpp = {
     name = "C++ Debug And Run",
     type = "codelldb",
     request = "launch",
-    program = function ()
-      -- First, check if exists CMakeLists.txt
-      if(file.exists("CMakeLists.txt"))then
-        -- Then invoke cmake commands
-        local cwd = vim.fn.getcwd()
-        vim.cmd("CMakeOpen")
-
-      else
-        local fileName = vim.fn.expand('%:t:r')
-        if(not file.exists("bin")) then
-          -- create this directory
-          os.execute("mkdir " .. "bin")
-        end
-        local cmd = "!g++ -g % -o bin/" .. fileName
-        -- First, compile it
-        vim.cmd(cmd)
-        -- Then, return it
-        return '${fileDirname}/bin/' .. fileName
-      end
+    -- program = function ()
+    --   -- First, check if exists CMakeLists.txt
+    --   local fileName = vim.fn.expand('%:t:r')
+    --   if(not file.exists("bin")) then
+    --     -- create this directory
+    --     os.execute("mkdir " .. "bin")
+    --   end
+    --   local cmd = "!g++ -g % -o bin/" .. fileName
+    --   -- First, compile it
+    --   vim.cmd(cmd)
+    --   -- Then, return it
+    --   return '${fileDirname}/bin/' .. fileName
+    -- end,
+    program = function()
+      vim.ui.input({ prompt = 'Enter value for shiftwidth: ' }, function(input)
+        print(input)
+        return input
+      end)
     end,
     cwd = '${workspaceFolder}',
-    stopOnEntry = true
+    stopOnEntry = false,
+    terminal = "integrated"
   },
 }
 

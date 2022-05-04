@@ -130,6 +130,10 @@ local leader_mappings = {
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files",
     },
+    F = {
+      "<cmd>lua require('telescope.builtin').find_files({no_ignore=true})<cr>",
+      "Find files but no ignore",
+    },
     t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     h = { "<cmd>Telescope help_tags<cr>", "Help" },
     i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },

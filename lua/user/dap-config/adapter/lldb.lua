@@ -1,6 +1,20 @@
 -- Adjust the path to your executable
-local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
-local cmd = extension_path .. 'adapter/codelldb'
+local is_unix = vim.fn.has("unix")
+local is_win32 = vim.fn.has("win32")
+local is_wsl = vim.fn.has("wsl")
+local extension_path
+local cmd
+
+if is_wsl then
+extension_path = vim.env.HOME .. '/.vscode-server/extensions/vadimcn.vscode-lldb-1.7.0/'
+cmd = extension_path .. 'adapter/codelldb'
+elseif is_unix then
+extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
+cmd = extension_path .. 'adapter/codelldb'
+elseif is_win32 then
+extension_path = vim.env.HOME .. 'C:\\Users\\senhu\\.vscode\\extensions\\vadimcn.vscode-lldb-1.7.0\\'
+cmd = extension_path .. 'adapter\\codelldb'
+end
 
 local dap = require('dap')
 
