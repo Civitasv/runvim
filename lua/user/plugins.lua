@@ -65,6 +65,10 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'NLKNguyen/papercolor-theme'
   use 'sainnhe/everforest'
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
