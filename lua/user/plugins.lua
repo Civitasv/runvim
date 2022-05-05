@@ -88,6 +88,12 @@ return packer.startup(function(use)
   -- Code runner
   use "CRAG666/code_runner.nvim"
 
+  -- Vim css color
+  use "ap/vim-css-color"
+
+  -- Todo comments
+  use "folke/todo-comments.nvim"
+
   -- Git
   use "lewis6991/gitsigns.nvim"
   use 'tpope/vim-fugitive'

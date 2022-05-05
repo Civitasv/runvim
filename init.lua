@@ -44,5 +44,6 @@ else
   require("user.indentline")
   require("user.autocommands")
   require("user.markdown")
+  require("user.todo-comments")
 end
 

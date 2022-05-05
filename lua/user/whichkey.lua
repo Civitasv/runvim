@@ -257,8 +257,8 @@ local leader_mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
   T = {
-    name = "Treesitter",
-    h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" }
+    name = "Todo",
+    t = { "<cmd>TodoTelescope<cr>", "Show todos" }
   },
 }
 
