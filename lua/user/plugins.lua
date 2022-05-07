@@ -58,7 +58,6 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
-  use "ahmedkhalf/project.nvim"
   use "folke/which-key.nvim" -- vim which key
 
   -- Colorschemes
@@ -126,7 +125,7 @@ return packer.startup(function(use)
     "jbyuki/one-small-step-for-vimkind",
     module = "osv"
   }
-  use "Shatur/neovim-cmake"
+  use "Civitasv/neovim-cmake"
   use "simrat39/rust-tools.nvim"
 
   -- Telescope

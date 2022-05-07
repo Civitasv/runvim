@@ -36,7 +36,6 @@ else
   require("user.bufferline")
   require("user.lualine")
   require("user.toggleterm")
-  require("user.project")
   require("user.impatient")
   require("user.indentline")
   require("user.alpha")

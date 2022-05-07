@@ -97,7 +97,6 @@ local leader_mappings = {
     "Buffers",
   },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   c = {
     -- Typical cmake workflow:
     -- 1. CMake configure (only once)
