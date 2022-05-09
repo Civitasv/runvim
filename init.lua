@@ -24,7 +24,7 @@ else
   require("user.cmp")
   require("user.lsp")
   require("user.dap-config")
-  -- require("user.cmake")
+  require("user.cmake")
   require("user.code-runner")
   require("user.renamer")
   require("user.telescope")
