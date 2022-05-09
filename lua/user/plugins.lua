@@ -125,7 +125,7 @@ return packer.startup(function(use)
     "jbyuki/one-small-step-for-vimkind",
     module = "osv"
   }
-  use "Civitasv/neovim-cmake"
+  -- use "Civitasv/cmake-tools.nvim"
   use "simrat39/rust-tools.nvim"
 
   -- Telescope

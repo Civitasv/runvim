@@ -1,11 +1,11 @@
 vim.cmd([[
-  if has('wsl')
-  """Copy vim to Windows"""
-  augroup _Yank
-  autocmd!
-  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ', @")
-  augroup END
-  endif
+  " if has('wsl')
+  " """Copy vim to Windows"""
+  " augroup _Yank
+  " autocmd!
+  " autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ', @")
+  " augroup END
+  " endif
 
   augroup _general_settings
   autocmd!
