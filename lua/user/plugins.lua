@@ -68,6 +68,8 @@ return packer.startup(function(use)
     "catppuccin/nvim",
     as = "catppuccin"
   })
+  use 'shaunsingh/nord.nvim'
+  use "projekt0n/github-nvim-theme"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -136,8 +138,7 @@ return packer.startup(function(use)
   -- preview
   use {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    ft = {"markdown"}
+    run = "cd app && npm install"
   }
   use "godlygeek/tabular"
   use "preservim/vim-markdown"
