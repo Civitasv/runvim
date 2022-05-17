@@ -95,7 +95,6 @@ local leader_mappings = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	c = {
 		-- Typical cmake workflow:
 		-- 1. CMake configure (only once)
@@ -103,6 +102,7 @@ local leader_mappings = {
 		-- 3. CMake build (once change, build it)
 		name = "CMake",
 		g = { "<cmd>CMakeGenerate<cr>", "Generate" },
+		x = { "<cmd>CMakeGenerate!<cr>", "Clean and Generate" },
 		b = { "<cmd>CMakeBuild<cr>", "Build" },
 		r = { "<cmd>CMakeRun<cr>", "Run" },
 		d = { "<cmd>CMakeDebug<cr>", "Debug" },
