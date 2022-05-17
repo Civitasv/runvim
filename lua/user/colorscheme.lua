@@ -5,8 +5,8 @@
 vim.cmd [[
 try
 " colorscheme catppuccin
-" set background=light
-colorscheme github_dark
+set background=dark
+colorscheme everforest
 catch /^Vim\%((\a\+)\)\=:E185/
 colorscheme default
 set background=dark
