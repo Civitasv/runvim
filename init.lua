@@ -47,5 +47,6 @@ else
   require("user.hop")
   require("user.editorconfig")
   require("user.copilot")
+  require("user.neovide")
 end
 
