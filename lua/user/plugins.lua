@@ -146,6 +146,11 @@ return packer.startup(function(use)
   -- Copilot
   use "github/copilot.vim"
 
+  -- editor config
+  use 'editorconfig/editorconfig-vim'
+
+  -- Hop
+  use 'phaazon/hop.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

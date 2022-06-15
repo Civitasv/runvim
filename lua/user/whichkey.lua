@@ -264,6 +264,11 @@ local leader_mappings = {
 		name = "Todo",
 		t = { "<cmd>TodoTelescope<cr>", "Show todos" },
 	},
+	h = {
+		name = "Hop",
+		w = { "<cmd>HopWordCurrentLine<CR>", "Hop Word In Current Line" },
+		p = { "<cmd>HopPattern<CR>", "Hop Word With Pattern" },
+	},
 }
 
 which_key.setup(setup)

@@ -44,5 +44,8 @@ else
   require("user.autocommands")
   require("user.markdown")
   require("user.todo-comments")
+  require("user.hop")
+  require("user.editorconfig")
+  require("user.copilot")
 end
 
