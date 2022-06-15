@@ -114,7 +114,6 @@ local leader_mappings = {
 		i = { "<cmd>CMakeInstall<cr>", "Intall CMake target" },
 		n = { "<cmd>CMakeClean<cr>", "Clean CMake target" },
 		s = { "<cmd>CMakeStop<cr>", "Stop CMake Process" },
-		f = { "<cmd>ClangFormat<cr>", "Format file using ClangFormat" },
 	},
 	d = {
 		name = "Debug",

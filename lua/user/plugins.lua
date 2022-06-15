@@ -143,9 +143,6 @@ return packer.startup(function(use)
   use "godlygeek/tabular"
   use "preservim/vim-markdown"
 
-  -- Clang format
-  use "rhysd/vim-clang-format"
-
   -- Copilot
   use "github/copilot.vim"
 
