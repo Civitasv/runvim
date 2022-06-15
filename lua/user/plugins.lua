@@ -143,6 +143,12 @@ return packer.startup(function(use)
   use "godlygeek/tabular"
   use "preservim/vim-markdown"
 
+  -- Clang format
+  use "rhysd/vim-clang-format"
+
+  -- Copilot
+  use "github/copilot.vim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
