@@ -91,8 +91,6 @@ keymap(
 )
 
 -- Insert --
--- Press jk fast to enter
-keymap("i", "jj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
