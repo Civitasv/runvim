@@ -1,6 +1,14 @@
 # Neovim Config
 
+> Neovim is a Vim-based text editor engineered for extensibility and usability.
+
 ## Timeline
+
+- 2022-06-18:
+  - Lsp Stuff
+  - Dap Stuff
+  - Treesitter
+  - More modern neovim features
 
 - 2022-05-04:
   - Rewrite configuration in lua
@@ -11,10 +19,54 @@
   - Treesitter
   - and more
 
-## Looks Pretty
+## 为什么
 
-![alpha](images/alpha.png)
+1. Blazingly fast ⚡；
+2. 支持几乎所有的 Vim 插件；
+3. Built-in lua，目前支持使用 Lua 或 Vimscript 配置 Neovim；
+4. 几乎完全修改了插件系统，目前几乎可以使用任何语言编写插件；
+5. Builtin Lsp；
+6. ....
 
-![look](images/look.png)
+## 个人配置展示
 
-![search](images/search.png)
+### 搜索
+
+**搜索文字：**
+
+![search words](images/search.gif)
+
+**搜索文件**：
+
+![search files](images/search_file.gif)
+
+### 智能补全
+
+![lsp](images/lsp.gif)
+
+### Code Runner
+
+![runner](images/runner.gif)
+
+### Debugger
+
+![debug](images/debug.gif)
+
+### Motion
+
+![htop](images/hop.gif)
+
+### CMake Integration
+
+#### 选择构建目标
+
+![build target](images/cmake_select_build_target.gif)
+
+#### 选择构建类型
+
+![build type](images/cmake_select_build_type.gif)
+
+#### 运行
+
+![run](images/cmake_run.gif)
+
