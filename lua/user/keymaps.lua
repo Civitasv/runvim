@@ -1,5 +1,5 @@
-local opts = {noremap=true, silent=true}
-local opts2 = {silent = true}
+local opts = { noremap = true, silent = true }
+local opts2 = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -83,7 +83,12 @@ keymap("n", "`", "@a", opts)
 keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 
 -- Find files
-keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
+keymap(
+	"n",
+	"<C-f>",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	opts
+)
 
 -- Insert --
 -- Press jk fast to enter
@@ -110,3 +115,8 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+keymap("t", "<esc>", [[<C-\><C-n>]], opts)
+keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
+keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
