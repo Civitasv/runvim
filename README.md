@@ -56,17 +56,4 @@
 
 ![htop](images/hop.gif)
 
-### CMake Integration
-
-#### 选择构建目标
-
-![build target](images/cmake_select_build_target.gif)
-
-#### 选择构建类型
-
-![build type](images/cmake_select_build_type.gif)
-
-#### 运行
-
-![run](images/cmake_run.gif)
 
