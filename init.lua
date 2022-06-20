@@ -48,5 +48,6 @@ else
   require("user.editorconfig")
   require("user.copilot")
   require("user.neovide")
+  require("user.nvim-ufo")
 end
 
