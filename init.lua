@@ -50,4 +50,3 @@ else
   require("user.neovide")
   require("user.nvim-ufo")
 end
-
