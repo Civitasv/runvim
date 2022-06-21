@@ -23,5 +23,8 @@ null_ls.setup({
     formatting.prettierd,
     formatting.black.with({ extra_args = { "--fast" } }),
     diagnostics.flake8,
+    diagnostics.jsonlint,
+    formatting.jq
   },
+  on_attach = require("user.lsp.handlers").on_attach
 })
