@@ -113,7 +113,7 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-keymap("t", "<esc>", [[<C-\><C-n>]], opts)
+keymap("t", "<F10>", [[<C-\><C-n>]], opts)
 keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
 keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
 keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
