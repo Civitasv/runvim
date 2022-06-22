@@ -147,7 +147,7 @@ return packer.startup(function(use)
   use("preservim/vim-markdown")
 
   -- Copilot
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
 
   -- editor config
   use("editorconfig/editorconfig-vim")
