@@ -16,6 +16,7 @@ local servers = {
   "rust_analyzer",
   "jedi_language_server",
   "vuels",
+  "tsserver"
 }
 
 lsp_installer.setup({
@@ -41,6 +42,7 @@ for _, server in ipairs({
   "rust_analyzer",
   "jedi_language_server",
   "vuels",
+  "tsserver"
 }) do
   lspconfig[server].setup({
     on_attach = on_attach,
