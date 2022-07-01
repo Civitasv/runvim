@@ -1,21 +1,18 @@
 -- vim.g.tokyonight_style = "storm"
--- vim.g.tokyonight_italic_comments=false
--- vim.g.tokyonight_italic_keywords=false
+-- vim.g.tokyonight_italic_comments = true
+-- vim.g.tokyonight_italic_keywords = true
+--
+-- vim.cmd [[
+-- try
+-- " set background=dark
+-- " colorscheme github_dark
+-- catch /^Vim\%((\a\+)\)\=:E185/
+-- colorscheme default
+-- set background=dark
+-- endtry
+-- ]]
 
-vim.cmd [[
-try
-" colorscheme catppuccin
-" set background=light
-colorscheme github_dark
-catch /^Vim\%((\a\+)\)\=:E185/
-colorscheme default
-set background=dark
-endtry
-]]
-
-local catppuccin = require("catppuccin")
--- configure it
-catppuccin.setup(
+require("catppuccin").setup(
   {
     transparent_background = false,
     term_colors = false,
@@ -78,5 +75,25 @@ catppuccin.setup(
       telekasten = true,
       symbols_outline = true,
     }
+  }
+)
+
+require("nightfox").setup({
+  options = {
+    styles = {
+      comments = "italic",
+      keywords = "bold",
+      types = "italic,bold",
+    }
+  }
+})
+
+require("github-theme").setup(
+  {
+    theme_style = "dark",
+    function_style = "italic",
+    comment_style = "italic",
+    keyword_style = "italic",
+    variable_style = "italic",
   }
 )

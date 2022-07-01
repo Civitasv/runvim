@@ -39,6 +39,10 @@ keymap("n", "U", "<C-r>", opts)
 keymap("n", "j", "gj", opts2)
 keymap("n", "k", "gk", opts2)
 
+-- Next/Previous search result
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
 -- Window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

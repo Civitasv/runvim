@@ -70,6 +70,7 @@ return packer.startup(function(use)
   })
   use("shaunsingh/nord.nvim")
   use("projekt0n/github-nvim-theme")
+  use "EdenEast/nightfox.nvim"
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -117,7 +118,6 @@ return packer.startup(function(use)
   -- Debugger management
   use("Pocco81/DAPInstall.nvim")
   use("mfussenegger/nvim-dap-python")
-  use("nvim-telescope/telescope-dap.nvim")
   use({
     "leoluz/nvim-dap-go",
     module = "dap-go",
@@ -132,6 +132,8 @@ return packer.startup(function(use)
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   use("nvim-telescope/telescope-ui-select.nvim")
+  use("nvim-telescope/telescope-dap.nvim")
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" })
 
   -- Markdown
   -- preview
