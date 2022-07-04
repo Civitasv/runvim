@@ -5,6 +5,7 @@
 ## Timeline
 
 - 2022-06-18:
+
   - Lsp Stuff
   - Dap Stuff
   - Treesitter
@@ -56,4 +57,9 @@
 
 ![htop](images/hop.gif)
 
+## Git workflow
 
+1. Basic Blame information: gitsigns
+2. Complex Blame information: vim-fugitive
+3. Stage, Commit, Push: vim-fugitive
+4. Or, Another Beautiful Git integration: lazygit & toggleterm
