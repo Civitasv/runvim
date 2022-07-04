@@ -158,8 +158,10 @@ return packer.startup(function(use)
   use("phaazon/hop.nvim")
 
   -- Fold Code
-  use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
+  use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
+  -- Surround
+  use("kylechui/nvim-surround")
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
