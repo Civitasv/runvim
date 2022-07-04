@@ -35,5 +35,10 @@ vim.cmd([[
   autocmd!
   autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _previewer
+  autocmd!
+  autocmd BufReadCmd *.png,*.jpg,*.jpeg,*.gif silent exe '!xdg-open ' shellescape(expand("<afile>")) | Bdelete
+  augroup end
   ]]
 )
