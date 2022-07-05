@@ -2,6 +2,12 @@
 
 > Neovim is a Vim-based text editor engineered for extensibility and usability.
 
+## Why I Quit Emacs
+
+I've tried Emacs, just because I think lisp is really elegant, but after some work, I think it's not cleaner than neovim, I know it's so powerful, has so many features, however, I don't think it's really useful. I don't get org-mode, don't use it to listen music, play games.
+
+And I find Neovim really meet my needs and my workflow, So, I will just stick to Neovim.
+
 ## Timeline
 
 - 2022-06-18:
@@ -63,3 +69,19 @@
 2. Complex Blame information: vim-fugitive
 3. Stage, Commit, Push: vim-fugitive
 4. Or, Another Beautiful Git integration: lazygit & toggleterm
+
+## Latex workflow
+
+1. `,ll`: compile
+2. `,lv`: sync location of pdf reader
+3. `Ctrl+Click Pdf`: sync location of neovim
+4. `,lk`: stop compile
+5. `,lc`: clear compile middle files
+6. `[[, ]], [], ][`: move between section boundaries
+7. `dsc, dse, ds$, dsd`: Delete the surrounding command, environment or delimiter
+8. `csc, cse, cs$, csd`: Change the surrounding command, environment or delimiter
+9. `tsc, tse`: Toggle starred command or environment
+10. `ts$`: Toggle inline and displaymath
+11. `tsd`: Toggle between e.g. () and \left(\right)
+12. `tsf`: Toggle (inline) fractions
+13. others, see: <https://github.com/lervag/vimtex#configuration>

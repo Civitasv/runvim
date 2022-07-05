@@ -26,6 +26,8 @@ null_ls.setup({
     diagnostics.jsonlint,
     formatting.jq,
     code_actions.gitsigns,
+    formatting.latexindent,
+    diagnostics.chktex
   },
   on_attach = require("user.lsp.handlers").on_attach
 })

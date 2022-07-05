@@ -6,22 +6,22 @@ local extension_path
 local cmd
 
 if is_wsl then
-extension_path = vim.env.HOME .. '/.vscode-server/extensions/vadimcn.vscode-lldb-1.7.0/'
-cmd = extension_path .. 'adapter/codelldb'
+  extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.7.0/"
+  cmd = extension_path .. "adapter/codelldb"
 elseif is_unix then
-extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
-cmd = extension_path .. 'adapter/codelldb'
+  extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
+  cmd = extension_path .. "adapter/codelldb"
 elseif is_win32 then
-extension_path = vim.env.HOME .. 'C:\\Users\\senhu\\.vscode\\extensions\\vadimcn.vscode-lldb-1.7.0\\'
-cmd = extension_path .. 'adapter\\codelldb'
+  extension_path = vim.env.HOME .. "C:\\Users\\senhu\\.vscode\\extensions\\vadimcn.vscode-lldb-1.7.0\\"
+  cmd = extension_path .. "adapter\\codelldb"
 end
 
-local dap = require('dap')
+local dap = require("dap")
 
 dap.adapters.codelldb = function(on_adapter)
   -- This asks the system for a free port
   local tcp = vim.loop.new_tcp()
-  tcp:bind('127.0.0.1', 0)
+  tcp:bind("127.0.0.1", 0)
   local port = tcp:getsockname().port
   tcp:shutdown()
   tcp:close()
@@ -30,8 +30,8 @@ dap.adapters.codelldb = function(on_adapter)
   local stdout = vim.loop.new_pipe(false)
   local stderr = vim.loop.new_pipe(false)
   local opts = {
-    stdio = {nil, stdout, stderr},
-    args = {'--port', tostring(port)},
+    stdio = { nil, stdout, stderr },
+    args = { "--port", tostring(port) },
   }
   local handle
   local pid_or_err
@@ -49,7 +49,7 @@ dap.adapters.codelldb = function(on_adapter)
     stderr:close()
     return
   end
-  vim.notify('codelldb started. pid=' .. pid_or_err)
+  vim.notify("codelldb started. pid=" .. pid_or_err)
   stderr:read_start(function(err, chunk)
     assert(not err, err)
     if chunk then
@@ -59,12 +59,11 @@ dap.adapters.codelldb = function(on_adapter)
     end
   end)
   local adapter = {
-    type = 'server',
-    host = '127.0.0.1',
+    type = "server",
+    host = "127.0.0.1",
     port = port
   }
   -- Wait for codelldb to get ready and start listening before telling nvim-dap to connect
   -- If you get connect errors, try to increase 500 to a higher value, or check the stderr (Open the REPL)
   vim.defer_fn(function() on_adapter(adapter) end, 500)
 end
-

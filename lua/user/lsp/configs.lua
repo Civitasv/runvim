@@ -16,7 +16,8 @@ local servers = {
   "rust_analyzer",
   "jedi_language_server",
   "vuels",
-  "tsserver"
+  "tsserver",
+  "texlab"
 }
 
 lsp_installer.setup({
