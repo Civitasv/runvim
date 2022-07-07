@@ -36,7 +36,12 @@ telescope.setup {
       preview_cutoff = 120,
     },
     border = {},
-    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    borderchars = {
+      { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+      prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+      results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+      preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+    },
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
@@ -123,6 +128,15 @@ telescope.setup {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {
         -- even more opts
+        width = 0.8,
+        previewer = false,
+        prompt_title = false,
+        borderchars = {
+          { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+          results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+          preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        },
       }
     },
     fzf = {

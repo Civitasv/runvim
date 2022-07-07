@@ -90,7 +90,7 @@ keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap(
 	"n",
 	"<C-f>",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	"<cmd>lua require('telescope.builtin').find_files()<cr>",
 	opts
 )
 

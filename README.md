@@ -1,22 +1,52 @@
-# Neovim Config
+# RuNvim
 
-> Neovim is a Vim-based text editor engineered for extensibility and usability.
+> It's **runvim**, not run vim, but **ru**n **N**eo**vim**.
 
-## Why I Quit Emacs
+## Showcase
 
-I've tried Emacs, just because I think lisp is really elegant, but after some work, I think it's not cleaner than neovim, I know it's so powerful, has so many features, however, I don't think it's really useful. I don't get org-mode, don't use it to listen music, play games.
+![alpha](images/alpha.png)
 
-And I find Neovim really meet my needs and my workflow, So, I will just stick to Neovim.
+![search](images/search.png)
+
+![lsp](images/lsp.png)
+
+![terminal](images/terminal.png)
+
+![docs](images/docs.png)
+
+![whichkey](images/whichkey.png)
+
+## Installation
+
+### Pre-requisites
+
+1. Neovim version > 0.7.
+2. A Nerd Font for your terminal.
+
+### For Unix
+
+```bash
+git clone https://github.com/Civitasv/runvim ~/.config/nvim2 --depth 1 ; nvim
+```
+
+### For Windows
+
+```bash
+git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 ; nvim
+```
 
 ## Timeline
 
+- 2022-07-07:
+  - Add support for LaTeX: vimtex
+  - Add Code fold: nvim-ufo
+  - Add motion: hop
+  - Add autocommand for png, gif, pdf, etc
 - 2022-06-18:
-
   - Lsp Stuff
   - Dap Stuff
   - Treesitter
   - More modern neovim features
-
 - 2022-05-04:
   - Rewrite configuration in lua
   - It's more consistent and more useful
@@ -25,43 +55,6 @@ And I find Neovim really meet my needs and my workflow, So, I will just stick to
   - Dap
   - Treesitter
   - and more
-
-## 为什么
-
-1. Blazingly fast ⚡；
-2. 支持几乎所有的 Vim 插件；
-3. Built-in lua，目前支持使用 Lua 或 Vimscript 配置 Neovim；
-4. 几乎完全修改了插件系统，目前几乎可以使用任何语言编写插件；
-5. Builtin Lsp；
-6. ....
-
-## 个人配置展示
-
-### 搜索
-
-**搜索文字：**
-
-![search words](images/search.gif)
-
-**搜索文件**：
-
-![search files](images/search_file.gif)
-
-### 智能补全
-
-![lsp](images/lsp.gif)
-
-### Code Runner
-
-![runner](images/runner.gif)
-
-### Debugger
-
-![debug](images/debug.gif)
-
-### Motion
-
-![htop](images/hop.gif)
 
 ## Git workflow
 

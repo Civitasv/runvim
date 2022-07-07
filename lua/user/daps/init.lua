@@ -53,7 +53,7 @@ dapui.setup({
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
+    border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
     },
@@ -77,10 +77,10 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-require("user.dap-config.adapter.lldb")
-require("user.dap-config.settings.hover")
-require("user.dap-config.settings.lua")
-require("user.dap-config.settings.python")
-require("user.dap-config.settings.cpp")
-require("user.dap-config.settings.c")
-require("user.dap-config.settings.rust")
+require("user.daps.adapter.lldb")
+require("user.daps.settings.hover")
+require("user.daps.settings.lua")
+require("user.daps.settings.python")
+require("user.daps.settings.cpp")
+require("user.daps.settings.c")
+require("user.daps.settings.rust")
