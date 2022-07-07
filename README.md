@@ -26,7 +26,7 @@
 ### For Unix
 
 ```bash
-git clone https://github.com/Civitasv/runvim ~/.config/nvim2 --depth 1 ; nvim
+git clone https://github.com/Civitasv/runvim ~/.config/nvim --depth 1 ; nvim
 ```
 
 ### For Windows
