@@ -61,16 +61,7 @@ return packer.startup(function(use)
   use("folke/which-key.nvim") -- vim which key
 
   -- Colorschemes
-  use("folke/tokyonight.nvim")
-  use("NLKNguyen/papercolor-theme")
-  use("sainnhe/everforest")
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin",
-  })
-  use("shaunsingh/nord.nvim")
   use("projekt0n/github-nvim-theme")
-  use "EdenEast/nightfox.nvim"
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
