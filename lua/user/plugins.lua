@@ -33,7 +33,7 @@ end
 packer.init({
   display = {
     open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
+      return require("packer.util").float({ border = "single" })
     end,
   },
 })
@@ -160,6 +160,6 @@ return packer.startup(function(use)
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
-    require("packer").sync()
+    packer.sync()
   end
 end)

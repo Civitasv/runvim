@@ -29,7 +29,7 @@ renamer.setup({
   -- Whether or not to shown a border around the popup
   border = true,
   -- The characters which make up the border
-  border_chars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+  border_chars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
   -- Whether or not to highlight the current word references through LSP
   show_refs = true,
   -- The keymaps available while in the `renamer` buffer. The example below
