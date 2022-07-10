@@ -117,7 +117,7 @@ return packer.startup(function(use)
     "jbyuki/one-small-step-for-vimkind",
     module = "osv",
   })
-  use "Civitasv/cmake-tools.nvim"
+  use("Civitasv/cmake-tools.nvim")
   use("simrat39/rust-tools.nvim")
 
   -- Telescope
@@ -156,6 +156,9 @@ return packer.startup(function(use)
 
   -- Latex
   use("lervag/vimtex")
+
+  -- Session management
+  use("olimorris/persisted.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

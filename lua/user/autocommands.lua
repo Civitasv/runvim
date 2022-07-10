@@ -38,7 +38,7 @@ vim.cmd([[
 
   augroup _previewer
   autocmd!
-  autocmd BufReadCmd *.png,*.jpg,*.jpeg,*.gif,*.pdf silent exe '!xdg-open ' shellescape(expand("<afile>")) | Bdelete
+  autocmd BufReadCmd *.png,*.jpg,*.jpeg,*.gif,*.pdf,*ico silent exe '!xdg-open ' shellescape(expand("<afile>")) | Bdelete
   augroup end
   ]]
 )
