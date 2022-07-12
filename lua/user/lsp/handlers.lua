@@ -146,10 +146,6 @@ local cmp_capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 cmp_capabilities.textDocument.semanticHighlighting = true
 cmp_capabilities.offsetEncoding = "utf-8"
-cmp_capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
 
 M.capabilities = cmp_capabilities
 

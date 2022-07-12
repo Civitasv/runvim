@@ -178,7 +178,7 @@ rust_tools.setup({
   server = {
     -- standalone file support
     -- setting it to false may improve startup time
-    standalone = true,
+    standalone = true
   }, -- rust-analyer options
 
   dap = {
