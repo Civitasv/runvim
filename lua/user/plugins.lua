@@ -118,7 +118,10 @@ return packer.startup(function(use)
     module = "osv",
   })
   use("Civitasv/cmake-tools.nvim")
+
+  -- Rust
   use("simrat39/rust-tools.nvim")
+  use("saecki/crates.nvim")
 
   -- Telescope
   use("nvim-telescope/telescope.nvim")
