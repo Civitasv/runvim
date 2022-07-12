@@ -40,7 +40,6 @@ for _, server in ipairs({
   "prosemd_lsp",
   "cmake",
   "cssls",
-  "rust_analyzer",
   "jedi_language_server",
   "vuels",
   "tsserver"

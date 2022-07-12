@@ -75,7 +75,7 @@ keymap("n", "vs", ":vs<CR>", opts)
 keymap("n", "sp", ":sp<CR>", opts)
 
 -- No highlight
-keymap("n", "<ESC>nh", ":noh<CR>", opts)
+keymap("n", "<leader>nh", ":noh<CR>", opts)
 
 -- Better marks
 keymap("n", "'", "`", opts)

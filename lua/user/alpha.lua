@@ -27,8 +27,8 @@ dashboard.section.header.val = {
   [[                                 ░                  ]]
 }
 dashboard.section.buttons.val = {
-  dashboard.button("s", "  Load last session", ":SessionLoadLast<CR>"),
-  dashboard.button("S", "  Select sessions", ":Telescope persisted<CR>"),
+  dashboard.button("l", "  Load last session", ":SessionLoadLast<CR>"),
+  dashboard.button("s", "  Select sessions", ":Telescope persisted<CR>"),
   dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
   dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),

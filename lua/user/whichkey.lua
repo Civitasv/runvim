@@ -244,6 +244,7 @@ local leader_mappings = {
   s = {
     name = "Rust Tools",
     r = { "<cmd>RustRunnables<CR>", "Runnables List" },
+    d = { "<cmd>RustDebuggables<CR>", "Debuggables List" },
     e = { "<cmd>RustExpandMacro<CR>", "Expand Macro" },
     j = { "<cmd>RustMoveItemDown<CR>", "Move Item Down" },
     k = { "<cmd>RustMoveItemUp<CR>", "Move Item Up" },
