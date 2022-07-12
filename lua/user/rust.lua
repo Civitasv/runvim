@@ -3,6 +3,10 @@ if not status_ok then
   return
 end
 
+local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+
 rust_tools.setup({
   tools = { -- rust-tools options
     -- automatically set inlay hints (type hints)
@@ -175,5 +179,9 @@ rust_tools.setup({
     -- standalone file support
     -- setting it to false may improve startup time
     standalone = true,
-  } -- rust-analyer options
+  }, -- rust-analyer options
+
+  dap = {
+    adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+  },
 })
