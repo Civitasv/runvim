@@ -35,12 +35,15 @@ git clone https://github.com/Civitasv/runvim ~/.config/nvim --depth 1 ; nvim
 git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 ; nvim
 ```
 
-## See keymaps
+## keymaps Documention
 
-I've added documention for almost all keymaps in my configuration. See [keymaps](./keymap.md).
+I've added documention for almost all keymaps in my configuration. See [keymaps](keymap.md).
 
 ## Timeline
 
+- 2022-07-14:
+ - Add keymaps docs, make it clearer and easier.
+ - Add rust crates support.
 - 2022-07-07:
   - Add support for LaTeX: vimtex
   - Add Code fold: nvim-ufo
@@ -60,25 +63,3 @@ I've added documention for almost all keymaps in my configuration. See [keymaps]
   - Treesitter
   - and more
 
-## Git workflow
-
-1. Basic Blame information: gitsigns
-2. Complex Blame information: vim-fugitive
-3. Stage, Commit, Push: vim-fugitive
-4. Or, Another Beautiful Git integration: lazygit & toggleterm
-
-## Latex workflow
-
-1. `,ll`: compile
-2. `,lv`: sync location of pdf reader
-3. `Ctrl+Click Pdf`: sync location of neovim
-4. `,lk`: stop compile
-5. `,lc`: clear compile middle files
-6. `[[, ]], [], ][`: move between section boundaries
-7. `dsc, dse, ds$, dsd`: Delete the surrounding command, environment or delimiter
-8. `csc, cse, cs$, csd`: Change the surrounding command, environment or delimiter
-9. `tsc, tse`: Toggle starred command or environment
-10. `ts$`: Toggle inline and displaymath
-11. `tsd`: Toggle between e.g. () and \left(\right)
-12. `tsf`: Toggle (inline) fractions
-13. others, see: <https://github.com/lervag/vimtex#configuration>
