@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = true }
-local opts2 = { silent = true }
+local opts_silent = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -17,27 +17,21 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
+------------------------ Normal Mode -----------------------------------------
 -- Debug
-keymap("n", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<F6>", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<F8>", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<F9>", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("n", "<F10>", "<cmd>lua require'dap'.disconnect()<cr>", opts)
-
-keymap("i", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("i", "<F6>", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("i", "<F7>", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("i", "<F8>", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("i", "<F9>", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("i", "<F10>", "<cmd>lua require'dap'.disconnect()<cr>", opts)
+keymap("n", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<F6>", "<cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F8>", "<cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<F10>", "<cmd>lua require'dap'.disconnect()<CR>", opts)
 
 -- Redo
 keymap("n", "U", "<C-r>", opts)
+
 -- Move down and up only one visual line
-keymap("n", "j", "gj", opts2)
-keymap("n", "k", "gk", opts2)
+keymap("n", "j", "gj", opts_silent)
+keymap("n", "k", "gk", opts_silent)
 
 -- Next/Previous search result
 keymap("n", "n", "nzzzv", opts)
@@ -48,7 +42,9 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", opts)
+
+-- Toggle visibility of nvim tree
+keymap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Resize
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -74,9 +70,6 @@ keymap("n", "<A-Up>", "<Esc>:m .-2<CR>==", opts)
 keymap("n", "vs", ":vs<CR>", opts)
 keymap("n", "sp", ":sp<CR>", opts)
 
--- No highlight
-keymap("n", "<leader>nh", ":noh<CR>", opts)
-
 -- Better marks
 keymap("n", "'", "`", opts)
 
@@ -84,19 +77,34 @@ keymap("n", "'", "`", opts)
 keymap("n", "`", "@a", opts)
 
 -- Find text in file
-keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 
 -- Find files
 keymap(
-	"n",
-	"<C-f>",
-	"<cmd>lua require('telescope.builtin').find_files()<cr>",
-	opts
+  "n",
+  "<C-f>",
+  "<cmd>lua require('telescope.builtin').find_files()<CR>",
+  opts
 )
 
--- Insert --
+---------------------------------- Insert Mode --------------------------
+-- Debug
+keymap("i", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("i", "<F6>", "<cmd>lua require'dap'.continue()<CR>", opts)
+keymap("i", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("i", "<F8>", "<cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("i", "<F9>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+keymap("i", "<F10>", "<cmd>lua require'dap'.disconnect()<CR>", opts)
 
--- Visual --
+-- Rename
+keymap(
+  "i",
+  "<F2>",
+  '<cmd>lua require("renamer").rename()<CR>',
+  opts
+)
+
+------------------------------------ Visual Mode ------------------------
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -110,13 +118,14 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
--- Visual Block --
+---------------------------------- Visual Block Mode ------------------------
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+---------------------------------- Terminal Mode ---------------------------
 keymap("t", "<F10>", [[<C-\><C-n>]], opts)
 keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
 keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
