@@ -35,6 +35,10 @@ git clone https://github.com/Civitasv/runvim ~/.config/nvim --depth 1 ; nvim
 git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 ; nvim
 ```
 
+## See keymaps
+
+I've added documention for almost all keymaps in my configuration. See [keymaps](./keymap.md).
+
 ## Timeline
 
 - 2022-07-07:
