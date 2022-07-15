@@ -37,7 +37,7 @@ git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 
 
 ## keymaps Documention
 
-I've added documention for almost all keymaps in my configuration. See [keymaps](keymap.md).
+I've added documention for almost all keymaps in my configuration. See [keymaps](keymaps.md).
 
 ## Timeline
 
