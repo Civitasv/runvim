@@ -67,21 +67,6 @@ M.setup = function()
   end
 end
 
-local function lsp_highlight_line_number()
-  vim.cmd [[
-    highlight! DiagnosticLineNrError guibg=transparent guifg=#F37878 gui=bold
-    highlight! DiagnosticLineNrWarn guibg=transparent guifg=orange gui=bold
-    highlight! DiagnosticLineNrInfo guibg=transparent guifg=#E6FFED gui=bold
-    highlight! DiagnosticLineNrHint guibg=transparent guifg=#E6FFED gui=bold
-
-    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
-    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
-    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
-    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
-  ]]
-
-end
-
 local function lsp_highlight_document(client, bufnr)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -128,7 +113,6 @@ end
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client, bufnr)
-  lsp_highlight_line_number()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
