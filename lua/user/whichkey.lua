@@ -168,8 +168,8 @@ local leader_mappings = {
     b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
     d = {
-      "<cmd>Gitsigns diffthis HEAD<CR>",
-      "Diff",
+      "<cmd>lua require('user.utils.diff')()<CR>",
+      "Diff With",
     },
   },
 
@@ -242,7 +242,7 @@ local leader_mappings = {
     e = { "<cmd>RustExpandMacro<CR>", "Expand Macro" },
     j = { "<cmd>RustMoveItemDown<CR>", "Move Item Down" },
     k = { "<cmd>RustMoveItemUp<CR>", "Move Item Up" },
-    K = { "<cmd>lua ShowDocumentation()<CR>", "Hover Me" },
+    K = { "<cmd>lua require('user.utils.rust-crate-doc')()<CR>", "Hover Me" },
     R = { "<cmd>RustHoverRange<CR>", "Hover Range Me" },
     o = { "<cmd>RustOpenCargo<CR>", "Open Cargo" },
     l = { "<cmd>RustJoinLines<CR>", "Join Lines" },

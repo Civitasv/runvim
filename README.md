@@ -18,6 +18,12 @@
 
 ![diffview](images/diffview.png)
 
+> note: right side is current version, left side is older version.
+
+**Now you can compare file with any older commit:**
+
+![compare file with any older commit](images/file_history.gif)
+
 ## Installation
 
 ### Pre-requisites
@@ -43,6 +49,8 @@ I've added documention for almost all keymaps in my configuration. See [keymaps]
 
 ## Timeline
 
+- 2022-07-16
+ - Add ability to compare file with any older commit.
 - 2022-07-14:
  - Add keymaps docs, make it clearer and easier.
  - Add rust crates support.
