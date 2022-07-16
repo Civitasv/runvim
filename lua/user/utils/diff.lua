@@ -19,8 +19,8 @@ local function dump(o)
   end
 end
 
-local function get_all_commits()
-  local scripts = vim.api.nvim_exec("!git log --pretty=oneline --abbrev-commit -- .", true)
+local function get_all_commits_of_this_file()
+  local scripts = vim.api.nvim_exec("!git log --pretty=oneline --abbrev-commit --follow %", true)
   local res = vim.split(scripts, "\n")
   local output = {}
   for index = 3, #res - 1 do
@@ -33,7 +33,7 @@ local function get_all_commits()
 end
 
 local function diffWith()
-  local commits = get_all_commits();
+  local commits = get_all_commits_of_this_file();
 
   vim.ui.select(commits, {
     prompt = "Select commit to compare with current file",
@@ -42,6 +42,8 @@ local function diffWith()
     end,
   }, function(choice)
     gitsigns.diffthis(choice.hash_id)
+    -- With vim-fugitive
+    -- vim.cmd("Gvdiffsplit " .. choice.hash_id)
   end)
 end
 

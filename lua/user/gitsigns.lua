@@ -3,6 +3,7 @@ if not status_ok then
   return
 end
 
+-- [[<C-w>w: focus on the popup window]]
 gitsigns.setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
