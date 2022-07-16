@@ -36,7 +36,15 @@ local options = {
   scrolloff = 8, -- is one of my fav
   sidescrolloff = 8,
   errorbells = false, -- no error bells
-  title = true -- show title in terminal header
+  title = true, -- show title in terminal header
+  fillchars = {
+    diff = "╱",
+    fold = " ",
+    eob = " ",
+    foldopen = "",
+    foldsep = " ",
+    foldclose = ""
+  }
 }
 
 vim.opt.shortmess:append "c"
