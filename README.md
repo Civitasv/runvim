@@ -16,6 +16,8 @@
 
 ![whichkey](images/whichkey.png)
 
+![diffview](images/diffview.png)
+
 ## Installation
 
 ### Pre-requisites
