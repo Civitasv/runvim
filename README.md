@@ -18,11 +18,15 @@
 
 ![diffview](images/diffview.png)
 
-> note: right side is current version, left side is older version.
+> note: right side is current version, left side is compared version.
 
 **Now you can compare file with any older commit:**
 
 ![compare file with any older commit](images/file_history.gif)
+
+**And you even can compare older version file with any older version file:**
+
+![ex](images/older_file_diff.gif)
 
 ## Installation
 
