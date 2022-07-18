@@ -150,11 +150,11 @@ local leader_mappings = {
   g = {
     name = "Git",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    h = { "<cmd>0Gclog<CR>", "File history" },
+    f = { "<cmd>0Gclog<CR>", "File history" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
-    l = { "<cmd>G blame<CR>", "Git Blame Information" },
-    L = { "<cmd>Gclog<CR>", "Git Log Information" },
+    L = { "<cmd>G blame<CR>", "Git Blame Information" },
+    l = { "<cmd>Gclog<CR>", "Git Log Information" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
     P = { "<cmd>G push<CR>", "Push..." },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
@@ -208,7 +208,7 @@ local leader_mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
       "Workspace Symbols",
     },
-    n = { '<cmd>lua require("renamer").rename()<CR>', "Rename" }
+    r = { '<cmd>lua require("renamer").rename()<CR>', "Rename" }
   },
 
   m = {

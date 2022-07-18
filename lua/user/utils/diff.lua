@@ -32,19 +32,31 @@ local function get_all_commits_of_this_file()
   return output
 end
 
-local function diffWith()
-  local commits = get_all_commits_of_this_file();
+local function isFugitiveFile()
+  local filepath = vim.api.nvim_exec("echo expand('%:p')", true)
+  return filepath:find("fugitive", 1, true) == 1
+end
 
-  vim.ui.select(commits, {
-    prompt = "Select commit to compare with current file",
-    format_item = function(item)
-      return item.hash_id .. " > " .. item.message
-    end,
-  }, function(choice)
-    gitsigns.diffthis(choice.hash_id)
-    -- With vim-fugitive
-    -- vim.cmd("Gvdiffsplit " .. choice.hash_id)
-  end)
+local function diffWith()
+  -- check if it is a fugitive file
+  if isFugitiveFile() then
+    vim.ui.input({ prompt = "Please input commit hash id to compare with current version: " }, function(input)
+      vim.cmd("Gvdiffsplit! " .. input)
+    end)
+  else
+    local commits = get_all_commits_of_this_file();
+
+    vim.ui.select(commits, {
+      prompt = "Select commit to compare with current file",
+      format_item = function(item)
+        return item.hash_id .. " > " .. item.message
+      end,
+    }, function(choice)
+      gitsigns.diffthis(choice.hash_id)
+      -- With vim-fugitive
+      -- vim.cmd("Gvdiffsplit " .. choice.hash_id)
+    end)
+  end
 end
 
 return diffWith
