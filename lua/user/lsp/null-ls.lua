@@ -17,9 +17,6 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
   debug = false,
   sources = {
-    diagnostics.eslint,
-    formatting.eslint,
-    code_actions.eslint,
     formatting.prettier,
     formatting.black.with({ extra_args = { "--fast" } }),
     diagnostics.flake8,

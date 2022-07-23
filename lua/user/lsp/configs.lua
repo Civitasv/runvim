@@ -17,7 +17,9 @@ local servers = {
   "jedi_language_server",
   "vuels",
   "tsserver",
-  "texlab"
+  "texlab",
+  "angularls",
+  "eslint"
 }
 
 lsp_installer.setup({
@@ -42,7 +44,10 @@ for _, server in ipairs({
   "cssls",
   "jedi_language_server",
   "vuels",
-  "tsserver"
+  "tsserver",
+  "texlab",
+  "angularls",
+  "eslint"
 }) do
   lspconfig[server].setup({
     on_attach = on_attach,
