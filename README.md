@@ -1,5 +1,7 @@
 # RuNvim
 
+> It's **runvim**, not run vim, but **ru**n **N**eo**vim**.
+
 * [Showcase](#showcase)
 * [Installation](#installation)
   * [Pre-requisites](#pre-requisites)
@@ -8,7 +10,6 @@
 * [keymaps Documention](#keymaps-documention)
 * [Timeline](#timeline)
 
-> It's **runvim**, not run vim, but **ru**n **N**eo**vim**.
 
 ## Showcase
 
