@@ -190,7 +190,7 @@ local leader_mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<CR>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>", "Format" },
     i = { "<cmd>LspInfo<CR>", "Info" },
     I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
     j = {
@@ -214,7 +214,8 @@ local leader_mappings = {
   m = {
     name = "Markdown",
     p = { "<Plug>MarkdownPreview", "Preview Markdown" },
-    s = { "<Plug>MarkdownPreviewStop", "Stop Preview Markdown" }
+    s = { "<Plug>MarkdownPreviewStop", "Stop Preview Markdown" },
+    t = { "<cmd>InsertToc<CR>", "Insert Tocs" }
   },
 
   ["n"] = { "<cmd>noh<CR>", "Clear Highlight" },

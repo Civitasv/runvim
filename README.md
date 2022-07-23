@@ -1,5 +1,13 @@
 # RuNvim
 
+* [Showcase](#showcase)
+* [Installation](#installation)
+  * [Pre-requisites](#pre-requisites)
+  * [For Unix](#for-unix)
+  * [For Windows](#for-windows)
+* [keymaps Documention](#keymaps-documention)
+* [Timeline](#timeline)
+
 > It's **runvim**, not run vim, but **ru**n **N**eo**vim**.
 
 ## Showcase
@@ -54,10 +62,10 @@ I've added documention for almost all keymaps in my configuration. See [keymaps]
 ## Timeline
 
 - 2022-07-16
- - Add ability to compare file with any older commit.
+- Add ability to compare file with any older commit.
 - 2022-07-14:
- - Add keymaps docs, make it clearer and easier.
- - Add rust crates support.
+- Add keymaps docs, make it clearer and easier.
+- Add rust crates support.
 - 2022-07-07:
   - Add support for LaTeX: vimtex
   - Add Code fold: nvim-ufo
