@@ -100,6 +100,7 @@ return packer.startup(function(use)
   use("williamboman/nvim-lsp-installer") -- simple to use language server installer
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
   use("filipdutescu/renamer.nvim") -- vscode like renamer
+  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
 
   -- Debugging
   use("mfussenegger/nvim-dap")
