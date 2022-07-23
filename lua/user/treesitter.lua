@@ -3,11 +3,13 @@ if not status_ok then
   return
 end
 
+require 'nvim-treesitter.install'.compilers = { "clang" }
+
 configs.setup {
   -- A list of parser names, or "all"
   ensure_installed = "all",
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ignore_install = { "hack", "rnoweb" }, -- List of parsers to ignore installing
   autopairs = {
     enable = true,
   },

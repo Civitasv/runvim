@@ -105,6 +105,7 @@ local leader_mappings = {
     i = { "<cmd>CMakeInstall<CR>", "Intall CMake target" },
     n = { "<cmd>CMakeClean<CR>", "Clean CMake target" },
     s = { "<cmd>CMakeStop<CR>", "Stop CMake Process" },
+    p = { "<cmd>cd %:p:h<CR> ", "Change pwd to current file" }
   },
 
   d = {
