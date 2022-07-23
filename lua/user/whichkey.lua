@@ -193,14 +193,6 @@ local leader_mappings = {
     f = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>", "Format" },
     i = { "<cmd>LspInfo<CR>", "Info" },
     I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
-    j = {
-      "<cmd>lua vim.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-    k = {
-      "<cmd>lua vim.diagnostic.goto_prev()<CR>",
-      "Prev Diagnostic",
-    },
     l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
     s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
