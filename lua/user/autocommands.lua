@@ -1,3 +1,20 @@
+local is_win32 = vim.fn.has("win32") == 1
+if is_win32 then
+  vim.cmd [[
+    augroup _previewer
+    autocmd!
+    autocmd BufReadCmd *.png,*.jpg,*.jpeg,*.gif,*.pdf,*ico silent exe '!powershell -c start ' shellescape(expand("<afile>")) | Bdelete
+    augroup end
+  ]]
+else
+  vim.cmd [[
+    augroup _previewer
+    autocmd!
+    autocmd BufReadCmd *.png,*.jpg,*.jpeg,*.gif,*.pdf,*ico silent exe '!xdg-open ' shellescape(expand("<afile>")) | Bdelete
+    augroup end
+  ]]
+end
+
 vim.cmd([[
   " if has('wsl')
   " """Copy vim to Windows"""
@@ -35,11 +52,6 @@ vim.cmd([[
   augroup _alpha
   autocmd!
   autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  augroup end
-
-  augroup _previewer
-  autocmd!
-  autocmd BufReadCmd *.png,*.jpg,*.jpeg,*.gif,*.pdf,*ico silent exe '!xdg-open ' shellescape(expand("<afile>")) | Bdelete
   augroup end
   ]]
 )
