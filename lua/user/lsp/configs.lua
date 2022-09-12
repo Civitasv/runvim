@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+local lsp_servers = require("user.utils.lsp-servers")
+
 local on_attach = require("user.lsp.handlers").on_attach
 local capabilities = require("user.lsp.handlers").capabilities
 
@@ -12,19 +14,7 @@ lspconfig.sumneko_lua.setup({
   settings = require("user.lsp.settings.sumneko_lua").settings,
 })
 
-for _, server in ipairs({
-  "clangd",
-  "cmake",
-  "prosemd_lsp",
-  "cmake",
-  "cssls",
-  "jedi_language_server",
-  "vuels",
-  "tsserver",
-  "texlab",
-  "angularls",
-  "eslint"
-}) do
+for _, server in ipairs(lsp_servers.regular_servers) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = capabilities,

@@ -8,26 +8,11 @@ if not status_ok_ then
   return
 end
 
+local lsp_servers = require("user.utils.lsp-servers")
+
 mason.setup()
 
-local servers = {
-  -- "jsonls",
-  "sumneko_lua",
-  "clangd",
-  "cmake",
-  "prosemd_lsp",
-  "cmake",
-  "cssls",
-  "rust_analyzer",
-  "jedi_language_server",
-  "vuels",
-  "tsserver",
-  "texlab",
-  "angularls",
-  "eslint"
-}
-
 mason_lspconfig.setup({
-  ensure_installed = servers,
+  ensure_installed = lsp_servers.all_servers, -- will be installed by mason
   automatic_installation = false
 })
