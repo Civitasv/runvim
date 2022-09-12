@@ -88,3 +88,7 @@ I've added documention for almost all keymaps in my configuration. See [keymaps]
   - Treesitter
   - and more
 
+## Reference
+
+1. [LunarVim](https://github.com/LunarVim/LunarVim)
+2. [Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch)
