@@ -1,31 +1,7 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
   return
 end
-
-local lspconfig = require("lspconfig")
-
-local servers = {
-  -- "jsonls",
-  "sumneko_lua",
-  "clangd",
-  "cmake",
-  "prosemd_lsp",
-  "cmake",
-  "cssls",
-  "rust_analyzer",
-  "jedi_language_server",
-  "vuels",
-  "tsserver",
-  "texlab",
-  "angularls",
-  "eslint"
-}
-
-lsp_installer.setup({
-  ensure_installed = servers,
-  automatic_installation = true,
-})
 
 local on_attach = require("user.lsp.handlers").on_attach
 local capabilities = require("user.lsp.handlers").capabilities

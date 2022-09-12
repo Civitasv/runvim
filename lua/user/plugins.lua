@@ -96,11 +96,15 @@ return packer.startup(function(use)
   use("tpope/vim-fugitive")
 
   -- LSP
-  use("neovim/nvim-lspconfig") -- enable LSP
-  use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
   use("filipdutescu/renamer.nvim") -- vscode like renamer
-  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
+  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }) -- show diagnostics using virtual lines
 
   -- Debugging
   use("mfussenegger/nvim-dap")
