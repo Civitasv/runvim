@@ -85,6 +85,9 @@ keymap(
   opts
 )
 
+-- Copy and paste
+keymap("n", "<C-y>", "<esc>:%y+<CR>", opts);
+
 ---------------------------------- Insert Mode --------------------------
 -- Debug
 keymap("i", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
