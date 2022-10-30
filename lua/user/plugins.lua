@@ -122,7 +122,7 @@ return packer.startup(function(use)
     "jbyuki/one-small-step-for-vimkind",
     module = "osv",
   })
-  use("Civitasv/cmake-tools.nvim")
+  -- use("Civitasv/cmake-tools.nvim")
 
   -- Rust
   use("simrat39/rust-tools.nvim")

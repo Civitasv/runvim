@@ -121,7 +121,7 @@ if not status_ok then
   return
 end
 
-local cmp_capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+local cmp_capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 cmp_capabilities.textDocument.semanticHighlighting = true
 cmp_capabilities.offsetEncoding = "utf-8"
