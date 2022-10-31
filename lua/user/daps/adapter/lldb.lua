@@ -6,13 +6,13 @@ local extension_path
 local cmd
 
 if is_wsl then
-  extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.7.0/"
+  extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.8.1/"
   cmd = extension_path .. "adapter/codelldb"
 elseif is_unix then
-  extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
+  extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
   cmd = extension_path .. "adapter/codelldb"
 elseif is_win32 then
-  extension_path = vim.env.HOME .. "C:\\Users\\senhu\\.vscode\\extensions\\vadimcn.vscode-lldb-1.7.0\\"
+  extension_path = vim.env.HOME .. "C:\\Users\\senhu\\.vscode\\extensions\\vadimcn.vscode-lldb-1.8.1\\"
   cmd = extension_path .. "adapter\\codelldb"
 end
 
