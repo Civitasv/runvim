@@ -16,4 +16,8 @@ require("cmake-tools").setup({
     console = "integratedTerminal",
   }, -- dap configuration, optional
   cmake_dap_open_command = require("dap").repl.open, -- optional
+  cmake_variants_message = {
+    short = { show = true },
+    long = { show = true, max_length = 40 }
+  }
 })
