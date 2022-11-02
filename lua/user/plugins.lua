@@ -165,9 +165,6 @@ return packer.startup(function(use)
   -- Latex
   use("lervag/vimtex")
 
-  -- Session management
-  use("olimorris/persisted.nvim")
-
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
