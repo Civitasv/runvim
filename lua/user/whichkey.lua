@@ -192,7 +192,7 @@ local leader_mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<CR>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>", "Format" },
     i = { "<cmd>LspInfo<CR>", "Info" },
     I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
     l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
