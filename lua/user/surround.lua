@@ -5,8 +5,10 @@ end
 
 surround.setup({
   keymaps = { -- vim-surround style keymaps
-    insert = "ys",
+    insert = "<C-g>s",
+    normal = "ys",
     visual = "S",
+    visual_line = "gS",
     delete = "ds",
     change = "cs",
   },
