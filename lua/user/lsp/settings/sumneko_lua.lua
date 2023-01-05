@@ -1,6 +1,10 @@
 return {
   settings = {
     Lua = {
+      runtime = {
+        version = 'LuaJIT',
+        path = "$VIMRUNTIME/lua",
+      },
       diagnostics = {
         globals = { "vim" },
         neededFileStatus = {
