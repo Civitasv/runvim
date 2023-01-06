@@ -5,6 +5,7 @@ end
 
 vim.wo.foldcolumn = "0"
 vim.wo.foldlevel = 99 -- feel free to decrease the value
+vim.o.foldlevelstart = 99
 vim.wo.foldenable = true
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
@@ -37,7 +38,7 @@ end
 
 ufo.setup({
   fold_virt_text_handler = handler,
-  provider_selector = function(bufnr, filetype)
-    return { "treesitter", "indent" }
-  end
+  --[[ provider_selector = function(bufnr, filetype) ]]
+  --[[   return { "treesitter", "indent" } ]]
+  --[[ end ]]
 })
