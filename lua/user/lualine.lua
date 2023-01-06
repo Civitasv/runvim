@@ -3,6 +3,10 @@ if not status_ok then
   return
 end
 
+local cmake = require("cmake-tools")
+local icons = require("user.icons")
+
+-- Credited to [evil_lualine](https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua)
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
@@ -80,7 +84,7 @@ end
 
 ins_left {
   function()
-    return "▊"
+    return icons.ui.Line
   end,
   color = { fg = colors.blue }, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -89,7 +93,7 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return ""
+    return icons.ui.Evil
   end,
   color = function()
     -- auto change color according to neovims mode
@@ -137,12 +141,157 @@ ins_left { "location" }
 ins_left {
   "diagnostics",
   sources = { "nvim_diagnostic" },
-  symbols = { error = " ", warn = " ", info = " " },
+  symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning, info = icons.diagnostics.Information },
   diagnostics_color = {
     color_error = { fg = colors.red },
     color_warn = { fg = colors.yellow },
     color_info = { fg = colors.cyan },
   },
+}
+
+ins_left {
+  function()
+    local c_preset = cmake.get_configure_preset()
+    return "CMake: [" .. (c_preset and c_preset or "No Configure Preset Selected") .. "]"
+  end,
+  icon = icons.ui.Search,
+  cond = function()
+    return cmake.is_cmake_project() and cmake.has_cmake_preset()
+  end,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeSelectBuildType")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    local type = cmake.get_build_type()
+    return "CMake: [" .. (type and type or "") .. "]"
+  end,
+  icon = icons.ui.Search,
+  cond = function()
+    return cmake.is_cmake_project() and not cmake.has_cmake_preset()
+  end,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeSelectBuildType")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    local kit = cmake.get_kit()
+    return "[" .. (kit and kit or "No active kit") .. "]"
+  end,
+  icon = icons.ui.Pencil,
+  cond = function()
+    return cmake.is_cmake_project() and not cmake.has_cmake_preset()
+  end,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeSelectKit")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    return "Build"
+  end,
+  icon = icons.ui.Gear,
+  cond = cmake.is_cmake_project,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeBuild")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    local c_preset = cmake.get_configure_preset()
+    return "[" .. (c_preset and c_preset or "No Build Preset Selected") .. "]"
+  end,
+  icon = icons.ui.Search,
+  cond = function()
+    return cmake.is_cmake_project() and cmake.has_cmake_preset()
+  end,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeSelectBuildType")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    local b_target = cmake.get_build_target()
+    return "[" .. (b_target and b_target or "unspecified") .. "]"
+  end,
+  cond = cmake.is_cmake_project,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeSelectBuildTarget")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    return icons.ui.Debug
+  end,
+  cond = cmake.is_cmake_project,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeDebug")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    return icons.ui.Run
+  end,
+  cond = cmake.is_cmake_project,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeRun")
+      end
+    end
+  end
+}
+
+ins_left {
+  function()
+    local l_target = cmake.get_launch_target()
+    return "[" .. (l_target and l_target or "unspecified") .. "]"
+  end,
+  cond = cmake.is_cmake_project,
+  on_click = function(n, mouse)
+    if (n == 1) then
+      if (mouse == "l") then
+        vim.cmd("CMakeSelectLaunchTarget")
+      end
+    end
+  end
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -151,27 +300,6 @@ ins_left {
   function()
     return "%="
   end,
-}
-
-ins_left {
-  -- Lsp server name .
-  function()
-    local msg = "nil"
-    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
-  end,
-  icon = " LSP:",
-  color = { fg = "#ffffff", gui = "bold" },
 }
 
 -- Add components to right sections
@@ -185,7 +313,7 @@ ins_right {
 ins_right {
   "fileformat",
   fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+  icons_enabled = false,
   color = { fg = colors.green, gui = "bold" },
 }
 
@@ -193,7 +321,7 @@ ins_right {
   function()
     return vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+  icons_enabled = false,
   color = { fg = colors.green, gui = "bold" },
 }
 

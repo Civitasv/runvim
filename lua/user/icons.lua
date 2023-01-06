@@ -77,11 +77,15 @@ return {
     Fire = "",
     Note = "",
     BookMark = "",
-    Pencil = "",
+    Pencil = "",
     -- ChevronRight = "",
     ChevronRight = ">",
     Table = "",
     Calendar = "",
+    Line = "▊",
+    Evil = "",
+    Debug = "",
+    Run = ""
   },
   diagnostics = {
     Error = "",
