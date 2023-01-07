@@ -188,7 +188,7 @@ ins_left {
 ins_left {
   function()
     local kit = cmake.get_kit()
-    return "[" .. (kit and kit or "No active kit") .. "]"
+    return "[" .. (kit and kit or "unspecified") .. "]"
   end,
   icon = icons.ui.Pencil,
   cond = function()
