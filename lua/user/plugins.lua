@@ -106,6 +106,7 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
   use("filipdutescu/renamer.nvim") -- vscode like renamer
   use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }) -- show diagnostics using virtual lines
+  use("p00f/clangd_extensions.nvim") -- clangd extension, some good stuff
 
   -- Debugging
   use("mfussenegger/nvim-dap")

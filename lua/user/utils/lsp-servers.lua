@@ -17,7 +17,6 @@ M.all_servers = {
 }
 
 M.regular_servers = {
-  "clangd",
   "cmake",
   "prosemd_lsp",
   "cssls",

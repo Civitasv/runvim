@@ -122,7 +122,6 @@ local leader_mappings = {
     u = { "<cmd>lua require'dap'.step_out()<CR>", "Step Out" },
     p = { "<cmd>lua require'dap'.pause.toggle()<CR>", "Pause" },
     r = { "<cmd>lua require'dap'.repl.toggle()<CR>", "Toggle Repl" },
-    s = { "<cmd>lua require'dap'.continue()<CR>", "Start" },
     q = { "<cmd>lua require'dap'.close()<CR>", "Quit" },
     l = { "<cmd>lua require'osv'.run_this()<CR>", "Debug Lua" },
   },
