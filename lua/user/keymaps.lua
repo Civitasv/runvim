@@ -53,8 +53,6 @@ keymap("n", "<C-Left>", ":vertical :resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical :resize -2<CR>", opts)
 
 -- Buffers navigate
-keymap("n", "bj", ":bp<CR>", opts)
-keymap("n", "bk", ":bn<CR>", opts)
 keymap("n", "<Tab>", ":bn<CR>", opts)
 keymap("n", "<S-Tab>", ":bp<CR>", opts)
 
@@ -115,8 +113,8 @@ keymap("v", ".", ":normal .<CR>", opts)
 keymap("v", "`", ":normal @a<CR>", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("v", "p", '"_dP', opts)
 
 ---------------------------------- Visual Block Mode ------------------------
