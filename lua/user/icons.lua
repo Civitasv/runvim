@@ -107,10 +107,10 @@ return {
     Previous          = ""
   },
   diagnostics = {
-    Error = "",
-    Warning = "",
-    Information = "",
-    Question = "",
+    Error = " ",
+    Warning = " ",
+    Information = " ",
+    Question = " ",
     Hint = "",
   },
   misc = {
