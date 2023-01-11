@@ -2,7 +2,7 @@ local status_ok, bufferline = pcall(require, "bufferline")
 if not status_ok then
   return
 end
-
+local icons = require("user.icons")
 bufferline.setup {
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -17,13 +17,13 @@ bufferline.setup {
       style = "icon",
       icon = "▎",
     },
-    buffer_close_icon = "",
+    buffer_close_icon = icons.ui.Close,
     -- buffer_close_icon = '',
-    modified_icon = "●",
-    close_icon = "",
+    modified_icon = icons.ui.Circle,
+    close_icon = icons.ui.Close,
     -- close_icon = '',
-    left_trunc_marker = "",
-    right_trunc_marker = "",
+    left_trunc_marker = icons.ui.Next,
+    right_trunc_marker = icons.ui.Previous,
     --- name_formatter can be used to change the buffer's label in the bufferline.
     --- Please note some names can/will break the
     --- bufferline so use this at your discretion knowing that it has

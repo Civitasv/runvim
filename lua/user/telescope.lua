@@ -2,7 +2,7 @@ local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
   return
 end
-
+local icons = require("user.icons")
 local actions = require "telescope.actions"
 
 telescope.setup {
@@ -16,8 +16,8 @@ telescope.setup {
       "--column",
       "--smart-case",
     },
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = icons.ui.Telescope,
+    selection_caret = icons.ui.Pencil,
     path_display = { "truncate" },
     winblend = 0,
     color_devicons = true,

@@ -12,9 +12,7 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
-
-vim.cmd([[
-]])
+local icons = require("user.icons")
 
 nvim_tree.setup({
   auto_reload_on_write = true,
@@ -32,10 +30,10 @@ nvim_tree.setup({
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = icons.diagnostics.Hint,
+      info = icons.diagnostics.Information,
+      warning = icons.diagnostics.Warning,
+      error = icons.diagnostics.Error,
     },
   },
   update_focused_file = {
@@ -85,7 +83,7 @@ nvim_tree.setup({
         none = "  ",
       },
     },
-    root_folder_modifier = ':t',
+    root_folder_modifier = ":t",
     highlight_git = true,
     icons = {
       show = {
@@ -97,23 +95,23 @@ nvim_tree.setup({
       webdev_colors = true,
       git_placement = "before",
       glyphs = {
-        default = "",
-        symlink = "",
+        default = icons.documents.Unknown,
+        symlink = icons.documents.Symlink,
         git = {
-          unstaged = "",
-          staged = "S",
-          unmerged = "",
-          renamed = "➜",
-          deleted = "",
-          untracked = "U",
-          ignored = "◌",
+          unstaged = icons.ui.TinyCircle,
+          staged = icons.git.Add,
+          unmerged = icons.git.Unmerged,
+          renamed = icons.git.Rename,
+          deleted = icons.git.Remove,
+          untracked = icons.git.Ignore,
+          ignored = "",
         },
         folder = {
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
+          default = icons.documents.Folder,
+          open = icons.documents.OpenFolder,
+          empty = icons.documents.EmptyFolder,
+          empty_open = icons.documents.EmptyOpenFolder,
+          symlink = icons.documents.FolderSymlink,
         }
       }
     },

@@ -22,7 +22,7 @@ for _, server in ipairs(lsp_servers.regular_servers) do
 end
 
 -- for clangd extension
-
+local icons = require("user.icons")
 local clangd_settings = require("user.lsp.settings.clangd")
 
 require("clangd_extensions").setup {
@@ -72,21 +72,21 @@ require("clangd_extensions").setup {
       -- These require codicons (https://github.com/microsoft/vscode-codicons)
       role_icons = {
         type = "",
-        declaration = "",
-        expression = "",
-        specifier = "",
-        statement = "",
-        ["template argument"] = "",
+        declaration = icons.kind.Method,
+        expression = icons.ui.Circle,
+        specifier = icons.kind.Specifier,
+        statement = icons.kind.Statement,
+        ["template argument"] = icons.type.Template,
       },
 
       kind_icons = {
-        Compound = "",
-        Recovery = "",
-        TranslationUnit = "",
-        PackExpansion = "",
-        TemplateTypeParm = "",
-        TemplateTemplateParm = "",
-        TemplateParamObject = "",
+        Compound = icons.type.Object,
+        Recovery = icons.kind.Recovery,
+        TranslationUnit = icons.kind.TranslationUnit,
+        PackExpansion = icons.kind.PackExpansion,
+        TemplateTypeParm = icons.type.Template,
+        TemplateTemplateParm = icons.type.Template,
+        TemplateParamObject = icons.type.Template,
       },
 
       highlights = {

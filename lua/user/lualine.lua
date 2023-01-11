@@ -327,14 +327,14 @@ ins_right {
 
 ins_right {
   "branch",
-  icon = "",
+  icon = icons.git.Branch,
   color = { fg = colors.violet, gui = "bold" },
 }
 
 ins_right {
   "diff",
   -- Is it me or the symbol for modified us really weird
-  symbols = { added = " ", modified = "柳 ", removed = " " },
+  symbols = { added = icons.git.Add, modified = icons.git.Mod, removed = icons.git.Remove },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.orange },
