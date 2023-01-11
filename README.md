@@ -37,6 +37,10 @@
 
 ![ex](images/older_file_diff.gif)
 
+Now Debugger is a pleasure.
+
+![debugger](images/debugger.png)
+
 ## Installation
 
 ### Pre-requisites
@@ -61,9 +65,10 @@ git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 
 I've added documention for almost all keymaps in my configuration. See [keymaps](keymaps.md).
 
 ## Timeline
-
+- 2023-01-11
+  - Make debugger easier to use.
 - 2022-09-12
-  - Use mason & mason-lsp-config to replace lsp-installer
+  - Use mason & mason-lsp-config to replace lsp-installer.
 - 2022-07-23
   - Replace lsp_lines for showing diagnostic info
 - 2022-07-16
