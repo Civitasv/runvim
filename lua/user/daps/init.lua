@@ -79,12 +79,12 @@ dapui.setup({
 })
 
 local icons = require("user.icons")
-vim.api.nvim_set_hl(0, 'DapStoppedLinehl', { fg = "bg", bg = "fg" })
-vim.fn.sign_define("DapBreakpoint", { text = icons.ui.TinyCircle, texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointCondition", { text = icons.ui.CircleWithGap, texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-vim.fn.sign_define("DapLogPoint", { text = icons.ui.LogPoint, texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = icons.ui.ChevronRight, texthl = "DiagnosticSignError", linehl = "DapStoppedLinehl", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = icons.diagnostics.Error, texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.api.nvim_set_hl(0, "DapStoppedLinehl", { bg = "#555530" })
+vim.fn.sign_define("DapBreakpoint", { text = icons.ui.TinyCircle, texthl = "Error", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = icons.ui.CircleWithGap, texthl = "Error", linehl = "", numhl = "" })
+vim.fn.sign_define("DapLogPoint", { text = icons.ui.LogPoint, texthl = "Error", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = icons.ui.ChevronRight, texthl = "Error", linehl = "DapStoppedLinehl", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = icons.diagnostics.Error, texthl = "Error", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

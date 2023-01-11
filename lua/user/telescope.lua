@@ -17,7 +17,7 @@ telescope.setup {
       "--smart-case",
     },
     prompt_prefix = icons.ui.Telescope,
-    selection_caret = icons.ui.Pencil,
+    selection_caret = icons.ui.Fire,
     path_display = { "truncate" },
     winblend = 0,
     color_devicons = true,
