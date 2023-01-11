@@ -21,6 +21,10 @@ end
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end,
   view = {
     entries = "custom" -- can be "custom", "wildmenu" or "native"
   },
@@ -114,3 +118,8 @@ cmp.setup.filetype("gitcommit", {
   })
 })
 
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
+})

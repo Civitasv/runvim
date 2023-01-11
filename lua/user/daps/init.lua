@@ -97,7 +97,5 @@ end
 
 require("user.daps.adapter.lldb")
 
-require("user.daps.settings.lua")
-require("user.daps.settings.python")
 require("user.daps.settings.cpp")
 require("user.daps.settings.c")

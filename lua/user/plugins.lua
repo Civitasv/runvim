@@ -112,23 +112,9 @@ return packer.startup(function(use)
   use("mfussenegger/nvim-dap")
   use("theHamsta/nvim-dap-virtual-text")
   use("rcarriga/nvim-dap-ui")
+  use("rcarriga/cmp-dap")
 
-  -- Debugger management
-  use("Pocco81/DAPInstall.nvim")
-  use("mfussenegger/nvim-dap-python")
-  use({
-    "leoluz/nvim-dap-go",
-    module = "dap-go",
-  })
-  use({
-    "jbyuki/one-small-step-for-vimkind",
-    module = "osv",
-  })
   -- use("Civitasv/cmake-tools.nvim")
-
-  -- Rust
-  use("simrat39/rust-tools.nvim")
-  use("saecki/crates.nvim")
 
   -- Telescope
   use("nvim-telescope/telescope.nvim")
@@ -166,6 +152,9 @@ return packer.startup(function(use)
 
   -- Latex
   use("lervag/vimtex")
+
+  -- Neovim config development
+  use("folke/neodev.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -1,8 +1,7 @@
 local opts = { noremap = true, silent = true }
-local opts_silent = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 keymap("", "<Space>", "<Nop>", opts)
 
@@ -19,19 +18,18 @@ vim.g.maplocalleader = " "
 
 ------------------------ Normal Mode -----------------------------------------
 -- Debug
-keymap("n", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
-keymap("n", "<F6>", "<cmd>lua require'dap'.continue()<CR>", opts)
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F8>", "<cmd>lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<F9>", "<cmd>lua require'dap'.step_out()<CR>", opts)
-keymap("n", "<F10>", "<cmd>lua require'dap'.disconnect()<CR>", opts)
+keymap({ "n", "t" }, "<A-k>", function() require "dap".step_out() end, opts)
+keymap({ "n", "t" }, "<A-l>", function() require "dap".step_into() end, opts)
+keymap({ "n", "t" }, "<A-j>", function() require "dap".step_over() end, opts)
+keymap({ "n", "t" }, "<A-h>", function() require "dap".continue() end, opts)
+keymap("n", "<F5>", function() require "dap".toggle_breakpoint() end, opts)
 
 -- Redo
 keymap("n", "U", "<C-r>", opts)
 
 -- Move down and up only one visual line
-keymap("n", "j", "gj", opts_silent)
-keymap("n", "k", "gk", opts_silent)
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 
 -- Next/Previous search result
 keymap("n", "n", "nzzzv", opts)
@@ -57,9 +55,7 @@ keymap("n", "<Tab>", ":bn<CR>", opts)
 keymap("n", "<S-Tab>", ":bp<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-Down>", "<Esc>:m .+1<CR>==", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 keymap("n", "<A-Up>", "<Esc>:m .-2<CR>==", opts)
 
 -- Split windows
@@ -73,27 +69,14 @@ keymap("n", "'", "`", opts)
 keymap("n", "`", "@a", opts)
 
 -- Find text in file
-keymap("n", "<C-s>", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
-
--- Find files
-keymap(
-  "n",
-  "<C-f>",
-  "<cmd>lua require('telescope.builtin').find_files()<CR>",
-  opts
-)
+keymap("n", "<C-s>", "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({}))<CR>", opts)
 
 -- Copy and paste
 keymap("n", "<C-y>", "<esc>:%y+<CR>", opts);
 
 ---------------------------------- Insert Mode --------------------------
 -- Debug
-keymap("i", "<F5>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
-keymap("i", "<F6>", "<cmd>lua require'dap'.continue()<CR>", opts)
-keymap("i", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("i", "<F8>", "<cmd>lua require'dap'.step_into()<CR>", opts)
-keymap("i", "<F9>", "<cmd>lua require'dap'.step_out()<CR>", opts)
-keymap("i", "<F10>", "<cmd>lua require'dap'.disconnect()<CR>", opts)
+keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, opts)
 
 -- Rename
 keymap(
@@ -121,8 +104,6 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 ---------------------------------- Terminal Mode ---------------------------
 -- <C-\>: toggle terminal window

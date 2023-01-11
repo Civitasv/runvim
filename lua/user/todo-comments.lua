@@ -25,7 +25,7 @@ todo_comments.setup {
     },
     TODO = { icon = icons.ui.Check, color = hint_blue, alt = { "TIP" } },
     HACK = { icon = icons.ui.Fire, color = warning_orange },
-    WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING", "XXX" } },
+    WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "HINT", "HACK" } },
     PERF = { icon = icons.ui.Dashboard, color = perf_purple, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
     NOTE = { icon = icons.ui.Note, color = info_yellow, alt = { "INFO" } },
   },
@@ -35,6 +35,9 @@ todo_comments.setup {
   -- * keyword: highlights of the keyword
   -- * after: highlights after the keyword (todo text)
   highlight = {
+    multiline = true,
+    multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
+    multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
     before = "", -- "fg" or "bg" or empty
     -- keyword = "wide",
     -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
@@ -47,13 +50,14 @@ todo_comments.setup {
   },
   -- list of named colors where we try to extract the guifg from the
   -- list of hilight groups or use the hex color if hl not found as a fallback
-  -- colors = {
-  --   error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-  --   warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-  --   info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-  --   hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-  --   default = { "Identifier", "#7C3AED" },
-  -- },
+  colors = {
+    error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+    warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+    info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+    hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+    default = { "Identifier", "#7C3AED" },
+    test = { "Identifier", "#FF00FF" }
+  },
 
   search = {
     command = "rg",
@@ -70,3 +74,11 @@ todo_comments.setup {
     -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
   },
 }
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
