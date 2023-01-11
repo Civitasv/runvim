@@ -113,17 +113,30 @@ local leader_mappings = {
     name = "Debug",
     t = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "Toggle Breakpoint" },
     T = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Toggle Condition Breakpoint" },
-    l = { "<cmd>lua require'dap'.step_into()<CR>", "Step Into" },
-    k = { "<cmd>lua require'dap'.step_out()<CR>", "Step Out" },
-    j = { "<cmd>lua require'dap'.step_over()<CR>", "Step Over" },
-    h = { "<cmd>lua require'dap'.continue()<CR>", "Continue" },
+    k = { "<cmd>lua require'dap'.up()<CR>", "Stack up" },
+    j = { "<cmd>lua require'dap'.down()<CR>", "Stack down" },
     n = { "<cmd>lua require'dap'.run_to_cursor()<CR>", "Run To Cursor" },
-    c = { "<cmd>lua require'dap'.terminate()<CR>", "Terminate" },
+    q = { "<cmd>lua require'dap'.terminate()<CR>", "Terminate" },
+    --[[ .exit               Closes the REPL ]]
+    --[[ .c or .continue     Same as |dap.continue| ]]
+    --[[ .n or .next         Same as |dap.step_over| ]]
+    --[[ .into               Same as |dap.step_into| ]]
+    --[[ .into_target        Same as |dap.step_into{askForTargets=true}| ]]
+    --[[ .out                Same as |dap.step_out| ]]
+    --[[ .up                 Same as |dap.up| ]]
+    --[[ .down               Same as |dap.down| ]]
+    --[[ .goto               Same as |dap.goto_| ]]
+    --[[ .scopes             Prints the variables in the current scopes ]]
+    --[[ .threads            Prints all threads ]]
+    --[[ .frames             Print the stack frames ]]
+    --[[ .capabilities       Print the capabilities of the debug adapter ]]
+    --[[ .b or .back         Same as |dap.step_back| ]]
+    --[[ .rc or .reverse-continue   Same as |dap.reverse_continue| ]]
     r = { "<cmd>lua require'dap'.repl.toggle()<CR>", "Toggle Repl" },
-    q = { "<cmd>lua require'dap'.close()<CR>", "Quit" },
-    u = { "<cmd>lua require'dapui'.toggle()<CR>", "Toggle dapui" },
-    s = { "<cmd>Telescope dap frams<CR>", "All frames" },
-    p = { "<cmd>Telescope dap list_breakpoints<CR>", "All breakpoints" },
+    f = { "<cmd>Telescope dap frames<CR>", "Stack frames" },
+    b = { "<cmd>Telescope dap list_breakpoints<CR>", "All breakpoints" },
+    s = { "<cmd>lua require'dap.ui.widgets'.centered_float(require'dap.ui.widgets'.scopes)<CR>", "View current scope" },
+    w = { "<cmd>lua require'dapui'.eval()<CR>", "Watch this expression" },
   },
 
   f = {

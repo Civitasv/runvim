@@ -3,13 +3,42 @@ if not dap_status_ok then
   return
 end
 
-local dap_ui_status_ok, dapui = pcall(require, "dapui")
-if not dap_ui_status_ok then
-  return
+local keymap_restore = {}
+dap.listeners.after["event_initialized"]["me"] = function()
+  for _, buf in pairs(vim.api.nvim_list_bufs()) do
+    local keymaps = vim.api.nvim_buf_get_keymap(buf, "n")
+    for _, keymap in pairs(keymaps) do
+      if keymap.lhs == "K" then
+        table.insert(keymap_restore, keymap)
+        vim.api.nvim_buf_del_keymap(buf, "n", "K")
+      end
+    end
+  end
+  vim.keymap.set("n", "K", function() require("dap.ui.widgets").hover() end, { silent = true })
 end
+
+dap.listeners.after["event_terminated"]["me"] = function()
+  for _, keymap in pairs(keymap_restore) do
+    vim.api.nvim_buf_set_keymap(
+      keymap.buffer,
+      keymap.mode,
+      keymap.lhs,
+      keymap.rhs,
+      { silent = keymap.silent == 1 }
+    )
+  end
+  keymap_restore = {}
+end
+
+dap.set_exception_breakpoints("default")
 
 local dap_virtual_text_status_ok, dap_virtual_text_status = pcall(require, "nvim-dap-virtual-text")
 if not dap_virtual_text_status_ok then
+  return
+end
+
+local dap_ui_status_ok, dapui = pcall(require, "dapui")
+if not dap_ui_status_ok then
   return
 end
 
@@ -32,34 +61,13 @@ dap_virtual_text_status.setup({
 })
 
 dapui.setup({
-  icons = { expanded = "", collapsed = "", current_frame = "" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-    toggle = "t",
-  },
   layouts = {
     {
       elements = {
-        "scopes",
-        "breakpoints",
-        "stacks",
         "watches",
       },
-      size = 0.33,
+      size = 0.2,
       position = "left",
-    },
-    {
-      elements = {
-        { id = "repl", size = 0.45 },
-        { id = "console", size = 0.55 },
-      },
-      size = 0.27,
-      position = "bottom",
     },
   },
   controls = {
@@ -68,15 +76,6 @@ dapui.setup({
   render = {
     max_value_lines = 3,
   },
-  floating = {
-    max_width = 0.9,
-    max_height = 0.5,
-    border = vim.g.border_chars,
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
 })
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
