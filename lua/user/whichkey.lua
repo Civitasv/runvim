@@ -136,7 +136,6 @@ local leader_mappings = {
     f = { "<cmd>Telescope dap frames<CR>", "Stack frames" },
     b = { "<cmd>Telescope dap list_breakpoints<CR>", "All breakpoints" },
     s = { "<cmd>lua require'dap.ui.widgets'.centered_float(require'dap.ui.widgets'.scopes)<CR>", "View current scope" },
-    w = { "<cmd>lua require'dapui'.eval()<CR>", "Evaluate this expression" },
   },
 
   f = {
