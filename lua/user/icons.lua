@@ -59,7 +59,7 @@ return {
     Add = " ",
     Mod = " ",
     Remove = " ",
-    Ignore = " ",
+    Untrack = " ",
     Rename = " ",
     Diff = " ",
     Repo = " ",

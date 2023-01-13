@@ -18,10 +18,11 @@ vim.g.maplocalleader = " "
 
 ------------------------ Normal Mode -----------------------------------------
 -- Debug
-keymap({ "n", "t" }, "<A-k>", function() require "dap".step_out() end, opts)
-keymap({ "n", "t" }, "<A-l>", function() require "dap".step_into() end, opts)
+keymap({ "n", "t" }, "<A-o>", function() require "dap".step_out() end, opts)
+keymap({ "n", "t" }, "<A-i>", function() require "dap".step_into() end, opts)
 keymap({ "n", "t" }, "<A-j>", function() require "dap".step_over() end, opts)
 keymap({ "n", "t" }, "<A-h>", function() require "dap".continue() end, opts)
+keymap({ "n", "t" }, "<A-k>", function() require("dap.ui.widgets").hover() end, opts)
 keymap("n", "<F5>", function() require "dap".toggle_breakpoint() end, opts)
 
 -- Redo
@@ -36,10 +37,10 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- Window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap({ "n", "i" }, "<C-h>", "<C-w>h", opts)
+keymap({ "n", "i" }, "<C-j>", "<C-w>j", opts)
+keymap({ "n", "i" }, "<C-k>", "<C-w>k", opts)
+keymap({ "n", "i" }, "<C-l>", "<C-w>l", opts)
 
 -- Toggle visibility of nvim tree
 keymap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", opts)
@@ -107,7 +108,5 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 ---------------------------------- Terminal Mode ---------------------------
 -- <C-\>: toggle terminal window
-keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+-- Alt+x: exit terminal mode
+keymap("t", "<A-x>", [[<C-\><C-n>]], opts)

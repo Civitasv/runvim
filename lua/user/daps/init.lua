@@ -3,33 +3,6 @@ if not dap_status_ok then
   return
 end
 
-local keymap_restore = {}
-dap.listeners.after["event_initialized"]["me"] = function()
-  for _, buf in pairs(vim.api.nvim_list_bufs()) do
-    local keymaps = vim.api.nvim_buf_get_keymap(buf, "n")
-    for _, keymap in pairs(keymaps) do
-      if keymap.lhs == "K" then
-        table.insert(keymap_restore, keymap)
-        vim.api.nvim_buf_del_keymap(buf, "n", "K")
-      end
-    end
-  end
-  vim.keymap.set("n", "K", function() require("dap.ui.widgets").hover() end, { silent = true })
-end
-
-dap.listeners.after["event_terminated"]["me"] = function()
-  for _, keymap in pairs(keymap_restore) do
-    vim.api.nvim_buf_set_keymap(
-      keymap.buffer,
-      keymap.mode,
-      keymap.lhs,
-      keymap.rhs,
-      { silent = keymap.silent == 1 }
-    )
-  end
-  keymap_restore = {}
-end
-
 dap.set_exception_breakpoints("default")
 
 local dap_virtual_text_status_ok, dap_virtual_text_status = pcall(require, "nvim-dap-virtual-text")

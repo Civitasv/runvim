@@ -103,7 +103,7 @@ nvim_tree.setup({
           unmerged = icons.git.Unmerged,
           renamed = icons.git.Rename,
           deleted = icons.git.Remove,
-          untracked = icons.git.Ignore,
+          untracked = icons.git.Untrack,
           ignored = "",
         },
         folder = {

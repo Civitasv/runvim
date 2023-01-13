@@ -161,7 +161,7 @@ ins_left {
   on_click = function(n, mouse)
     if (n == 1) then
       if (mouse == "l") then
-        vim.cmd("CMakeSelectBuildType")
+        vim.cmd("CMakeSelectConfigurePreset")
       end
     end
   end
@@ -220,8 +220,8 @@ ins_left {
 
 ins_left {
   function()
-    local c_preset = cmake.get_configure_preset()
-    return "[" .. (c_preset and c_preset or "X") .. "]"
+    local b_preset = cmake.get_build_preset()
+    return "[" .. (b_preset and b_preset or "X") .. "]"
   end,
   icon = icons.ui.Search,
   cond = function()
@@ -230,7 +230,7 @@ ins_left {
   on_click = function(n, mouse)
     if (n == 1) then
       if (mouse == "l") then
-        vim.cmd("CMakeSelectBuildType")
+        vim.cmd("CMakeSelectBuildPreset")
       end
     end
   end

@@ -111,8 +111,7 @@ local leader_mappings = {
 
   d = {
     name = "Debug",
-    t = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "Toggle Breakpoint" },
-    T = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Toggle Condition Breakpoint" },
+    t = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Toggle Condition Breakpoint" },
     k = { "<cmd>lua require'dap'.up()<CR>", "Stack up" },
     j = { "<cmd>lua require'dap'.down()<CR>", "Stack down" },
     n = { "<cmd>lua require'dap'.run_to_cursor()<CR>", "Run To Cursor" },
