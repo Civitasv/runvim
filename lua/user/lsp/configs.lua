@@ -116,7 +116,7 @@ require("rust-tools").setup({
     -- whether to show hover actions inside the hover window
     -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
     -- default: true
-    hover_with_actions = true,
+    hover_with_actions = false,
 
     -- how to execute terminal commands
     -- options right now: termopen / quickfix
