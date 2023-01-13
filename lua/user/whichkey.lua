@@ -79,22 +79,7 @@ local leader_opts = {
 }
 
 local leader_mappings = {
-  a = {
-    t = { "<cmd>lua require('crates').toggle()<CR>", "Toggle" },
-    r = { "<cmd>lua require('crates').reload()<CR>", "Reload" },
-    v = { "<cmd>lua require('crates').show_versions_popup()<CR>", "Version" },
-    f = { "<cmd>lua require('crates').show_features_popup()<CR>", "Feature" },
-    d = { "<cmd>lua require('crates').show_dependencies_popup()<CR>", "Dependency" },
-    u = { "<cmd>lua require('crates').update_crate()<CR>", "Update" },
-    U = { "<cmd>lua require('crates').upgrade_crate()<CR>", "Upgrade" },
-    a = { "<cmd>lua require('crates').update_all_crates()<CR>", "Update All" },
-    A = { "<cmd>lua require('crates').upgrade_all_crates()<CR>", "Upgrade All" },
-    k = { "<cmd>lua require('user.utils.crates').show_documentation()<CR>", "Hover" },
-    h = { "<cmd>lua require('crates').open_homepage()<CR>", "Homepage" },
-    R = { "<cmd>lua require('crates').open_repository()<CR>", "Repo" },
-    D = { "<cmd>lua require('crates').open_documentation()<CR>", "Documentation" },
-    c = { "<cmd>lua require('crates').open_crates_io()<CR>", "Crates io" },
-  },
+  ["a"] = { "<cmd>Alpha<CR>", "Alpha" },
   b = {
     name = "Buffers",
     b = { "<cmd>lua require('telescope.builtin').buffers()<CR>", "Buffers" },

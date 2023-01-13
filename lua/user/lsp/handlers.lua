@@ -111,13 +111,6 @@ local function lsp_keymaps(bufnr)
   -- Diagnostic
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-
-  -- Rust
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "rr", "<cmd>lua require('rust-tools').runnables.runnables()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "rk", "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "rc", "<cmd>lua require'rust-tools'.open_cargo_toml.open_cargo_toml()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "rp", "<cmd>lua require'rust-tools'.parent_module.parent_module()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "rg", "<cmd>lua require'rust-tools'.crate_graph.view_crate_graph(backend, output)<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

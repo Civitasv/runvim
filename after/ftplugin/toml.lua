@@ -1,0 +1,15 @@
+local opts = { noremap = true, silent = true, nowait = true, buffer = true }
+
+vim.keymap.set("n", "ct", "<cmd>lua require('crates').toggle()<CR>", opts)
+vim.keymap.set("n", "cr", "<cmd>lua require('crates').reload()<CR>", opts)
+vim.keymap.set("n", "cv", "<cmd>lua require('crates').show_versions_popup()<CR>", opts)
+vim.keymap.set("n", "cf", "<cmd>lua require('crates').show_features_popup()<CR>", opts)
+vim.keymap.set("n", "cd", "<cmd>lua require('crates').show_dependencies_popup()<CR>", opts)
+vim.keymap.set("n", "cu", "<cmd>lua require('crates').update_crate()<CR>", opts)
+vim.keymap.set("n", "cU", "<cmd>lua require('crates').upgrade_crate()<CR>", opts)
+vim.keymap.set("n", "ca", "<cmd>lua require('crates').update_all_crates()<CR>", opts)
+vim.keymap.set("n", "cA", "<cmd>lua require('crates').upgrade_all_crates()<CR>", opts)
+vim.keymap.set("n", "ck", "<cmd>lua require('user.utils.crates').show_documentation()<CR>", opts)
+vim.keymap.set("n", "ch", "<cmd>lua require('crates').open_homepage()<CR>", opts)
+vim.keymap.set("n", "cR", "<cmd>lua require('crates').open_repository()<CR>", opts)
+vim.keymap.set("n", "cD", "<cmd>lua require('crates').open_documentation()<CR>", opts)
