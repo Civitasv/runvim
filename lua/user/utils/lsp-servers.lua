@@ -13,7 +13,7 @@ M.all_servers = {
   "tsserver",
   "texlab",
   "angularls",
-  "eslint"
+  "eslint",
 }
 
 M.regular_servers = {

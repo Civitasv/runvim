@@ -156,6 +156,13 @@ return packer.startup(function(use)
   -- Neovim config development
   use("folke/neodev.nvim")
 
+  -- rust, rust, it's rust!
+  use("simrat39/rust-tools.nvim")
+  use {
+    "saecki/crates.nvim",
+    tag = "v0.3.0",
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
