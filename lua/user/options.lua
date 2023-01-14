@@ -44,7 +44,7 @@ local options = {
     foldopen = "",
     foldsep = " ",
     foldclose = ""
-  }
+  },
 }
 
 vim.opt.shortmess:append "c"
@@ -52,3 +52,5 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+vim.g.rust_recommended_style = false
