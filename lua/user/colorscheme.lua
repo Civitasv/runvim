@@ -56,6 +56,7 @@ catppuccin.setup({
   },
 })
 
+--[[ vim.cmd.colorscheme("catppuccin") ]]
 -- nightfly
 vim.g.nightflyWinSeparator = 2
 vim.g.nightflyNormalFloat = true

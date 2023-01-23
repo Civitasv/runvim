@@ -52,7 +52,6 @@ local options = {
     foldsep = "┃",
   },
   foldlevelstart = 20,
-  showbreak = "↳"
 }
 
 vim.opt.shortmess:append "c"
