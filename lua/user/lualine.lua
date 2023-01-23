@@ -22,18 +22,35 @@ local conditions = {
 }
 
 local colors = {
-  bg       = "#202328",
-  fg       = "#bbc2cf",
-  yellow   = "#ECBE7B",
-  cyan     = "#008080",
-  darkblue = "#081633",
-  green    = "#98be65",
-  orange   = "#FF8800",
-  violet   = "#a9a1e1",
-  magenta  = "#c678dd",
-  blue     = "#51afef",
-  red      = "#ec5f67",
+  normal = {
+    bg       = "#202328",
+    fg       = "#bbc2cf",
+    yellow   = "#ECBE7B",
+    cyan     = "#008080",
+    darkblue = "#081633",
+    green    = "#98be65",
+    orange   = "#FF8800",
+    violet   = "#a9a1e1",
+    magenta  = "#c678dd",
+    blue     = "#51afef",
+    red      = "#ec5f67",
+  },
+  nightfly = {
+    bg       = "#011627",
+    fg       = "#acb4c2",
+    yellow   = "#ecc48d",
+    cyan     = "#7fdbca",
+    darkblue = "#82aaff",
+    green    = "#21c7a8",
+    orange   = "#e3d18a",
+    violet   = "#a9a1e1",
+    magenta  = "#ae81ff",
+    blue     = "#82aaff	",
+    red      = "#ff5874",
+  }
 }
+
+colors = colors.nightfly;
 
 local config = {
   options = {

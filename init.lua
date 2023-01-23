@@ -29,7 +29,7 @@ require("user.todo-comments")
 require("user.hop")
 require("user.editorconfig")
 --[[ require("user.copilot") ]]
---[[ require("user.neovide") ]]
+require("user.neovide")
 require("user.nvim-ufo")
 require("user.surround")
 require("user.vimtex")
@@ -37,3 +37,4 @@ require("user.lsp_lines")
 require("user.nvim-qt")
 require("user.mason")
 require("user.crates")
+require("user.hlargs")

@@ -62,7 +62,8 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use("projekt0n/github-nvim-theme")
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use({ "catppuccin/nvim", as = "catppuccin" })
+  use("bluz71/vim-nightfly-colors")
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -163,6 +164,10 @@ return packer.startup(function(use)
     tag = "v0.3.0",
   }
 
+  -- hlargs
+  use { "m-demare/hlargs.nvim" }
+  -- Startup time
+  use("dstein64/vim-startuptime")
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

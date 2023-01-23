@@ -16,6 +16,15 @@ local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
   debug = false,
+  should_attach = function(bufnr)
+    -- Disable null-ls for files larger than 100K in size.
+    if vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > 100000 then
+      print("(null-ls) DISABLED, file too large")
+      return false
+    else
+      return true
+    end
+  end,
   sources = {
     formatting.prettier,
     formatting.black.with({ extra_args = { "--fast" } }),

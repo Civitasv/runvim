@@ -18,6 +18,9 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+local winhighlight = {
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
@@ -105,7 +108,8 @@ cmp.setup {
   },
   window = {
     documentation = {
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }
+      completion = cmp.config.window.bordered(winhighlight),
+      documentation = cmp.config.window.bordered(winhighlight),
     }
   }
 }

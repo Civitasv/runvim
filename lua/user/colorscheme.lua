@@ -56,5 +56,8 @@ catppuccin.setup({
   },
 })
 
--- setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
+-- nightfly
+vim.g.nightflyWinSeparator = 2
+vim.g.nightflyNormalFloat = true
+vim.g.nightflyCursorColor = true
+vim.cmd.colorscheme "nightfly"
