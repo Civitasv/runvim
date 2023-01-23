@@ -2,7 +2,7 @@
 -- go to the above and then enter <c-v>u<unicode> and the symbold should appear
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
 -- find more here: https://www.nerdfonts.com/cheat-sheet
--- elseif vim.fn.has "mac" == 1 then
+
 return {
   kind = {
     Text = " ",
@@ -30,19 +30,19 @@ return {
     Event = " ",
     Operator = " ",
     TypeParameter = " ",
-    Specifier = "",
+    Specifier = " ",
     Statement = "",
-    Recovery = "",
-    TranslationUnit = "",
-    PackExpansion = ""
+    Recovery = " ",
+    TranslationUnit = " ",
+    PackExpansion = " "
   },
   type = {
-    Array = "",
-    Number = "",
-    String = "",
-    Boolean = "蘒",
-    Object = "",
-    Template = ""
+    Array = " ",
+    Number = " ",
+    String = " ",
+    Boolean = " ",
+    Object = " ",
+    Template = " "
   },
   documents = {
     File = "",
@@ -107,10 +107,10 @@ return {
     Previous          = ""
   },
   diagnostics = {
-    Error = " ",
-    Warning = " ",
-    Information = " ",
-    Question = " ",
+    Error = "",
+    Warning = "",
+    Information = "",
+    Question = "",
     Hint = "",
   },
   misc = {
