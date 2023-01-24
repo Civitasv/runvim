@@ -3,10 +3,10 @@ if not status_ok then
   return
 end
 
-vim.wo.foldcolumn = "0"
-vim.wo.foldlevel = 99 -- feel free to decrease the value
+vim.o.foldcolumn = "0"
+vim.o.foldlevel = 99 -- feel free to decrease the value
 vim.o.foldlevelstart = 99
-vim.wo.foldenable = true
+vim.o.foldenable = true
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}

@@ -75,6 +75,9 @@ keymap("n", "<C-s>", "<cmd>lua require('telescope.builtin').live_grep(require('t
 -- Copy and paste
 keymap("n", "<C-y>", "<esc>:%y+<CR>", opts);
 
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+keymap("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+keymap("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 ---------------------------------- Insert Mode --------------------------
 -- Debug
 keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, opts)
@@ -105,8 +108,11 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+keymap("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 ---------------------------------- Terminal Mode ---------------------------
 -- <C-\>: toggle terminal window
 -- Alt+x: exit terminal mode
 keymap("t", "<A-x>", [[<C-\><C-n>]], opts)
+

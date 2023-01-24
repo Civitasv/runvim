@@ -12,7 +12,7 @@ local options = {
   mouse = "a", -- allow the mouse to be used in neovim
   pumheight = 10, -- pop up menu height
   showmode = false, -- we don't need to see things like -- INSERT -- anymore
-  showtabline = 2, -- always show tabs
+  showtabline = 0, -- don't show tabs
   smartcase = true, -- smart case
   smartindent = true, -- make indenting smarter again
   splitbelow = true, -- force all horizontal splits to go below current window
@@ -47,14 +47,11 @@ local options = {
     vertleft = "┫",
     vertright = "┣",
     verthoriz = "╋",
-    foldclose = "▷",
-    foldopen = "▼",
-    foldsep = "┃",
+    foldclose = "",
+    foldopen = "",
+    foldsep = " ",
   },
-  foldlevelstart = 20,
 }
-
-vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
   vim.opt[k] = v
@@ -63,11 +60,16 @@ end
 vim.g.rust_recommended_style = false
 
 --[[ if vim.fn.has("nvim-0.9") == 1 and not vim.opt.diff:get() then ]]
---[[   vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s" ]]
+--[[   vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s%C" ]]
 --[[ end ]]
 
 if vim.fn.has("nvim-0.9") == 1 and not vim.opt.diff:get() then
   vim.opt.signcolumn = "yes:1"
 elseif vim.fn.has("nvim-0.9") == 0 then
   vim.opt.signcolumn = "number"
+end
+
+if vim.fn.has("nvim-0.9.0") == 1 then
+  vim.opt.splitkeep = "screen"
+  vim.opt.shortmess = "filnxtToOFWIcC"
 end
