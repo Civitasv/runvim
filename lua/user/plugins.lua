@@ -136,8 +136,8 @@ return packer.startup(function(use)
   use("godlygeek/tabular")
   use("preservim/vim-markdown")
 
-  -- Copilot
-  -- use("github/copilot.vim")
+  -- Copilot alternative, and free
+  use("Exafunction/codeium.vim")
 
   -- editor config
   use("editorconfig/editorconfig-vim")
