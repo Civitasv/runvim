@@ -36,4 +36,4 @@ require("user.nvim-qt")
 require("user.mason")
 require("user.crates")
 require("user.hlargs")
-require("user.codium")
+--[[ require("user.codium") ]]
