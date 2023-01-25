@@ -7,6 +7,7 @@ require("cmake-tools").setup({
   cmake_build_options = {},
   cmake_console_size = 10, -- cmake output window height
   cmake_show_console = "always", -- "always", "only_on_error"
+  cmake_console_position = "belowright", -- "belowright", "aboveleft", ...
   cmake_variants_message = {
     short = { show = true },
     long = { show = true, max_length = 40 }
