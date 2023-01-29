@@ -4,7 +4,7 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     "rcarriga/nvim-dap-ui",
   },
-  config       = function()
+  config = function()
     local dap = require("dap")
 
     local dap_virtual_text_status = require("nvim-dap-virtual-text")
@@ -57,9 +57,9 @@ return {
 
     local icons = require("config.icons")
     vim.api.nvim_set_hl(0, "DapStoppedLinehl", { bg = "#555530" })
-    vim.fn.sign_define("DapBreakpoint", { text = icons.ui.TinyCircle, texthl = "Error", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapBreakpointCondition", { text = icons.ui.CircleWithGap, texthl = "Error", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapLogPoint", { text = icons.ui.LogPoint, texthl = "Error", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapBreakpoint", { text = icons.ui.TinyCircle, texthl = "DapBreakpoint", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = icons.ui.CircleWithGap, texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapLogPoint", { text = icons.ui.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
     vim.fn.sign_define("DapStopped", { text = icons.ui.ChevronRight, texthl = "Error", linehl = "DapStoppedLinehl", numhl = "" })
     vim.fn.sign_define("DapBreakpointRejected", { text = icons.diagnostics.Error, texthl = "Error", linehl = "", numhl = "" })
 

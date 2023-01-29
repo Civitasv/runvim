@@ -23,5 +23,7 @@ end
 
 -- Install Plugins
 return lazy.setup("plugins", {
-
+  install = {
+    colorscheme = { "catppuccin" }
+  }
 })

@@ -52,8 +52,8 @@ keymap("n", "<Tab>", ":bn<CR>", { silent = true, desc = "next tab" })
 keymap("n", "<S-Tab>", ":bp<CR>", { silent = true, desc = "prev tab" })
 
 -- Move Lines
-keymap("n", "<A-j>", ":m .+1<cr>==", { desc = "Move down" })
-keymap("n", "<A-k>", ":m .-2<cr>==", { desc = "Move up" })
+keymap("n", "<A-Down>", ":m .+1<cr>==", { desc = "Move down" })
+keymap("n", "<A-Up>", ":m .-2<cr>==", { desc = "Move up" })
 
 -- Split windows
 keymap("n", "vs", ":vs<CR>", { silent = true, desc = "split vertically" })
@@ -209,8 +209,8 @@ keymap(
   { silent = true, desc = "rename" }
 )
 
-keymap("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
-keymap("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
+keymap("i", "<A-Down>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
+keymap("i", "<A-Up>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
 ------------------------------------ Visual Mode ------------------------
 -- Stay in indent mode
 keymap("v", "<", "<gv", { silent = true })
@@ -223,8 +223,8 @@ keymap("v", "`", ":normal @a<CR>", { silent = true })
 keymap("v", "p", '"_dP', { silent = true })
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+keymap("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+keymap("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 ---------------------------------- Visual Block Mode ------------------------
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", { silent = true })
