@@ -23,5 +23,5 @@ end
 
 -- Install Plugins
 return lazy.setup("plugins", {
-  lazy = false
+
 })

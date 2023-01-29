@@ -65,6 +65,11 @@ git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 
 I've added documention for almost all keymaps in my configuration. See [keymaps](keymaps.md).
 
 ## Timeline
+- 2023-01-29
+  - Use lazy.nvim to substitute packer.
+  > lua/config: basic configuration
+  > lua/plugins: plugin spec, will be loaded by lazy.nvim
+  > lua/utils: common util function
 - 2023-01-11
   - Make debugger easier to use.
 - 2022-09-12

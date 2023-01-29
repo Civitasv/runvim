@@ -8,7 +8,7 @@ return {
 
     which_key.setup({
       plugins = {
-        spelling = true
+        spelling = false
       }
     })
     which_key.register({
