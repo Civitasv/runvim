@@ -11,16 +11,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("config.options")
+require("config.keymaps")
+require("config.autocommands")
+
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
   return
 end
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Install Plugins
-return lazy.setup('plugins', {
-
+return lazy.setup("plugins", {
+  lazy = false
 })
