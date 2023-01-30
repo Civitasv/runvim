@@ -20,8 +20,13 @@ return {
 
       let g:vim_markdown_fenced_languages = ['tsx=typescriptreact']
       let g:vim_markdown_no_default_key_mappings = 1
-      let g:vim_markdown_folding_disabled = 1
+      let g:vim_markdown_folding_disabled = 0
       let g:vim_markdown_frontmatter = 1
+      let g:vim_markdown_folding_style_pythonic = 1 
     ]])
+
+    vim.keymap.set("n", "<leader>mj", "<Plug>Markdown_MoveToNextHeader<CR>", { desc = "go to next header" })
+    vim.keymap.set("n", "<leader>mk", "<Plug>Markdown_MoveToPreviousHeader<CR>", { desc = "go to previous header" })
+    vim.keymap.set("n", "<leader>mc", "<Plug>Markdown_MoveToCurHeader<CR>", { desc = "go to previous header" })
   end
 }

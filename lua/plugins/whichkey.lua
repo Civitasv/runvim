@@ -9,6 +9,9 @@ return {
     which_key.setup({
       plugins = {
         spelling = false
+      },
+      window = {
+        border = "single"
       }
     })
     which_key.register({
