@@ -26,9 +26,7 @@ return {
       return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
     end
 
-    local winhighlight = {
-      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-    }
+    local winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel"
     -- find more here: https://www.nerdfonts.com/cheat-sheet
 
     cmp.setup {
@@ -89,6 +87,7 @@ return {
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },
+        max_width = 0,
         format = function(entry, vim_item)
           -- Kind icons
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
@@ -115,10 +114,12 @@ return {
         select = false,
       },
       window = {
-        documentation = {
-          completion = cmp.config.window.bordered(winhighlight),
-          documentation = cmp.config.window.bordered(winhighlight),
-        }
+        completion = cmp.config.window.bordered(
+          {
+            winhighlight = winhighlight,
+            scrollbar    = false
+          }),
+        documentation = cmp.config.window.bordered({ winhighlight = winhighlight }),
       }
     }
 
@@ -128,6 +129,24 @@ return {
         { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
       }, {
         { name = "buffer" },
+      })
+    })
+
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" }
+      }
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" }
+      }, {
+        { name = "cmdline" }
       })
     })
 
