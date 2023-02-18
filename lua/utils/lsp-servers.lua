@@ -2,7 +2,7 @@ local M = {}
 
 M.all_servers = {
   -- "jsonls",
-  "sumneko_lua",
+  "lua_ls",
   "clangd",
   "cmake",
   "prosemd_lsp",

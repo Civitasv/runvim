@@ -5,7 +5,7 @@ local lsp_servers = require("utils.lsp-servers")
 local on_attach = require("plugins.lsp.handlers").on_attach
 local capabilities = require("plugins.lsp.handlers").capabilities
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = require("plugins.lsp.settings.sumneko_lua").settings,

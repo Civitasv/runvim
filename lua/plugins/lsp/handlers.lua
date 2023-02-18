@@ -93,24 +93,84 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
+  local keymap = function(mode, key, action)
+    vim.keymap.set(mode, key, action, { buffer = bufnr })
+  end
 
-  -- Declaration and definition
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+  -- LSP finder - Find the symbol's definition
+  -- If there is no definition, it will instead be hidden
+  -- When you use an action in finder like "open vsplit",
+  -- you can use <C-t> to jump back
+  keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
-  -- Docs
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  -- Code action
+  keymap({ "n", "v" }, "ca", "<cmd>Lspsaga code_action<CR>")
 
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_definitions<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  -- Rename all occurrences of the hovered word for the entire file
+  keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
 
-  -- Diagnostic
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+  -- Rename all occurrences of the hovered word for the selected files
+  keymap("n", "gR", "<cmd>Lspsaga rename ++project<CR>")
+
+  -- Peek definition
+  -- You can edit the file containing the definition in the floating window
+  -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
+  -- It also supports tagstack
+  -- Use <C-t> to jump back
+  keymap("n", "gD", "<cmd>Lspsaga peek_definition<CR>")
+
+  -- Go to definition
+  keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+
+  -- Peek type definition
+  -- You can edit the file containing the type definition in the floating window
+  -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
+  -- It also supports tagstack
+  -- Use <C-t> to jump back
+  keymap("n", "gT", "<cmd>Lspsaga peek_type_definition<CR>")
+
+  -- Go to type definition
+  keymap("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
+
+
+  -- Show line diagnostics
+  -- You can pass argument ++unfocus to
+  -- unfocus the show_line_diagnostics floating window
+  keymap("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+
+  -- Show cursor diagnostics
+  -- Like show_line_diagnostics, it supports passing the ++unfocus argument
+  keymap("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+
+  -- Show buffer diagnostics
+  keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+
+  -- Diagnostic jump
+  -- You can use <C-o> to jump back to your previous location
+  keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+  keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+
+  -- Diagnostic jump with filters such as only jumping to an error
+  keymap("n", "[e", function()
+    require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  end)
+  keymap("n", "]e", function()
+    require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+  end)
+
+  -- Toggle outline
+  keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+
+  -- If you want to keep the hover window in the top right hand corner,
+  -- you can pass the ++keep argument
+  -- Note that if you use hover with ++keep, pressing this key again will
+  -- close the hover window. If you want to jump to the hover window
+  -- you should use the wincmd command "<C-w>w"
+  keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+
+  -- Call hierarchy
+  keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+  keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 end
 
 M.on_attach = function(client, bufnr)

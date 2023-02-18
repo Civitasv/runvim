@@ -174,7 +174,7 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", { des
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Info" })
 keymap("n", "<leader>lI", "<cmd>LspInstallInfo<CR>", { desc = "Installer Info" })
 keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "CodeLens Action" })
-keymap("n", "<leader>lr", '<cmd>lua require("renamer").rename()<CR>', { desc = "Rename" })
+keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
 
 -- markdown
 keymap("n", "<leader>mp", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
@@ -205,7 +205,7 @@ keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, { silent =
 keymap(
   "i",
   "<F2>",
-  "<cmd>lua require('renamer').rename()<CR>",
+  "<cmd>Lspsaga rename<CR>",
   { silent = true, desc = "rename" }
 )
 

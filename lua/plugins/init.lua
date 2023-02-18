@@ -4,6 +4,6 @@ return {
   "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
   "moll/vim-bbye", -- Bdelete command
   "tpope/vim-fugitive", -- Git
-  "kyazdani42/nvim-web-devicons", -- Icons
+  "nvim-tree/nvim-web-devicons", -- Icons
   "ap/vim-css-color", -- Vim css color
 }
