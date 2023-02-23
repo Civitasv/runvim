@@ -9,6 +9,7 @@ return {
     local icons = require("config.icons")
 
     nvim_tree.setup({
+      sort_by = "case_sensitive",
       auto_reload_on_write = true,
       disable_netrw = true,
       hijack_netrw = true,

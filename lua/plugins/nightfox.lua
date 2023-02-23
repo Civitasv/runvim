@@ -1,6 +1,6 @@
 return {
   "EdenEast/nightfox.nvim",
-  lazy = true,
+  lazy = false,
   config = function()
     -- Default options
     require("nightfox").setup({
@@ -48,6 +48,6 @@ return {
     })
 
     -- setup must be called before loading
-    --[[ vim.cmd("colorscheme nightfox") ]]
+    vim.cmd("colorscheme nightfox")
   end
 }

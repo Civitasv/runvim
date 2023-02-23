@@ -40,14 +40,14 @@ return {
         extend_gitsigns = true,
         keys = {
           -- string | table type
-          quit = "q",
+          quit = "<ESC>",
           exec = "<CR>",
         },
       },
       lightbulb = {
         enable = true,
         enable_in_insert = false,
-        sign = true,
+        sign = false,
         sign_priority = 40,
         virtual_text = false,
       },
