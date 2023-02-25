@@ -31,7 +31,7 @@ return {
         diagnostics.flake8,
         diagnostics.jsonlint,
         formatting.jq,
-        code_actions.gitsigns,
+        --[[ code_actions.gitsigns, ]]
         formatting.latexindent,
         diagnostics.chktex
       },

@@ -1,13 +1,12 @@
 return {
   cmd = {
     "clangd",
-    "--index",
     "--background-index",
-    "--suggest-missing-includes",
     "--clang-tidy",
+    "--suggest-missing-includes",
+    "--completion-style=bundled",
+    "--cross-file-rename",
     "--header-insertion=iwyu",
-    "--completion-style=detailed",
-    "--function-arg-placeholders"
   },
   init_options = {
     usePlaceholders = true,
