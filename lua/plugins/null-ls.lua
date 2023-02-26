@@ -12,7 +12,7 @@ return {
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#completion
     -- local completion = null_ls.builtins.completion
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#code-actions
-    local code_actions = null_ls.builtins.code_actions
+    --[[ local code_actions = null_ls.builtins.code_actions ]]
 
     null_ls.setup({
       debug = false,
