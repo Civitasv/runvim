@@ -168,14 +168,6 @@ keymap("n", "<leader>gd",
 keymap("n", "<leader>hw", "<cmd>HopWordCurrentLine<CR>", { desc = "Hop Word In Current Line" })
 keymap("n", "<leader>hp", "<cmd>HopPattern<CR>", { desc = "Hop Word With Pattern" })
 
--- lsp
-keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", { desc = "Format" })
-keymap("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Info" })
-keymap("n", "<leader>lI", "<cmd>LspInstallInfo<CR>", { desc = "Installer Info" })
-keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "CodeLens Action" })
-keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
-
 -- markdown
 keymap("n", "<leader>mP", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
 keymap("n", "<leader>ms", "<Plug>MarkdownPreviewStop", { desc = "Stop Preview Markdown" })
@@ -201,14 +193,6 @@ keymap("n", "<leader>n", "<cmd>noh<CR>", { desc = "Clear highlight" })
 ---------------------------------- Insert Mode --------------------------
 -- Debug
 keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, { silent = true })
-
--- Rename
-keymap(
-  "i",
-  "<F2>",
-  "<cmd>Lspsaga rename<CR>",
-  { silent = true, desc = "rename" }
-)
 
 keymap("i", "<A-Down>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
 keymap("i", "<A-Up>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })

@@ -138,11 +138,6 @@ return {
           name = "Crates",
         },
       },
-
-      null_ls = {
-        enabled = true,
-        name = "crates.nvim",
-      },
     }
   end
 }

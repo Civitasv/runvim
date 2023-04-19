@@ -5,11 +5,9 @@ return {
     "hrsh7th/cmp-path", -- path completions
     "hrsh7th/cmp-cmdline", -- cmdline completions
     "saadparwaiz1/cmp_luasnip", -- snippet completions
-    "hrsh7th/cmp-nvim-lsp",
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-    "rcarriga/cmp-dap",
   },
   config = function()
     local cmp = require("cmp")
@@ -32,7 +30,6 @@ return {
     cmp.setup {
       enabled = function()
         return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-            or require("cmp_dap").is_dap_buffer()
       end,
       view = {
         entries = "custom" -- can be "custom", "wildmenu" or "native"
@@ -96,7 +93,6 @@ return {
           -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
           -- This concatonates the icons with the name of the item kind
           vim_item.menu = ({
-            nvim_lsp = "[LSP]",
             luasnip = "[Snippet]",
             buffer = "[Buffer]",
             path = "[Path]",
@@ -105,7 +101,6 @@ return {
         end,
       },
       sources = {
-        { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
@@ -152,10 +147,5 @@ return {
       })
     })
 
-    cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-      sources = {
-        { name = "dap" },
-      },
-    })
   end
 }
