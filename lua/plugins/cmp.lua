@@ -104,7 +104,6 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "crates" }
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

@@ -1,4 +1,5 @@
 return {
+  -- highlight args.
   "m-demare/hlargs.nvim",
   config = function()
     local hlargs = require("hlargs")

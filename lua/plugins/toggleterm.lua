@@ -1,4 +1,5 @@
 return {
+  -- Toggle terminal here.
   "akinsho/toggleterm.nvim", -- terminal
   config = function()
     local toggleterm = require("toggleterm")

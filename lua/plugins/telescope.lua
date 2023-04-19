@@ -1,4 +1,5 @@
 return {
+  -- Find sth easily!
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-telescope/telescope-ui-select.nvim",

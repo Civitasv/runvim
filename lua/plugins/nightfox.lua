@@ -1,4 +1,5 @@
 return {
+  -- Beautiful theme.
   "EdenEast/nightfox.nvim",
   lazy = false,
   config = function()

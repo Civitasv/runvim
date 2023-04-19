@@ -1,4 +1,5 @@
 return {
+  -- Markdown files are good.
   "iamcco/markdown-preview.nvim",
   dependencies = {
     "ekickx/clipboard-image.nvim"

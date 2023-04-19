@@ -1,4 +1,5 @@
 return {
+  -- Another beautiful theme.
   "bluz71/vim-nightfly-colors",
   lazy = true,
   config = function()

@@ -1,4 +1,5 @@
 return {
+  -- It's just a explorer tree.
   "kyazdani42/nvim-tree.lua", -- tree view
   config = function()
     -- following options are the default

@@ -1,4 +1,5 @@
 return {
+  -- Latex, do you really need it?
   "lervag/vimtex",
   config = function()
     vim.cmd [[

@@ -1,4 +1,5 @@
 return {
+  -- A beautiful status line.
   "nvim-lualine/lualine.nvim", -- status line
   config = function()
     local lualine = require("lualine")

@@ -1,4 +1,5 @@
 return {
+  -- Hop, hop!
   "phaazon/hop.nvim",
   config = function()
     local hop = require("hop")

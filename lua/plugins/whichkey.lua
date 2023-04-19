@@ -1,4 +1,5 @@
 return {
+  -- Bear with me, you definitely want to know which key you are touching.
   "folke/which-key.nvim", -- vim which key
   event = "VeryLazy",
   config = function()

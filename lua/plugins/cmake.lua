@@ -15,14 +15,6 @@ return {
         short = { show = true },
         long = { show = true, max_length = 40 }
       },
-      cmake_dap_configuration = {
-        name = "cpp",
-        type = "codelldb",
-        request = "launch",
-        stopOnEntry = false,
-        runInTerminal = true,
-        console = "integratedTerminal",
-      }, -- dap configuration, optional
     })
   end
 }

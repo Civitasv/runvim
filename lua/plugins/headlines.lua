@@ -1,4 +1,5 @@
 return {
+  -- Make markdown header beautiful.
   "lukas-reineke/headlines.nvim",
   lazy = true,
   dependencies = {

@@ -13,14 +13,6 @@ local keymap = vim.keymap.set
 --   command_mode = "c",
 
 ------------------------ Normal Mode -----------------------------------------
--- Debug
-keymap({ "n", "t" }, "<A-o>", function() require "dap".step_out() end, { silent = true, desc = "step out" })
-keymap({ "n", "t" }, "<A-i>", function() require "dap".step_into() end, { silent = true, desc = "step into" })
-keymap({ "n", "t" }, "<A-j>", function() require "dap".step_over() end, { silent = true, desc = "step over" })
-keymap({ "n", "t" }, "<A-h>", function() require "dap".continue() end, { silent = true, desc = "continue" })
-keymap({ "n", "t" }, "<A-k>", function() require("dap.ui.widgets").hover() end, { silent = true, desc = "caculate expr" })
-keymap("n", "<F5>", function() require "dap".toggle_breakpoint() end, { silent = true, desc = "toggle breakpoint" })
-
 -- Redo
 keymap("n", "U", "<C-r>", { silent = true, desc = "Redo" })
 
@@ -97,32 +89,6 @@ keymap("n", "<leader>cn", "<cmd>CMakeClean<CR>", { desc = "Clean CMake target" }
 keymap("n", "<leader>cs", "<cmd>CMakeStop<CR>", { desc = "Stop CMake Process" })
 keymap("n", "<leader>cp", "<cmd>cd %:p:h<CR> ", { desc = "Change pwd to current file" })
 
--- debug
-keymap("n", "<leader>dt", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { desc = "Toggle Condition Breakpoint" })
-keymap("n", "<leader>dk", "<cmd>lua require'dap'.up()<CR>", { desc = "Stack up" })
-keymap("n", "<leader>dj", "<cmd>lua require'dap'.down()<CR>", { desc = "Stack down" })
-keymap("n", "<leader>dn", "<cmd>lua require'dap'.run_to_cursor()<CR>", { desc = "Run To Cursor" })
-keymap("n", "<leader>dq", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Terminate" })
---[[ .exit               Closes the REPL ]]
---[[ .c or .continue     Same as |dap.continue| ]]
---[[ .n or .next         Same as |dap.step_over| ]]
---[[ .into               Same as |dap.step_into| ]]
---[[ .into_target        Same as |dap.step_into{askForTargets=true}| ]]
---[[ .out                Same as |dap.step_out| ]]
---[[ .up                 Same as |dap.up| ]]
---[[ .down               Same as |dap.down| ]]
---[[ .goto               Same as |dap.goto_| ]]
---[[ .scopes             Prints the variables in the current scopes ]]
---[[ .threads            Prints all threads ]]
---[[ .frames             Print the stack frames ]]
---[[ .capabilities       Print the capabilities of the debug adapter ]]
---[[ .b or .back         Same as |dap.step_back| ]]
---[[ .rc or .reverse-continue   Same as |dap.reverse_continue| ]]
-keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<CR>", { desc = "Toggle Repl" })
-keymap("n", "<leader>df", "<cmd>Telescope dap frames<CR>", { desc = "Stack frames" })
-keymap("n", "<leader>db", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "All breakpoints" })
-keymap("n", "<leader>ds", "<cmd>lua require'dap.ui.widgets'.centered_float(require'dap.ui.widgets'.scopes)<CR>", { desc = "View current scope" })
-
 -- find
 keymap("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Colorscheme" })
 keymap("n", "<leader>fC", "<cmd>Telescope commands<CR>", { desc = "Commands" })
@@ -191,8 +157,6 @@ keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { de
 keymap("n", "<leader>n", "<cmd>noh<CR>", { desc = "Clear highlight" })
 
 ---------------------------------- Insert Mode --------------------------
--- Debug
-keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, { silent = true })
 
 keymap("i", "<A-Down>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
 keymap("i", "<A-Up>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })

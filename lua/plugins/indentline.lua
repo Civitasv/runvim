@@ -1,4 +1,5 @@
 return {
+  -- You know you want indent blankline.
   "lukas-reineke/indent-blankline.nvim", -- Indent line
   config = function()
     local indent_blankline = require("indent_blankline")

@@ -1,4 +1,5 @@
 return {
+  -- TODO: Now you know what I mean.
   "folke/todo-comments.nvim", -- Todo comments
   config = function()
     local todo_comments = require("todo-comments")
