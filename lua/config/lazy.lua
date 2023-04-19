@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+print("NOT EXISTES", lazypath)
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -26,5 +27,8 @@ end
 return lazy.setup("plugins", {
   install = {
     colorscheme = { "catppuccin" }
+  },
+  git = {
+    url_format = "git@github.com:%s.git"
   }
 })
