@@ -48,6 +48,19 @@ return {
         blue     = "#82aaff	",
         red      = "#ff5874",
       },
+      light = {
+        bg       = "#f6f2ee",
+        fg       = "#3d2b5a",
+        yellow   = "#ac5402",
+        cyan     = "#287980",
+        darkblue = "#2848a9",
+        green    = "#396847",
+        orange   = "#a5222f",
+        violet   = "#8452d5",
+        magenta  = "#6e33ce",
+        blue     = "#2848a9",
+        red      = "#b3434e",
+      },
       catppuccin_mocha = {
         bg       = "#1E1E2E",
         fg       = "#CDD6F4",
@@ -63,7 +76,7 @@ return {
       }
     }
 
-    colors = colors.catppuccin_mocha;
+    colors = colors.light;
 
     local config = {
       options = {

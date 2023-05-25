@@ -6,6 +6,7 @@ return {
       cmake_build_directory = "",
       cmake_build_directory_prefix = "build/",
       cmake_build_type = "Debug",
+      cmake_soft_link_compile_commands = true,
       cmake_generate_options = { "-D", "CMAKE_EXPORT_COMPILE_COMMANDS=1" },
       cmake_build_options = {},
       cmake_console_size = 10, -- cmake output window height
