@@ -26,4 +26,11 @@ local function change_style()
   end)
 end
 
-vim.keymap.set({ "n" }, "<leader>ss", change_style, { silent = true, desc = "step out" })
+vim.api.nvim_create_user_command(
+  "CChangeCodeStyle", -- name
+  change_style, -- command
+  { -- opts
+    nargs = 0,
+    desc = "Change Code Style for C",
+  }
+)

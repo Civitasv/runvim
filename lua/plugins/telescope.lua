@@ -120,7 +120,7 @@ return {
           require("telescope.themes").get_dropdown {
             -- even more opts
             width = 0.8,
-            previewer = false,
+            previewer = true,
             prompt_title = false,
             borderchars = {
               { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
