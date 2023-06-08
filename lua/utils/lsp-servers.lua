@@ -14,7 +14,6 @@ M.all_servers = {
   "texlab",
   "angularls",
   "eslint",
-  "taplo"
 }
 
 M.regular_servers = {
@@ -27,7 +26,6 @@ M.regular_servers = {
   "texlab",
   "angularls",
   "eslint",
-  "taplo"
 }
 
 return M
