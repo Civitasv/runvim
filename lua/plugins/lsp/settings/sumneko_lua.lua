@@ -2,7 +2,7 @@ return {
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = "LuaJIT",
         path = "$VIMRUNTIME/lua",
       },
       diagnostics = {
