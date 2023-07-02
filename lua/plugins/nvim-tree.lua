@@ -140,6 +140,7 @@ return {
         side = "left",
         number = false,
         relativenumber = false,
+        preserve_window_proportions = true,
       },
       trash = {
         cmd = "trash",
