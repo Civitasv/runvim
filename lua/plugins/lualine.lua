@@ -192,6 +192,9 @@ return {
           end
         end
       end,
+      cond = function()
+        return rawget(vim, "lsp") ~= nil
+      end,
       color = { fg = colors.orange, gui = "bold" }
     }
 
