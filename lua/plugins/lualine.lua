@@ -129,7 +129,7 @@ return {
       function()
         return icons.ui.Line
       end,
-      color = { fg = colors.blue }, -- Sets highlighting of component
+      color = { fg = colors.blue },      -- Sets highlighting of component
       padding = { left = 0, right = 1 }, -- We don't need space before this
     }
 
@@ -180,6 +180,20 @@ return {
     }
 
     ins_left { "location" }
+
+    ins_left {
+      function()
+        -- From Nvchad
+        if rawget(vim, "lsp") then
+          for _, client in ipairs(vim.lsp.get_active_clients()) do
+            if client.attached_buffers[vim.api.nvim_get_current_buf()] and client.name ~= "null-ls" then
+              return (vim.o.columns > 100 and "   LSP: " .. client.name .. "  ") or "   LSP  "
+            end
+          end
+        end
+      end,
+      color = { fg = colors.orange, gui = "bold" }
+    }
 
     ins_left {
       "diagnostics",
@@ -347,7 +361,7 @@ return {
 
     -- Add components to right sections
     ins_right {
-      "o:encoding", -- option component same as &encoding in viml
+      "o:encoding",       -- option component same as &encoding in viml
       fmt = string.upper, -- I'm not sure why it's upper case either ;)
       cond = conditions.hide_in_width,
       color = { fg = colors.green, gui = "bold" },
