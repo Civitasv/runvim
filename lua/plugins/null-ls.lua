@@ -1,5 +1,5 @@
 return {
-  dir = "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+  "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
   config = function()
     -- Null ls is used to configure the methods of `format, diagnostics, completion, code_actions`
     -- which isn't supply by the lsp server.
