@@ -177,10 +177,9 @@ keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "CodeL
 keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
 
 -- markdown
-keymap("n", "<leader>mP", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
+keymap("n", "<leader>mp", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
 keymap("n", "<leader>ms", "<Plug>MarkdownPreviewStop", { desc = "Stop Preview Markdown" })
 keymap("n", "<leader>mt", "<cmd>InsertToc<CR>", { desc = "Insert Tocs" })
-keymap("n", "<leader>mp", "<cmd>PasteImg<CR>", { desc = "Paster Images" })
 
 -- code runner
 keymap("n", "<leader>rr", "<cmd>RunFile<CR>", { desc = "Run File" })
