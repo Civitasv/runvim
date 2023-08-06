@@ -160,7 +160,7 @@ keymap("n", "<leader>go", "<cmd>Telescope git_status<CR>", { desc = "Open change
 keymap("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Checkout branch" })
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Checkout commit" })
 keymap("n", "<leader>gd",
-  "<cmd>lua require('user.utils.diff')()<CR>",
+  "<cmd>lua require('utils.diff')()<CR>",
   { desc = "Diff With" }
 )
 
