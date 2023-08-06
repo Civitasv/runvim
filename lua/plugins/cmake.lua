@@ -1,5 +1,8 @@
 return {
   dir = "~/.local/share/nvim/personal/cmake-tools.nvim",
+  dependencies = {
+    "stevearc/overseer.nvim",
+  },
   config = function()
     require("cmake-tools").setup({
       cmake_command = "cmake",                                      -- this is used to specify cmake command path
@@ -24,7 +27,7 @@ return {
         console = "integratedTerminal",
       },
       cmake_executor = {         -- executor to use
-        name = "terminal",       -- name of the executor
+        name = "quickfix",       -- name of the executor
         opts = {},               -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
         default_opts = {         -- a list of default and possible values for executors
           quickfix = {
