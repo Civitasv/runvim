@@ -25,9 +25,6 @@ end
 
 -- Install Plugins
 return lazy.setup("plugins", {
-  install = {
-    colorscheme = { "catppuccin" }
-  },
   git = {
     url_format = "git@github.com:%s.git"
   }

@@ -1,13 +1,13 @@
 return {
-  "hrsh7th/nvim-cmp", -- The completion plugin
+  "hrsh7th/nvim-cmp",           -- The completion plugin
   dependencies = {
-    "hrsh7th/cmp-buffer", -- buffer completions
-    "hrsh7th/cmp-path", -- path completions
-    "hrsh7th/cmp-cmdline", -- cmdline completions
+    "hrsh7th/cmp-buffer",       -- buffer completions
+    "hrsh7th/cmp-path",         -- path completions
+    "hrsh7th/cmp-cmdline",      -- cmdline completions
     "saadparwaiz1/cmp_luasnip", -- snippet completions
     "hrsh7th/cmp-nvim-lsp",
     -- snippets
-    "L3MON4D3/LuaSnip", --snippet engine
+    "L3MON4D3/LuaSnip",             --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
     "rcarriga/cmp-dap",
   },
@@ -26,7 +26,7 @@ return {
       return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
     end
 
-    local winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel"
+    local winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None"
     -- find more here: https://www.nerdfonts.com/cheat-sheet
 
     cmp.setup {
@@ -116,12 +116,12 @@ return {
         select = false,
       },
       window = {
-        completion = cmp.config.window.bordered(
-          {
-            winhighlight = winhighlight,
-            scrollbar    = false
-          }),
-        documentation = cmp.config.window.bordered({ winhighlight = winhighlight }),
+        completion =
+        {
+          scrollbar    = false,
+          winhighlight = winhighlight,
+        },
+        documentation = { winhighlight = winhighlight },
       }
     }
 

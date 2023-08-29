@@ -4,7 +4,6 @@ return {
     -- following options are the default
     -- each of these are documented in `:help nvim-tree.OPTION_NAME`
     local nvim_tree = require("nvim-tree")
-    local nvim_tree_config = require("nvim-tree.config")
     local icons = require("config.icons")
 
     --

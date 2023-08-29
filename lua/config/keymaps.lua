@@ -234,5 +234,6 @@ keymap("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search res
 
 ---------------------------------- Terminal Mode ---------------------------
 -- <C-\>: toggle terminal window
--- Alt+x: exit terminal mode
-keymap("t", "<A-x>", [[<C-\><C-n>]], { silent = true })
+-- Alt+z: exit terminal mode
+keymap("t", "<A-z>", [[<C-\><C-n>]], { silent = true })
+
