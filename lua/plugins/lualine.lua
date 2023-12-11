@@ -76,7 +76,7 @@ return {
       }
     }
 
-    colors = colors.light;
+    colors = colors.nightfly;
 
     local config = {
       options = {
