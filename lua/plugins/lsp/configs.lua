@@ -92,6 +92,12 @@ lspconfig.clangd.setup({
     require("clangd_extensions.inlay_hints").setup_autocmd()
     require("clangd_extensions.inlay_hints").set_inlay_hints()
   end,
+  on_new_config = function(new_config, new_cwd)
+    local status, cmake = pcall(require, "cmake-tools")
+    if status then
+      cmake.clangd_on_new_config(new_config)
+    end
+  end,
   cmd = require("plugins.lsp.settings.clangd").cmd
 })
 

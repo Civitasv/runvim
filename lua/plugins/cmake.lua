@@ -10,8 +10,8 @@ return {
       cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
       cmake_build_options = { "-j4" },                                     -- this will be passed when invoke `CMakeBuild`
       cmake_build_directory = "out/${variant:buildType}",                                   -- this is used to specify generate directory for cmake
-      cmake_soft_link_compile_commands = true,                      -- this will automatically make a soft link from compile commands file to project root dir
-      cmake_compile_commands_from_lsp = false,                      -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
+      cmake_soft_link_compile_commands = false,                      -- this will automatically make a soft link from compile commands file to project root dir
+      cmake_compile_commands_from_lsp = true,                      -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
       cmake_kits_path = "/Users/civitasv/.local/share/CMakeTools/cmake-tools-kits.json",                                        -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
       cmake_variants_message = {
         short = { show = true },                                    -- whether to show short message
