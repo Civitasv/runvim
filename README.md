@@ -13,33 +13,8 @@
 
 ## Showcase
 
-![alpha](images/alpha.png)
-
-![search](images/search.png)
-
-![lsp](images/lsp.png)
-
-![terminal](images/terminal.png)
-
-![docs](images/docs.png)
-
-![whichkey](images/whichkey.png)
-
-![diffview](images/diffview.png)
-
-> note: right side is current version, left side is compared version.
-
-**Now you can compare file with any older commit:**
-
-![compare file with any older commit](images/file_history.gif)
-
-**And you even can compare older version file with any older version file:**
-
-![ex](images/older_file_diff.gif)
-
-Now Debugger is a pleasure.
-
-![debugger](images/debugger.png)
+![showcase1](images/showcase1.png)
+![showcase2](images/showcase2.png)
 
 ## Installation
 
@@ -65,6 +40,8 @@ git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 
 I've added documention for almost all keymaps in my configuration. See [keymaps](keymaps.md).
 
 ## Timeline
+- 2023-12-19
+  - Make it simpler and clearer.
 - 2023-01-29
   - Use lazy.nvim to substitute packer.
   > lua/config: basic configuration
@@ -75,7 +52,7 @@ I've added documention for almost all keymaps in my configuration. See [keymaps]
 - 2022-09-12
   - Use mason & mason-lsp-config to replace lsp-installer.
 - 2022-07-23
-  - Replace lsp_lines for showing diagnostic info
+  - Replace lsp\_lines for showing diagnostic info
 - 2022-07-16
   - Add ability to compare file with any older commit.
 - 2022-07-14:
