@@ -51,9 +51,9 @@ local function diffWith()
         return item.hash_id .. " > " .. item.message
       end,
     }, function(choice)
-      gitsigns.diffthis(choice.hash_id)
-      -- With vim-fugitive
-      -- vim.cmd("Gvdiffsplit " .. choice.hash_id)
+      if choice and choice.hash_id then
+        gitsigns.diffthis(choice.hash_id)
+      end
     end)
   end
 end
