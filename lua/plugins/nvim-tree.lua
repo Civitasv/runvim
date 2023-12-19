@@ -147,12 +147,7 @@ return {
       },
       renderer = {
         indent_markers = {
-          enable = true,
-          icons = {
-            corner = "└ ",
-            edge = "│ ",
-            none = "  ",
-          },
+          enable = false,
         },
         root_folder_modifier = ":t",
         highlight_git = true,

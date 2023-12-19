@@ -4,7 +4,7 @@ return {
     local indent_blankline = require("indent_blankline")
 
     indent_blankline.setup({
-      enabled = true,
+      enabled = false,
       char = "",
       show_trailing_blankline_indent = false,
       show_first_indent_level = true,

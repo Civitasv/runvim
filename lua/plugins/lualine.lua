@@ -4,7 +4,6 @@ return {
     local lualine = require("lualine")
 
     local cmake = require("cmake-tools")
-    local icons = require("config.icons")
 
     -- Credited to [evil_lualine](https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua)
     local conditions = {
@@ -21,6 +20,46 @@ return {
       end,
     }
 
+    -- stylua: ignore start
+    local modes = {
+      ["n"]      = "NO",
+      ["no"]     = "OP",
+      ["nov"]    = "OC",
+      ["noV"]    = "OL",
+      ["no\x16"] = "OB",
+      ["\x16"]   = "VB",
+      ["niI"]    = "IN",
+      ["niR"]    = "RE",
+      ["niV"]    = "RV",
+      ["nt"]     = "NT",
+      ["ntT"]    = "TM",
+      ["v"]      = "VI",
+      ["vs"]     = "VI",
+      ["V"]      = "VL",
+      ["Vs"]     = "VL",
+      ["\x16s"]  = "VB",
+      ["s"]      = "SE",
+      ["S"]      = "SL",
+      ["\x13"]   = "SB",
+      ["i"]      = "IN",
+      ["ic"]     = "IC",
+      ["ix"]     = "IX",
+      ["R"]      = "RE",
+      ["Rc"]     = "RC",
+      ["Rx"]     = "RX",
+      ["Rv"]     = "RV",
+      ["Rvc"]    = "RC",
+      ["Rvx"]    = "RX",
+      ["c"]      = "CO",
+      ["cv"]     = "CV",
+      ["r"]      = "PR",
+      ["rm"]     = "PM",
+      ["r?"]     = "P?",
+      ["!"]      = "SH",
+      ["t"]      = "TE",
+    }
+    -- stylua: ignore end
+
     local colors = {
       normal = {
         bg       = "#202328",
@@ -36,8 +75,8 @@ return {
         red      = "#ec5f67",
       },
       nightfly = {
-        bg       = "#011627",
-        fg       = "#acb4c2",
+        bg       = "#2e3440",
+        fg       = "#cbced2",
         yellow   = "#ecc48d",
         cyan     = "#7fdbca",
         darkblue = "#82aaff",
@@ -126,87 +165,26 @@ return {
     end
 
     ins_left {
-      function()
-        return icons.ui.Line
-      end,
-      color = { fg = colors.blue },      -- Sets highlighting of component
-      padding = { left = 0, right = 1 }, -- We don't need space before this
-    }
-
-    ins_left {
       -- mode component
-      function()
-        return icons.ui.Evil
-      end,
+      "mode",
       color = function()
         -- auto change color according to neovims mode
-        local mode_color = {
-          n = colors.red,
-          i = colors.green,
-          v = colors.blue,
-          [""] = colors.blue,
-          V = colors.blue,
-          c = colors.magenta,
-          no = colors.red,
-          s = colors.orange,
-          S = colors.orange,
-          [""] = colors.orange,
-          ic = colors.yellow,
-          R = colors.violet,
-          Rv = colors.violet,
-          cv = colors.red,
-          ce = colors.red,
-          r = colors.cyan,
-          rm = colors.cyan,
-          ["r?"] = colors.cyan,
-          ["!"] = colors.red,
-          t = colors.red,
-        }
-        return { fg = mode_color[vim.fn.mode()] }
+        return { bg = colors.fg, fg = colors.bg }
       end,
-      padding = { right = 1 },
-    }
-
-    ins_left {
-      -- filesize component
-      "filesize",
-      cond = conditions.buffer_not_empty,
+      padding = { right = 1, left = 1 },
     }
 
     ins_left {
       "filename",
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.magenta, gui = "bold" },
-    }
-
-    ins_left { "location" }
-
-    ins_left {
-      function()
-        -- From Nvchad
-        if rawget(vim, "lsp") then
-          for _, client in ipairs(vim.lsp.get_active_clients()) do
-            if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-              return (vim.o.columns > 100 and "   LSP: " .. client.name .. "  ") or "   LSP  "
-            end
-          end
-        end
-      end,
-      cond = function()
-        return rawget(vim, "lsp") ~= nil
-      end,
-      color = { fg = colors.orange, gui = "bold" }
+      color = { fg = colors.fg, gui = "bold" },
     }
 
     ins_left {
-      "diagnostics",
-      sources = { "nvim_diagnostic" },
-      symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning, info = icons.diagnostics.Information },
-      diagnostics_color = {
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
-      },
+      "o:encoding",       -- option component same as &encoding in viml
+      fmt = string.upper, -- I'm not sure why it's upper case either ;)
+      cond = conditions.hide_in_width,
+      color = { fg = colors.fg, gui = "bold" },
     }
 
     ins_left {
@@ -214,7 +192,6 @@ return {
         local c_preset = cmake.get_configure_preset()
         return "CMake: [" .. (c_preset and c_preset or "X") .. "]"
       end,
-      icon = icons.ui.Search,
       cond = function()
         return cmake.is_cmake_project() and cmake.has_cmake_preset()
       end,
@@ -232,7 +209,6 @@ return {
         local type = cmake.get_build_type()
         return "CMake: [" .. (type and type or "") .. "]"
       end,
-      icon = icons.ui.Search,
       cond = function()
         return cmake.is_cmake_project() and not cmake.has_cmake_preset()
       end,
@@ -248,9 +224,8 @@ return {
     ins_left {
       function()
         local kit = cmake.get_kit()
-        return "[" .. (kit and kit or "X") .. "]"
+        return "{" .. (kit and kit or "X") .. "}"
       end,
-      icon = icons.ui.Pencil,
       cond = function()
         return cmake.is_cmake_project() and not cmake.has_cmake_preset()
       end,
@@ -265,25 +240,9 @@ return {
 
     ins_left {
       function()
-        return "Build"
-      end,
-      icon = icons.ui.Gear,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeBuild")
-          end
-        end
-      end
-    }
-
-    ins_left {
-      function()
         local b_preset = cmake.get_build_preset()
         return "[" .. (b_preset and b_preset or "X") .. "]"
       end,
-      icon = icons.ui.Search,
       cond = function()
         return cmake.is_cmake_project() and cmake.has_cmake_preset()
       end,
@@ -299,7 +258,7 @@ return {
     ins_left {
       function()
         local b_target = cmake.get_build_target()
-        return "[" .. (b_target and b_target or "X") .. "]"
+        return "<" .. (b_target and b_target or "X") .. ">"
       end,
       cond = cmake.is_cmake_project,
       on_click = function(n, mouse)
@@ -313,36 +272,8 @@ return {
 
     ins_left {
       function()
-        return icons.ui.Debug
-      end,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeDebug")
-          end
-        end
-      end
-    }
-
-    ins_left {
-      function()
-        return icons.ui.Run
-      end,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeRun")
-          end
-        end
-      end
-    }
-
-    ins_left {
-      function()
         local l_target = cmake.get_launch_target()
-        return "[" .. (l_target and l_target or "X") .. "]"
+        return "(" .. (l_target and l_target or "X") .. ")"
       end,
       cond = cmake.is_cmake_project,
       on_click = function(n, mouse)
@@ -364,46 +295,6 @@ return {
 
     -- Add components to right sections
     ins_right {
-      "o:encoding",       -- option component same as &encoding in viml
-      fmt = string.upper, -- I'm not sure why it's upper case either ;)
-      cond = conditions.hide_in_width,
-      color = { fg = colors.green, gui = "bold" },
-    }
-
-    ins_right {
-      "fileformat",
-      fmt = string.upper,
-      icons_enabled = false,
-      color = { fg = colors.green, gui = "bold" },
-    }
-
-    ins_right {
-      function()
-        return vim.api.nvim_buf_get_option(0, "shiftwidth")
-      end,
-      icons_enabled = false,
-      color = { fg = colors.green, gui = "bold" },
-    }
-
-    ins_right {
-      "branch",
-      icon = icons.git.Branch,
-      color = { fg = colors.violet, gui = "bold" },
-    }
-
-    ins_right {
-      "diff",
-      -- Is it me or the symbol for modified us really weird
-      symbols = { added = icons.git.Add, modified = icons.git.Mod, removed = icons.git.Remove },
-      diff_color = {
-        added = { fg = colors.green },
-        modified = { fg = colors.orange },
-        removed = { fg = colors.red },
-      },
-      cond = conditions.hide_in_width,
-    }
-
-    ins_right {
       function()
         local current_line = vim.fn.line(".")
         local total_lines = vim.fn.line("$")
@@ -412,15 +303,7 @@ return {
         local index = math.ceil(line_ratio * #chars)
         return chars[index]
       end,
-      color = { fg = colors.orange, gui = "bold" }
-    }
-
-    ins_right {
-      function()
-        return "▊"
-      end,
-      color = { fg = colors.blue },
-      padding = { left = 1 },
+      color = { fg = colors.fg, gui = "bold" }
     }
 
     -- Now don't forget to initialize lualine

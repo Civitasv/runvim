@@ -38,7 +38,9 @@ local function diffWith()
   -- check if it is a fugitive file
   if isFugitiveFile() then
     vim.ui.input({ prompt = "Please input commit hash id to compare with current version: " }, function(input)
-      vim.cmd("Gvdiffsplit! " .. input)
+      if input then
+        vim.cmd("Gvdiffsplit! " .. input)
+      end
     end)
   else
     local commits = get_all_commits_of_this_file();

@@ -90,13 +90,12 @@ return {
         },
       },
       symbol_in_winbar = {
-        enable = true,
-        separator = " - ",
+        enable = false,
+        separator = " › ",
         hide_keyword = true,
         show_file = true,
-        folder_level = 2,
-        respect_root = false,
-        color_mode = true,
+        folder_level = 1,
+        color_mode = false,
       },
     })
   end,
