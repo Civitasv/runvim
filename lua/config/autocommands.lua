@@ -63,3 +63,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "CMakeToolsEnterProject",
+  callback = function(event)
+  end
+})

@@ -293,6 +293,10 @@ return {
       end,
     }
 
+    ins_right {
+      "searchcount"
+    }
+
     -- Add components to right sections
     ins_right {
       function()
