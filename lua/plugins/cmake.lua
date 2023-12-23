@@ -78,7 +78,7 @@ return {
             }, -- options to pass into the `overseer.new_task` command
             on_new_task = function(task)
               require("overseer").open(
-                { enter = false, direction = "right" }
+                { enter = false, direction = "left" }
               )
             end,   -- a function that gets overseer.Task when it is created, before calling `task:start`
           },
@@ -101,7 +101,7 @@ return {
         },
       },
       cmake_runner = {               -- runner to use
-        name = "overseer",           -- name of the runner
+        name = "terminal",           -- name of the runner
         opts = {},                   -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
         default_opts = {             -- a list of default and possible values for runners
           quickfix = {
@@ -122,10 +122,10 @@ return {
             on_new_task = function(task) end, -- a function that gets overseer.Task when it is created, before calling `task:start`
           },
           terminal = {
-            name = "Main Terminal",
+            name = "Runner Terminal",
             prefix_name = "[CMakeTools]: ", -- This must be included and must be unique, otherwise the terminals will not work. Do not use a simple spacebar " ", or any generic name
             split_direction = "horizontal", -- "horizontal", "vertical"
-            split_size = 11,
+            split_size = 10,
 
             -- Window handling
             single_terminal_per_instance = true,  -- Single viewport, multiple windows
@@ -133,8 +133,8 @@ return {
             keep_terminal_static_location = true, -- Static location of the viewport if avialable
 
             -- Running Tasks
-            start_insert = false,       -- If you want to enter terminal with :startinsert
-            focus = false,              -- Focus on cmake terminal when cmake task is launched.
+            start_insert = true,       -- If you want to enter terminal with :startinsert
+            focus = true,              -- Focus on cmake terminal when cmake task is launched.
             do_not_add_newline = false, -- Do not hit enter on the command inserted when using :CMakeRun, allowing a chance to review or modify the command before hitting enter.
           },
         },
