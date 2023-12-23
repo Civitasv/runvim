@@ -1,10 +1,17 @@
+local osys = require("utils.osys")
+
 vim.api.nvim_create_autocmd("BufReadCmd", {
   pattern = {
     "*.png", "*.jpg", "*.jpeg", "*.gif", "*.pdf", "*ico"
   },
   callback = function()
-    vim.cmd([[silent exe '!xdg-open ' shellescape(expand('<afile>'))]])
-    vim.cmd([[Bdelete]])
+    if osys.ismac then
+      vim.cmd([[silent exe '!open ' shellescape(expand('<afile>'))]])
+      vim.cmd([[Bdelete]])
+    elseif osys.islinux then
+      vim.cmd([[silent exe '!xdg-open ' shellescape(expand('<afile>'))]])
+      vim.cmd([[Bdelete]])
+    end
   end
 })
 
