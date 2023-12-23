@@ -45,28 +45,15 @@ return {
       mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-        ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ["<C-e>"] = cmp.mapping {
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
-        },
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm { select = false },
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if luasnip.expandable() then
-            cmp.close()
-            luasnip.expand()
-          elseif luasnip.expand_or_jumpable() then
-            cmp.close()
-            luasnip.expand_or_jump()
-          elseif cmp.visible() then
+          if cmp.visible() then
             cmp.select_next_item()
-          elseif check_backspace() then
-            fallback()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
           else
             fallback()
           end

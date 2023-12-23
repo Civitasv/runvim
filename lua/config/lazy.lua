@@ -27,5 +27,8 @@ end
 return lazy.setup("plugins", {
   git = {
     url_format = "git@github.com:%s.git"
+  },
+  change_detection = {
+    notify = false
   }
 })

@@ -3,6 +3,9 @@ return {
   event = "BufRead",
   config = function()
     require("lspsaga").setup({
+      ui = {
+        border = "shadow"
+      },
       preview = {
         lines_above = 0,
         lines_below = 10,
