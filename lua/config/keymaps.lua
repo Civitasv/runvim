@@ -133,7 +133,7 @@ keymap("n", "<leader>fF",
   "<cmd>lua require('telescope.builtin').find_files({no_ignore=true})<CR>",
   { desc = "Find files but no ignore" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help" })
-keymap("n", "<leader>fl", "<cmd>Telescope resume<CR>", { desc = "Last Search" })
+keymap("n", "<leader>f<leader>", "<cmd>Telescope resume<CR>", { desc = "Last Search" })
 keymap("n", "<leader>fm", "<cmd>Telescope man_pages<CR>", { desc = "Man Pages" })
 keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Recent File" })
 keymap("n", "<leader>fR", "<cmd>Telescope registers<CR>", { desc = "Registers" })
