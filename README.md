@@ -20,8 +20,71 @@
 
 ### Pre-requisites
 
-1. Neovim version > 0.7.
+1. Neovim version > 0.9.
 2. A Nerd Font for your terminal.
+
+```txt
+├── after
+│   └── ftplugin
+│       ├── NvimTree.lua
+│       ├── c.lua
+│       ├── dap-float.lua
+│       ├── fugitive.lua
+│       ├── help.lua
+│       ├── rust.lua
+│       └── toml.lua
+├── init.lua
+├── lua
+│   ├── config
+│   │   ├── autocommands.lua -- auto cmd
+│   │   ├── icons.lua        -- icons
+│   │   ├── keymaps.lua      -- keybindings
+│   │   ├── lazy.lua         -- lazy package manager
+│   │   ├── neovide.lua      -- for neovide gui
+│   │   └── options.lua      -- useful option
+│   ├── plugins
+│   │   ├── alpha.lua        -- dashboard
+│   │   ├── autopairs.lua    -- autopairs
+│   │   ├── catppuccin.lua   -- beautiful theme
+│   │   ├── cmake.lua        -- cmake support
+│   │   ├── cmp.lua          -- completion
+│   │   ├── code-runner.lua  -- run code
+│   │   ├── codeium.lua      -- codeium
+│   │   ├── comment.lua      -- just comment me
+│   │   ├── crates.lua       -- rust
+│   │   ├── daps             -- for debugger
+│   │   ├── editorconfig.lua -- editorconfig
+│   │   ├── github_theme.lua -- github theme, another theme
+│   │   ├── gitsigns.lua     -- gitsign
+│   │   ├── headlines.lua    -- headline for markdown
+│   │   ├── hlargs.lua       -- highlight args
+│   │   ├── hop.lua          -- hop!
+│   │   ├── impatient.lua    -- maybe don't need it
+│   │   ├── indentline.lua   -- indent line
+│   │   ├── init.lua         -- entry for plugins
+│   │   ├── kanagawa.lua     -- another theme
+│   │   ├── lsp              -- for lsp
+│   │   ├── lsp_lines.lua    -- lsp lines
+│   │   ├── lspsaga.lua      -- for better lsp
+│   │   ├── lualine.lua      -- modeline
+│   │   ├── markdown.lua     -- markdown support
+│   │   ├── mason.lua        -- lsp server manager
+│   │   ├── neodev.lua       -- neovim development
+│   │   ├── nightfly.lua     -- another theme
+│   │   ├── nightfox.lua     -- another theme
+│   │   ├── notify.lua       -- vim.notify
+│   │   ├── nvim-tree.lua    -- nvim tree
+│   │   ├── nvim-ufo.lua     -- fold
+│   │   ├── surround.lua     -- surround operation
+│   │   ├── telescope.lua    -- find everything
+│   │   ├── todo-comments.lua -- todo
+│   │   ├── toggleterm.lua   -- toggle terminal
+│   │   ├── treesitter.lua   -- treesitter support
+│   │   ├── vimtex.lua       -- latex
+│   │   └── whichkey.lua     -- which key are you inputting
+└── snippets                 -- useful snippets
+    └── tex.snippets
+```
 
 ### For Unix
 
@@ -34,10 +97,6 @@ git clone https://github.com/Civitasv/runvim ~/.config/nvim --depth 1 ; nvim
 ```bash
 git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 ; nvim
 ```
-
-## keymaps Documention
-
-I've added documention for almost all keymaps in my configuration. See [keymaps](keymaps.md).
 
 ## Timeline
 - 2023-12-19
