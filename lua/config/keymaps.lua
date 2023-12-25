@@ -237,3 +237,8 @@ keymap("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search res
 -- Control+z: exit terminal mode
 keymap("t", "<C-z>", [[<C-\><C-n>]], { silent = true })
 
+---------------------------------- Just for Macos ---------------------------
+keymap("t", "<C-v>", function()
+  local next_char = vim.fn.nr2char(vim.fn.getchar())
+  return '<C-\\><C-N>"' .. next_char .. "pi"
+end, { expr = true })
