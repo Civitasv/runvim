@@ -36,7 +36,6 @@ local options = {
   sidescrolloff = 8,
   errorbells = false, -- no error bells
   title = true, -- show title in terminal header
-  smoothscroll = true,
   fillchars = {
     diff = "",
     fold = " ",
