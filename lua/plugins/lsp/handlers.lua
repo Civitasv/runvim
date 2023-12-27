@@ -5,9 +5,9 @@ local icons = require("config.icons")
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-    { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-    { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-    { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+    { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+    { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+    { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
   }
 
   for _, sign in ipairs(signs) do
@@ -92,7 +92,7 @@ local function lsp_highlight_document(client, bufnr)
   end
 end
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymaps(client, bufnr)
   local keymap = function(mode, key, action)
     vim.keymap.set(mode, key, action, { buffer = bufnr })
   end
@@ -166,7 +166,12 @@ local function lsp_keymaps(bufnr)
   -- Note that if you use hover with ++keep, pressing this key again will
   -- close the hover window. If you want to jump to the hover window
   -- you should use the wincmd command "<C-w>w"
-  keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+
+  if client.name == "rust_analyzer" then
+    keymap("n", "K", "<cmd>RustHoverActions<CR>")
+  else
+    keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+  end
 
   -- Call hierarchy
   keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
@@ -174,7 +179,7 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  lsp_keymaps(bufnr)
+  lsp_keymaps(client, bufnr)
   lsp_highlight_document(client, bufnr)
 end
 

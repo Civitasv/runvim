@@ -2,7 +2,7 @@ local osys = require("utils.osys")
 
 vim.api.nvim_create_autocmd("BufReadCmd", {
   pattern = {
-    "*.png", "*.jpg", "*.jpeg", "*.gif", "*.pdf", "*ico"
+    "*.png", "*.jpg", "*.jpeg", "*.gif", "*.pdf", "*.ico", "*.tga"
   },
   callback = function()
     if osys.ismac then

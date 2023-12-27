@@ -113,11 +113,6 @@ require("rust-tools").setup({
     -- default: true
     autoSetHints = true,
 
-    -- whether to show hover actions inside the hover window
-    -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-    -- default: true
-    hover_with_actions = false,
-
     -- how to execute terminal commands
     -- options right now: termopen / quickfix
     executor = require("rust-tools/executors").termopen,
@@ -175,20 +170,11 @@ require("rust-tools").setup({
     hover_actions = {
       -- the border that is used for the hover window
       -- see vim.api.nvim_open_win()
-      border = {
-        { "┌", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "┐", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "┘", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "└", "FloatBorder" },
-        { "│", "FloatBorder" },
-      },
+      border = "shadow",
 
       -- whether the hover action window gets automatically focused
       -- default: false
-      auto_focus = true,
+      auto_focus = false,
     },
 
     -- settings for showing the crate graph based on graphviz and the dot
