@@ -21,45 +21,6 @@ return {
     }
 
     -- stylua: ignore start
-    local modes = {
-      ["n"]      = "NO",
-      ["no"]     = "OP",
-      ["nov"]    = "OC",
-      ["noV"]    = "OL",
-      ["no\x16"] = "OB",
-      ["\x16"]   = "VB",
-      ["niI"]    = "IN",
-      ["niR"]    = "RE",
-      ["niV"]    = "RV",
-      ["nt"]     = "NT",
-      ["ntT"]    = "TM",
-      ["v"]      = "VI",
-      ["vs"]     = "VI",
-      ["V"]      = "VL",
-      ["Vs"]     = "VL",
-      ["\x16s"]  = "VB",
-      ["s"]      = "SE",
-      ["S"]      = "SL",
-      ["\x13"]   = "SB",
-      ["i"]      = "IN",
-      ["ic"]     = "IC",
-      ["ix"]     = "IX",
-      ["R"]      = "RE",
-      ["Rc"]     = "RC",
-      ["Rx"]     = "RX",
-      ["Rv"]     = "RV",
-      ["Rvc"]    = "RC",
-      ["Rvx"]    = "RX",
-      ["c"]      = "CO",
-      ["cv"]     = "CV",
-      ["r"]      = "PR",
-      ["rm"]     = "PM",
-      ["r?"]     = "P?",
-      ["!"]      = "SH",
-      ["t"]      = "TE",
-    }
-    -- stylua: ignore end
-
     local colors = {
       normal = {
         bg       = "#202328",
@@ -77,6 +38,19 @@ return {
       nightfly = {
         bg       = "#2e3440",
         fg       = "#cbced2",
+        yellow   = "#ecc48d",
+        cyan     = "#7fdbca",
+        darkblue = "#82aaff",
+        green    = "#21c7a8",
+        orange   = "#e3d18a",
+        violet   = "#a9a1e1",
+        magenta  = "#ae81ff",
+        blue     = "#82aaff	",
+        red      = "#ff5874",
+      },
+      kanagawa = {
+        bg       = "#16161D",
+        fg       = "#C8C093",
         yellow   = "#ecc48d",
         cyan     = "#7fdbca",
         darkblue = "#82aaff",
@@ -115,7 +89,7 @@ return {
       }
     }
 
-    colors = colors.nightfly;
+    colors = colors.kanagawa;
 
     local config = {
       options = {

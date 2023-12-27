@@ -20,7 +20,7 @@ return {
         g = false
       },
       window = {
-        border = "shadow"
+        border = "single"
       }
     })
     which_key.register({

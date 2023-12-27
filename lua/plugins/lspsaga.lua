@@ -4,7 +4,7 @@ return {
   config = function()
     require("lspsaga").setup({
       ui = {
-        border = "shadow"
+        border = "single"
       },
       preview = {
         lines_above = 0,

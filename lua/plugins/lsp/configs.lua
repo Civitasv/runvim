@@ -170,7 +170,7 @@ require("rust-tools").setup({
     hover_actions = {
       -- the border that is used for the hover window
       -- see vim.api.nvim_open_win()
-      border = "shadow",
+      border = "single",
 
       -- whether the hover action window gets automatically focused
       -- default: false
