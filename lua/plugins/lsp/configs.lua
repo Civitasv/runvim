@@ -26,7 +26,7 @@ require("clangd_extensions").setup {
   inlay_hints = {
     inline = vim.fn.has("nvim-0.10") == 1,
     -- Only show inlay hints for the current line
-    only_current_line = false,
+    only_current_line = true,
     -- Event which triggers a refersh of the inlay hints.
     -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
     -- not that this may cause  higher CPU usage.
