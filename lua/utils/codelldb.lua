@@ -1,21 +1,24 @@
 local M = {}
 
-local is_unix = vim.fn.has("unix") == 1
-local is_win32 = vim.fn.has("win32") == 1
-local is_wsl = vim.fn.has("wsl") == 1
+local osys = require("utils.osys")
+
 local extension_path
 local codelldb_path
 local liblldb_path
 
-if is_wsl then
+if osys.iswsl then
   extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.8.1/"
   codelldb_path = extension_path .. "adapter/codelldb"
   liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-elseif is_unix then
+elseif osys.islinux then
   extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
   codelldb_path = extension_path .. "adapter/codelldb"
   liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-elseif is_win32 then
+elseif osys.ismac then
+  extension_path = vim.env.HOME .. "/.vscode-insiders/extensions/vadimcn.vscode-lldb-1.10.0/"
+  codelldb_path = extension_path .. "adapter/codelldb"
+  liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+elseif osys.iswin32 then
   extension_path = vim.env.HOME .. "C:\\Users\\senhu\\.vscode\\extensions\\vadimcn.vscode-lldb-1.8.1\\"
   codelldb_path = extension_path .. "adapter\\codelldb"
   liblldb_path = extension_path .. "lldb\\lib\\liblldb.so"
