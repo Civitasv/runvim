@@ -200,6 +200,14 @@ keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { de
 
 keymap("n", "<leader>n", "<cmd>noh<CR>", { desc = "Clear highlight" })
 
+-- trouble
+keymap("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Show trouble" })
+keymap("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Workspace diagnostics" })
+keymap("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = "Document diagnostics" })
+keymap("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "Open Quickfix" })
+keymap("n", "<leader>xo", function() require("trouble").toggle("loclist") end, { desc = "Loc list" })
+keymap("n", "<leader>xl", function() require("trouble").toggle("lsp_references") end, { desc = "Lsp references" })
+
 ---------------------------------- Insert Mode --------------------------
 -- Debug
 keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, { silent = true })

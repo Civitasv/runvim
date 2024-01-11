@@ -35,6 +35,7 @@ return {
       ["<leader>m"] = { name = "+markdown" },
       ["<leader>r"] = { name = "+code_runner" },
       ["<leader>t"] = { name = "+terminal" },
+      ["<leader>x"] = { name = "+trouble" },
     })
   end
 }

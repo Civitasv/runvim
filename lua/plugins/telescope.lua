@@ -5,10 +5,10 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" },
   },
   config = function()
-
     local telescope = require("telescope")
     local icons = require("config.icons")
-    local actions = require "telescope.actions"
+    local actions = require("telescope.actions")
+    local trouble = require("trouble.providers.telescope")
 
     telescope.setup {
       defaults = {
@@ -69,13 +69,13 @@ return {
             ["<CR>"] = actions.select_default,
             ["<C-x>"] = actions.select_horizontal,
             ["<C-v>"] = actions.select_vertical,
-            ["<C-t>"] = actions.select_tab,
 
             ["<C-u>"] = actions.preview_scrolling_up,
             ["<C-d>"] = actions.preview_scrolling_down,
 
             ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
             ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+            ["<C-t>"] = trouble.open_with_trouble,
           },
 
           n = {
@@ -84,7 +84,7 @@ return {
             ["<CR>"] = actions.select_default,
             ["<C-x>"] = actions.select_horizontal,
             ["<C-v>"] = actions.select_vertical,
-            ["<C-t>"] = actions.select_tab,
+            ["<C-t>"] = trouble.open_with_trouble,
 
             ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
             ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -141,10 +141,10 @@ return {
       | `!^music` | inverse-prefix-exact-match | Items that do not start with `music` |
       | `!.mp3$`  | inverse-suffix-exact-match | Items that do not end with `.mp3`    |
       ]]
-          fuzzy = true, -- false will only do exact matching
+          fuzzy = true,                   -- false will only do exact matching
           override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          override_file_sorter = true,    -- override the file sorter
+          case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
         themes = {},
