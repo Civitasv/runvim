@@ -78,10 +78,10 @@ require("clangd_extensions").setup {
     },
   },
   memory_usage = {
-    border = "none",
+    border = "single",
   },
   symbol_info = {
-    border = "none",
+    border = "single",
   },
 }
 
