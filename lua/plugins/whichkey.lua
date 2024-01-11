@@ -30,7 +30,6 @@ return {
       ["<leader>d"] = { name = "+debug" },
       ["<leader>f"] = { name = "+find" },
       ["<leader>g"] = { name = "+git" },
-      ["<leader>h"] = { name = "+hop" },
       ["<leader>l"] = { name = "+lsp" },
       ["<leader>m"] = { name = "+markdown" },
       ["<leader>r"] = { name = "+code_runner" },
