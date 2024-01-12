@@ -59,7 +59,7 @@ return {
         console = "integratedTerminal",
       },
       cmake_executor = {             -- executor to use
-        name = "overseer",           -- name of the executor
+        name = "quickfix",           -- name of the executor
         opts = {},                   -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
         default_opts = {             -- a list of default and possible values for executors
           quickfix = {
@@ -75,12 +75,9 @@ return {
                 autos_croll = true,
                 quit_on_exit = "success"
               }
-            }, -- options to pass into the `overseer.new_task` command
+            },   -- options to pass into the `overseer.new_task` command
             on_new_task = function(task)
-              require("overseer").open(
-                { enter = false, direction = "left" }
-              )
-            end,   -- a function that gets overseer.Task when it is created, before calling `task:start`
+            end, -- a function that gets overseer.Task when it is created, before calling `task:start`
           },
           terminal = {
             name = "Main Terminal",
@@ -133,8 +130,8 @@ return {
             keep_terminal_static_location = true, -- Static location of the viewport if avialable
 
             -- Running Tasks
-            start_insert = true,       -- If you want to enter terminal with :startinsert
-            focus = true,              -- Focus on cmake terminal when cmake task is launched.
+            start_insert = true,        -- If you want to enter terminal with :startinsert
+            focus = true,               -- Focus on cmake terminal when cmake task is launched.
             do_not_add_newline = false, -- Do not hit enter on the command inserted when using :CMakeRun, allowing a chance to review or modify the command before hitting enter.
           },
         },
