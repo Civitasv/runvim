@@ -4,6 +4,7 @@ M.all_servers = {
   -- "jsonls",
   "lua_ls",
   "clangd",
+  "hls",
   "prosemd_lsp",
   "cssls",
   "rust_analyzer",
