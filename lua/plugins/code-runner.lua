@@ -13,6 +13,7 @@ return {
         rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
         c = "cd $dir && mkdir -p bin && cd bin && gcc ../$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
         cpp = "cd $dir && mkdir -p bin && cd bin && g++ ../$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+        haskell = "ghc $fileName && ./$fileNameWithoutExt"
       },
       project = {}
     })

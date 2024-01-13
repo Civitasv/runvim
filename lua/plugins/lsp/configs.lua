@@ -278,3 +278,23 @@ require("rust-tools").setup({
     adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb.codelldb_path, codelldb.liblldb_path),
   },
 })
+
+-- for haskell
+vim.g.haskell_tools = {
+  ---@type ToolsOpts
+  tools = {
+    -- ...
+  },
+  ---@type HaskellLspClientOpts
+  hls = {
+    ---@param client number The LSP client ID.
+    ---@param bufnr number The buffer number
+    ---@param ht HaskellTools = require('haskell-tools')
+    on_attach = on_attach,
+    -- ...
+  },
+  ---@type HTDapOpts
+  dap = {
+    -- ...
+  },
+}
