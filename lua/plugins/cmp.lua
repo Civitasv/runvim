@@ -21,12 +21,42 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_snipmate").lazy_load()
 
-    local check_backspace = function()
-      local col = vim.fn.col "." - 1
-      return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-    end
+    local cmp_style = "atom" -- either default, atom
+    local field_arrangement = {
+      default = { "abbr", "kind", "menu" },
+      atom = { "kind", "abbr", "menu" },
+    }
+    local formatting_style = {
+      -- default fields order i.e completion word + item.kind + item.kind icons
+      fields = field_arrangement[cmp_style] or { "abbr", "kind", "menu" },
 
-    local winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None"
+      format = function(_, item)
+        local icon = (kind_icons[item.kind]) or ""
+
+        if cmp_style == "atom" then
+          icon = " " .. icon .. " "
+          item.menu = "   (" .. item.kind .. ")"
+          item.kind = icon
+        else
+          icon = (" " .. icon .. " ")
+          item.kind = string.format("%s %s", icon, item.kind)
+        end
+
+        return item
+      end,
+    }
+    local function border(hl_name)
+      return {
+        { "╭", hl_name },
+        { "─", hl_name },
+        { "╮", hl_name },
+        { "│", hl_name },
+        { "╯", hl_name },
+        { "─", hl_name },
+        { "╰", hl_name },
+        { "│", hl_name },
+      }
+    end
     -- find more here: https://www.nerdfonts.com/cheat-sheet
 
     cmp.setup {
@@ -74,23 +104,7 @@ return {
           "s",
         }),
       },
-      formatting = {
-        fields = { "kind", "abbr", "menu" },
-        max_width = 0,
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-          -- This concatonates the icons with the name of the item kind
-          vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-          })[entry.source.name]
-          return vim_item
-        end,
-      },
+      formatting = formatting_style,
       sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
@@ -102,13 +116,18 @@ return {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       },
+      completion = {
+        completeopt = "menu,menuone"
+      },
       window = {
         completion =
         {
           scrollbar    = false,
-          winhighlight = winhighlight,
+          winhighlight = "Normal:Cmpmenu,FloatBorder:Cmpmenu,CursorLine:PmenuSel,Search:None",
+          border       = border("CmpDocBorder"),
+          side_padding = 0,
         },
-        documentation = { winhighlight = winhighlight },
+        documentation = { winhighlight = "Normal:CmpDoc", border = border("CmpDocBorder") },
       }
     }
 

@@ -7,12 +7,12 @@ return {
     -- Default options:
     require("kanagawa").setup({
       compile = false,  -- enable compiling the colorscheme
-      undercurl = true, -- enable undercurls
+      undercurl = false, -- enable undercurls
       commentStyle = { italic = false },
-      functionStyle = {},
+      functionStyle = { bold = true },
       keywordStyle = { italic = false, bold = true },
       statementStyle = { bold = true },
-      typeStyle = {},
+      typeStyle = { bold = true },
       transparent = false,   -- do not set background color
       dimInactive = true,   -- dim inactive window `:h hl-NormalNC`
       terminalColors = true, -- define vim.g.terminal_color_{0,17}
