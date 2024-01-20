@@ -93,7 +93,7 @@ return {
       },
       hooks = {},                 -- See ':h diffview-config-hooks'
       keymaps = {
-        disable_defaults = false, -- Disable the default keymaps
+        disable_defaults = true, -- Disable the default keymaps
         view = {
           -- The `view` bindings are active in the diff buffers, only when the current
           -- tabpage is a Diffview.
