@@ -145,7 +145,10 @@ keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
 
 -- git
 keymap("n", "<leader>gg", "<cmd>Neogit<CR>", { desc = "Open Neogit" })
-keymap("n", "<leader>gf", "<cmd>DiffviewFileHistory<CR>", { desc = "File history" })
+
+-- :[range]DiffviewFileHistory [paths] [options]
+keymap("n", "<leader>ghf", "<cmd>DiffviewFileHistory %<CR>", { desc = "File history" })
+keymap("n", "<leader>ghb", "<cmd>DiffviewFileHistory<CR>", { desc = "Branch history" })
 keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<CR>", { desc = "Next Hunk" })
 keymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", { desc = "Prev Hunk" })
 keymap("n", "<leader>gl", function() require("neogit").open({ "log" }) end, { desc = "Git Log Information" })
@@ -157,6 +160,7 @@ keymap("n", "<leader>gu",
   "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
   { desc = "Undo Stage Hunk" }
 )
+-- :DiffviewOpen <commit_id>..<commit_id>
 keymap("n", "<leader>gdo", "<cmd>DiffviewOpen<CR>", { desc = "Open Diffview" })
 keymap("n", "<leader>gdc", "<cmd>DiffviewClose<CR>", { desc = "Close Diffview" })
 
