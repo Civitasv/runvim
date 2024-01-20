@@ -103,15 +103,6 @@ local function lsp_keymaps(client, bufnr)
   -- you can use <C-t> to jump back
   keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
-  -- Code action
-  keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
-
-  -- Rename all occurrences of the hovered word for the entire file
-  keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
-
-  -- Rename all occurrences of the hovered word for the selected files
-  keymap("n", "gR", "<cmd>Lspsaga rename ++project<CR>")
-
   -- Peek definition
   -- You can edit the file containing the definition in the floating window
   -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
@@ -159,10 +150,6 @@ local function lsp_keymaps(client, bufnr)
   else
     keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
   end
-
-  -- Call hierarchy
-  keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
-  keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 end
 
 M.on_attach = function(client, bufnr)

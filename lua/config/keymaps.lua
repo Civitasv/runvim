@@ -82,23 +82,23 @@ keymap("n", "<leader>bb", "<cmd>lua require('telescope.builtin').buffers()<CR>",
 keymap("n", "<leader>bd", "<cmd>Bdelete<CR>", { desc = "Delete current buffer" })
 
 -- cmake
-keymap("n", "<leader>cg", "<cmd>CMakeGenerate<CR>", { desc = "Generate" })
-keymap("n", "<leader>cx", "<cmd>CMakeGenerate!<CR>", { desc = "Clean and generate" })
+keymap("n", "<leader>cc", "<cmd>CMakeGenerate<CR>", { desc = "Generate" })
 keymap("n", "<leader>cb", "<cmd>CMakeBuild<CR>", { desc = "Build" })
-keymap("n", "<leader>cr", "<cmd>CMakeRun<CR>", { desc = "Run" })
+keymap("n", "<leader>cx", "<cmd>CMakeRun<CR>", { desc = "Run" })
 keymap("n", "<leader>cd", "<cmd>CMakeDebug<CR>", { desc = "Debug" })
-keymap("n", "<leader>cy", "<cmd>CMakeSelectBuildType<CR>", { desc = "Select Build Type" })
-keymap("n", "<leader>ct", "<cmd>CMakeSelectBuildTarget<CR>", { desc = "Select Build Target" })
+keymap("n", "<leader>ct", "<cmd>CMakeSelectBuildType<CR>", { desc = "Select Build Type" })
+keymap("n", "<leader>cu", "<cmd>CMakeSelectBuildTarget<CR>", { desc = "Select Build Target" })
 keymap("n", "<leader>cl", "<cmd>CMakeSelectLaunchTarget<CR>", { desc = "Select Launch Target" })
-keymap("n", "<leader>ce", "<cmd>CMakeOpenExecutor<CR>", { desc = "Open CMake Console" })
-keymap("n", "<leader>cc", "<cmd>CMakeCloseExecutor<CR>", { desc = "Close CMake Console" })
+keymap("n", "<leader>ceo", "<cmd>CMakeOpenExecutor<CR>", { desc = "Open CMake Executor" })
+keymap("n", "<leader>cec", "<cmd>CMakeCloseExecutor<CR>", { desc = "Close CMake Executor" })
+keymap("n", "<leader>cro", "<cmd>CMakeOpenRunner<CR>", { desc = "Open CMake Runner" })
+keymap("n", "<leader>crc", "<cmd>CMakeCloseRunner<CR>", { desc = "Close CMake Runner" })
 keymap("n", "<leader>ci", "<cmd>CMakeInstall<CR>", { desc = "Intall CMake target" })
 keymap("n", "<leader>cn", "<cmd>CMakeClean<CR>", { desc = "Clean CMake target" })
 keymap("n", "<leader>cs", function()
   vim.cmd([[CMakeStopRunner]])
   vim.cmd([[CMakeStopExecutor]])
 end, { desc = "Stop CMake Process" })
-keymap("n", "<leader>cp", "<cmd>cd %:p:h<CR> ", { desc = "Change pwd to current file" })
 
 -- debug
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { desc = "Toggle Condition Breakpoint" })
@@ -127,8 +127,6 @@ keymap("n", "<leader>db", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "A
 keymap("n", "<leader>ds", "<cmd>lua require'dap.ui.widgets'.centered_float(require'dap.ui.widgets'.scopes)<CR>", { desc = "View current scope" })
 
 -- find
-keymap("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Colorscheme" })
-keymap("n", "<leader>fC", "<cmd>Telescope commands<CR>", { desc = "Commands" })
 keymap("n", "<leader>ff",
   [[<cmd>lua require('telescope.builtin').find_files()<CR>]],
   { desc = "Find files" })
@@ -145,7 +143,6 @@ keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
 
 -- git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "Lazygit" })
-
 keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<CR>", { desc = "Next Hunk" })
 keymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", { desc = "Prev Hunk" })
 keymap("n", "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", { desc = "Preview Hunk" })
@@ -157,8 +154,6 @@ keymap("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", {
 -- lsp
 keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", { desc = "Format" })
-keymap("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Info" })
-keymap("n", "<leader>lI", "<cmd>LspInstallInfo<CR>", { desc = "Installer Info" })
 keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "CodeLens Action" })
 keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
 
