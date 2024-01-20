@@ -60,13 +60,18 @@ return {
         console = "integratedTerminal",
       },
       cmake_executor = {             -- executor to use
-        name = "quickfix",           -- name of the executor
+        name = "quickfix",         -- name of the executor
         opts = {},                   -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
         default_opts = {             -- a list of default and possible values for executors
           quickfix = {
             show = "always",         -- "always", "only_on_error"
             position = "belowright", -- "bottom", "top"
             size = 10,
+          },
+          toggleterm = {
+            direction = "float",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
+            close_on_exit = false, -- whether close the terminal when exit
+            auto_scroll = true,    -- whether auto scroll to the bottom
           },
           overseer = {
             new_task_opts = {
@@ -87,8 +92,8 @@ return {
             split_size = 11,
 
             -- Window handling
-            single_terminal_per_instance = true,  -- Single viewport, multiple windows
-            single_terminal_per_tab = true,       -- Single viewport per tab
+            single_terminal_per_instance = true,  -- Single instance, multiple windows
+            single_terminal_per_tab = true,       -- Single instance per tab
             keep_terminal_static_location = true, -- Static location of the viewport if avialable
 
             -- Running Tasks
@@ -109,6 +114,11 @@ return {
             encoding = "utf-8",
             auto_close_when_success = false, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
           },
+          toggleterm = {
+            direction = "float",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
+            close_on_exit = false, -- whether close the terminal when exit
+            auto_scroll = true,    -- whether auto scroll to the bottom
+          },
           overseer = {
             new_task_opts = {
               strategy = {
@@ -126,8 +136,8 @@ return {
             split_size = 10,
 
             -- Window handling
-            single_terminal_per_instance = true,  -- Single viewport, multiple windows
-            single_terminal_per_tab = true,       -- Single viewport per tab
+            single_terminal_per_instance = true,  -- Single instance, multiple windows
+            single_terminal_per_tab = true,       -- Single instance per tab
             keep_terminal_static_location = true, -- Static location of the viewport if avialable
 
             -- Running Tasks
