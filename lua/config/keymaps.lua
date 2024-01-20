@@ -79,7 +79,7 @@ keymap("n", "<leader>a", "<cmd>Alpha<CR>", { desc = "Show Alpha" })
 
 -- buffers
 keymap("n", "<leader>bb", "<cmd>lua require('telescope.builtin').buffers()<CR>", { desc = "Switcg Buffers" })
-keymap("n", "<leader>bd", "<cmd>Bdelete!<CR>", { desc = "Delete current buffer" })
+keymap("n", "<leader>bd", "<cmd>Bdelete<CR>", { desc = "Delete current buffer" })
 
 -- cmake
 keymap("n", "<leader>cg", "<cmd>CMakeGenerate<CR>", { desc = "Generate" })
@@ -144,14 +144,12 @@ keymap("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Keymaps" })
 keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
 
 -- git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "Lazygit" })
-keymap("n", "<leader>gf", "<cmd>0Gclog<CR>", { desc = "File history" })
+keymap("n", "<leader>gg", "<cmd>Neogit<CR>", { desc = "Open Neogit" })
+keymap("n", "<leader>gf", "<cmd>DiffviewFileHistory<CR>", { desc = "File history" })
 keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<CR>", { desc = "Next Hunk" })
 keymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", { desc = "Prev Hunk" })
-keymap("n", "<leader>gL", "<cmd>G blame<CR>", { desc = "Git Blame Information" })
-keymap("n", "<leader>gl", "<cmd>Gclog<CR>", { desc = "Git Log Information" })
+keymap("n", "<leader>gl", function() require("neogit").open({ "log" }) end, { desc = "Git Log Information" })
 keymap("n", "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", { desc = "Preview Hunk" })
-keymap("n", "<leader>gP", "<cmd>G push<CR>", { desc = "Push..." })
 keymap("n", "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", { desc = "Reset Hunk" })
 keymap("n", "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", { desc = "Reset Buffer" })
 keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", { desc = "Stage Hunk" })
@@ -159,13 +157,8 @@ keymap("n", "<leader>gu",
   "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
   { desc = "Undo Stage Hunk" }
 )
-keymap("n", "<leader>go", "<cmd>Telescope git_status<CR>", { desc = "Open changed file" })
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Checkout branch" })
-keymap("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Checkout commit" })
-keymap("n", "<leader>gd",
-  "<cmd>lua require('utils.diff')()<CR>",
-  { desc = "Diff With" }
-)
+keymap("n", "<leader>gdo", "<cmd>DiffviewOpen<CR>", { desc = "Open Diffview" })
+keymap("n", "<leader>gdc", "<cmd>DiffviewClose<CR>", { desc = "Close Diffview" })
 
 -- lsp
 keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })

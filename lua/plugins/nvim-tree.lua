@@ -1,5 +1,6 @@
 return {
   "kyazdani42/nvim-tree.lua", -- tree view
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     -- following options are the default
     -- each of these are documented in `:help nvim-tree.OPTION_NAME`
