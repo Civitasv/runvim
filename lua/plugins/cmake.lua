@@ -3,6 +3,7 @@ return {
   dependencies = {
     "stevearc/overseer.nvim",
   },
+  lazy = true,
   config = function()
     require("overseer").setup({
       task_list = {
