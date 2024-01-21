@@ -50,6 +50,7 @@ return {
         relative = "cursor"
       })
       -- suppress error messages from lang servers
+      ---@diagnostic disable-next-line: duplicate-set-field
       vim.notify = function(msg, log_level)
         if msg:match "exit code" then
           return

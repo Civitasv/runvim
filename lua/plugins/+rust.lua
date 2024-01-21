@@ -146,6 +146,7 @@ return {
     "simrat39/rust-tools.nvim",
     config = function()
       local codelldb = require("utils.codelldb")
+      local lsp = require("utils.lsp")
       vim.g.rust_recommended_style = false
       require("rust-tools").setup({
         tools = { -- rust-tools options
@@ -307,7 +308,7 @@ return {
           standalone = true,
           -- options to pass to nvim-lspconfig
           -- i.e. the arguments to require("lspconfig").clangd.setup({})
-          on_attach = on_attach,
+          on_attach = lsp.on_attach,
           settings = {
             ["rust-analyzer"] = {
               cargo = {
