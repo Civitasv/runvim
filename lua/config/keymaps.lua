@@ -169,8 +169,6 @@ keymap("n", "<leader>rc", "<cmd>RunClose<CR>", { desc = "Close" })
 
 -- terminal
 keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Node" })
-keymap("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<CR>", { desc = "NCDU" })
-keymap("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Htop" })
 keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Python" })
 keymap("n", "<leader>tg", "<cmd>lua _GLOW_TOGGLE()<CR>", { desc = "Preview markdown" })
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Float" })
