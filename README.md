@@ -24,6 +24,12 @@
 
 ![lsp](images/lsp.png)
 
+### README
+
+> powerd by [glow](https://github.com/charmbracelet/glow)
+
+![glow](images/glow.png)
+
 ### C++
 
 > powerd by [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim), [cmake_tools.nvim](https://github.com/Civitasv/cmake-tools.nvim), [nvim-dap](https://github.com/mfussenegger/nvim-dap)
