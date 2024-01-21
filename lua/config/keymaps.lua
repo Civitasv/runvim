@@ -215,6 +215,21 @@ keymap("v", "p", '"_dP', { silent = true })
 -- Move text up and down
 keymap("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- Open the selected
+local function visual_range()
+  local a_orig = vim.fn.getreg("a")
+  vim.cmd([[silent! normal! "aygv]])
+  local text = vim.fn.getreg("a")
+  vim.fn.setreg("a", a_orig)
+  return text
+end
+
+keymap("v", "o", function()
+  local _ = visual_range()
+  -- check if it is a file
+  vim.cmd([[silent exe '!open ' shellescape(expand('<cfile>'))]])
+end, { desc = "Open selected things " })
 ---------------------------------- Visual Block Mode ------------------------
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", { silent = true })
