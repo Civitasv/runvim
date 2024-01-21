@@ -672,16 +672,22 @@ return {
         python:toggle()
       end
 
+      local glow = {
+        term = nil,
+        id = nil
+      }
+      glow.term = Terminal:new({
+        hidden = true,
+        float_opts = { border = "double" },
+        on_exit = function(t)
+          glow.id = nil
+        end
+      })
       function _GLOW_TOGGLE()
-        local file = vim.fn.expand("%:p")
-        local glow = Terminal:new({
-          hidden = true,
-          float_opts = { border = "double" },
-          on_open = function(t)
-            t:send("glow " .. file .. " -p")
-          end
-        })
-        glow:toggle()
+        local file = vim.fn.expand("%")
+        glow.term:toggle()
+        glow.term:send("glow " .. file .. " -p")
+        glow.id = glow.term.job_id
       end
     end
   },
