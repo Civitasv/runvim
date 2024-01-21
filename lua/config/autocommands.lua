@@ -7,10 +7,10 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
   callback = function()
     if osys.ismac then
       vim.cmd([[silent exe '!open ' shellescape(expand('<afile>'))]])
-      vim.cmd([[bdelete]])
+      vim.cmd([[Bdelete]])
     elseif osys.islinux then
       vim.cmd([[silent exe '!xdg-open ' shellescape(expand('<afile>'))]])
-      vim.cmd([[bdelete]])
+      vim.cmd([[Bdelete]])
     end
   end
 })

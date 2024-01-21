@@ -146,7 +146,6 @@ return {
           "--header-insertion=iwyu",
         },
       })
-      require("plugins.lsp.handlers").setup()
     end
   },
   {

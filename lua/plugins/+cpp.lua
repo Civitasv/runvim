@@ -1,6 +1,6 @@
 return {
   {
-    "p00f/clangd_extensions.nvim",   -- clangd extension, some good stuff
+    "p00f/clangd_extensions.nvim", -- clangd extension, some good stuff
     config = function()
       local icons = require("config.icons")
 
@@ -70,7 +70,8 @@ return {
     end
   },
   {
-    dir = "~/.local/share/nvim/personal/cmake-tools.nvim",
+    -- dir = "~/.local/share/nvim/personal/cmake-tools.nvim",
+    "Civitasv/cmake-tools.nvim",
     dependencies = {
       "stevearc/overseer.nvim",
     },

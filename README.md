@@ -2,19 +2,35 @@
 
 > It's **runvim**, not run vim, but **ru**n **N**eo**vim**.
 
-* [Showcase](#showcase)
-* [Installation](#installation)
-  * [Pre-requisites](#pre-requisites)
-  * [For Unix](#for-unix)
-  * [For Windows](#for-windows)
-* [keymaps Documention](#keymaps-documention)
-* [Timeline](#timeline)
+🌟 Mainly for C/C++ development.
 
+[[toc]]
 
-## Showcase
+## Screenshots
 
-![showcase1](images/showcase1.png)
-![showcase2](images/showcase2.png)
+### Dashboard
+
+> powerd by [alpha-nvim](https://github.com/goolord/alpha-nvim)
+
+![dashboard](images/dashboard.png)
+
+### Git
+
+> powerd by [lazygit](https://github.com/jesseduffield/lazygit)
+
+![lazygit](images/lazygit.png)
+
+### Lsp
+
+> powerd by [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [Mason](https://github.com/williamboman/mason.nvim), [lspsaga](https://github.com/nvimdev/lspsaga.nvim)
+
+![lsp](images/lsp.png)
+
+### C++
+
+> powerd by [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim), [cmake_tools.nvim](https://github.com/Civitasv/cmake-tools.nvim), [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+
+![cpp](images/cpp.gif)
 
 ## Installation
 
@@ -28,8 +44,10 @@
 │   └── ftplugin
 │       ├── NvimTree.lua
 │       ├── c.lua
+│       ├── cabal.lua
+│       ├── cpp.lua
 │       ├── dap-float.lua
-│       ├── fugitive.lua
+│       ├── haskell.lua
 │       ├── help.lua
 │       ├── rust.lua
 │       └── toml.lua
@@ -43,46 +61,19 @@
 │   │   ├── neovide.lua      -- for neovide gui
 │   │   └── options.lua      -- useful option
 │   ├── plugins
-│   │   ├── alpha.lua        -- dashboard
-│   │   ├── autopairs.lua    -- autopairs
-│   │   ├── catppuccin.lua   -- beautiful theme
-│   │   ├── cmake.lua        -- cmake support
-│   │   ├── cmp.lua          -- completion
-│   │   ├── code-runner.lua  -- run code
-│   │   ├── codeium.lua      -- codeium
-│   │   ├── comment.lua      -- just comment me
-│   │   ├── crates.lua       -- rust
-│   │   ├── daps             -- for debugger
-│   │   ├── editorconfig.lua -- editorconfig
-│   │   ├── github_theme.lua -- github theme, another theme
-│   │   ├── gitsigns.lua     -- gitsign
-│   │   ├── headlines.lua    -- headline for markdown
-│   │   ├── hlargs.lua       -- highlight args
-│   │   ├── hop.lua          -- hop!
-│   │   ├── impatient.lua    -- maybe don't need it
-│   │   ├── indentline.lua   -- indent line
-│   │   ├── init.lua         -- entry for plugins
-│   │   ├── kanagawa.lua     -- another theme
-│   │   ├── lsp              -- for lsp
-│   │   ├── lsp_lines.lua    -- lsp lines
-│   │   ├── lspsaga.lua      -- for better lsp
-│   │   ├── lualine.lua      -- modeline
-│   │   ├── markdown.lua     -- markdown support
-│   │   ├── mason.lua        -- lsp server manager
-│   │   ├── neodev.lua       -- neovim development
-│   │   ├── nightfly.lua     -- another theme
-│   │   ├── nightfox.lua     -- another theme
-│   │   ├── notify.lua       -- vim.notify
-│   │   ├── nvim-tree.lua    -- nvim tree
-│   │   ├── nvim-ufo.lua     -- fold
-│   │   ├── surround.lua     -- surround operation
-│   │   ├── telescope.lua    -- find everything
-│   │   ├── todo-comments.lua -- todo
-│   │   ├── toggleterm.lua   -- toggle terminal
-│   │   ├── treesitter.lua   -- treesitter support
-│   │   ├── vimtex.lua       -- latex
-│   │   └── whichkey.lua     -- which key are you inputting
-└── snippets                 -- useful snippets
+│   │   ├── +colorscheme.lua -- colorscheme
+│   │   ├── +cpp.lua         -- for c/cpp
+│   │   ├── +dap.lua         -- debug adapter
+│   │   ├── +filetree.lua    -- filetree
+│   │   ├── +git.lua         -- for git
+│   │   ├── +haskell.lua     -- for haskell
+│   │   ├── +latex.lua       -- for latex
+│   │   ├── +lsp.lua         -- lsp configuration
+│   │   ├── +markdown.lua    -- for markdown
+│   │   ├── +rust.lua        -- for rust
+│   │   ├── +ui.lua          -- ui configuration
+│   │   └── +utility.lua     -- utility plugins
+└── snippets                 -- custom snippets
     └── tex.snippets
 ```
 
@@ -98,45 +89,8 @@ git clone https://github.com/Civitasv/runvim ~/.config/nvim --depth 1 ; nvim
 git clone https://github.com/Civitasv/runvim $HOME\AppData\Local\nvim --depth 1 ; nvim
 ```
 
-## Timeline
-- 2023-12-19
-  - Make it simpler and clearer.
-- 2023-01-29
-  - Use lazy.nvim to substitute packer.
-  > lua/config: basic configuration
-  > lua/plugins: plugin spec, will be loaded by lazy.nvim
-  > lua/utils: common util function
-- 2023-01-11
-  - Make debugger easier to use.
-- 2022-09-12
-  - Use mason & mason-lsp-config to replace lsp-installer.
-- 2022-07-23
-  - Replace lsp\_lines for showing diagnostic info
-- 2022-07-16
-  - Add ability to compare file with any older commit.
-- 2022-07-14:
-  - Add keymaps docs, make it clearer and easier.
-  - Add rust crates support.
-- 2022-07-07:
-  - Add support for LaTeX: vimtex
-  - Add Code fold: nvim-ufo
-  - Add motion: hop
-  - Add autocommand for png, gif, pdf, etc
-- 2022-06-18:
-  - Lsp Stuff
-  - Dap Stuff
-  - Treesitter
-  - More modern neovim features
-- 2022-05-04:
-  - Rewrite configuration in lua
-  - It's more consistent and more useful
-  - Telescope
-  - Lsp
-  - Dap
-  - Treesitter
-  - and more
-
 ## Reference
 
 1. [LunarVim](https://github.com/LunarVim/LunarVim)
-2. [Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch)
+2. [NvChad](https://github.com/NvChad/NvChad)
+3. [Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch)
