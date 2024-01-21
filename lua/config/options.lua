@@ -57,8 +57,6 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.g.rust_recommended_style = false
-
 --[[ if vim.fn.has("nvim-0.9") == 1 and not vim.opt.diff:get() then ]]
 --[[   vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s%C" ]]
 --[[ end ]]

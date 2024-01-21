@@ -7,7 +7,6 @@ vim.keymap.set("n", "<leader>rcu", "<cmd>lua require('crates').update_crate()<CR
 vim.keymap.set("n", "<leader>rcU", "<cmd>lua require('crates').upgrade_crate()<CR>", { desc = "Upgrade crates", buffer = true })
 vim.keymap.set("n", "<leader>rca", "<cmd>lua require('crates').update_all_crates()<CR>", { desc = "Update all crates", buffer = true })
 vim.keymap.set("n", "<leader>rcA", "<cmd>lua require('crates').upgrade_all_crates()<CR>", { desc = "Upgrade all crates", buffer = true })
-vim.keymap.set("n", "<leader>rck", "<cmd>lua require('user.utils.crates').show_documentation()<CR>", { desc = "Show crate docs", buffer = true })
 vim.keymap.set("n", "<leader>rch", "<cmd>lua require('crates').open_homepage()<CR>", { desc = "Open crates homepage", buffer = true })
 vim.keymap.set("n", "<leader>rcR", "<cmd>lua require('crates').open_repository()<CR>", { desc = "Open crates repo", buffer = true })
 vim.keymap.set("n", "<leader>rcD", "<cmd>lua require('crates').open_documentation()<CR>", { desc = "Open crates docs", buffer = true })
