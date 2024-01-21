@@ -4,8 +4,6 @@
 
 🌟 Mainly for C/C++ development.
 
-[[toc]]
-
 ## Screenshots
 
 ### Dashboard
