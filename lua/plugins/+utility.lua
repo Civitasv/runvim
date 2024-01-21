@@ -671,6 +671,18 @@ return {
       function _PYTHON_TOGGLE()
         python:toggle()
       end
+
+      function _GLOW_TOGGLE()
+        local file = vim.fn.expand("%:p")
+        local glow = Terminal:new({
+          hidden = true,
+          float_opts = { border = "double" },
+          on_open = function(t)
+            t:send("glow " .. file .. " -p")
+          end
+        })
+        glow:toggle()
+      end
     end
   },
   {
