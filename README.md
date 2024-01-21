@@ -24,7 +24,7 @@
 
 ![lsp](images/lsp.png)
 
-### README
+### Markdown Preview
 
 > powerd by [glow](https://github.com/charmbracelet/glow)
 
