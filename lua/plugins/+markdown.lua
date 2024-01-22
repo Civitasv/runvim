@@ -7,10 +7,10 @@ return {
     ft = { "markdown" },
     config = function()
       vim.cmd([[
-      let g:mkdp_theme = 'dark'
       let g:mkdp_auto_start=0
       let g:mkdp_auto_close=0
       let g:mkdp_refresh_slow=0
+      let g:mkdp_markdown_css = expand("~/.config/nvim/markdown/github-markdown.css")
     ]])
     end
   },
@@ -20,7 +20,7 @@ return {
       require("mdp").setup(
         {
           pdfviewer = "Skim",
-          template = "eisvogel"
+          template = "lecture"
         }
       )
     end

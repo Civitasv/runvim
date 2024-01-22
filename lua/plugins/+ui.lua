@@ -105,6 +105,7 @@ return {
       local lualine = require("lualine")
 
       local cmake = require("cmake-tools")
+      local mdp = require("mdp")
 
       -- Credited to [evil_lualine](https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua)
       local conditions = {
@@ -256,10 +257,16 @@ return {
       }
 
       ins_left {
-        "o:encoding",     -- option component same as &encoding in viml
+        "o:encoding",       -- option component same as &encoding in viml
         fmt = string.upper, -- I'm not sure why it's upper case either ;)
         cond = conditions.hide_in_width,
         color = { fg = colors.fg, gui = "bold" },
+      }
+
+      ins_left {
+        function()
+          return mdp.status()
+        end,
       }
 
       ins_left {
