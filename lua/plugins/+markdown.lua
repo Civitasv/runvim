@@ -11,6 +11,7 @@ return {
       let g:mkdp_auto_close=0
       let g:mkdp_refresh_slow=0
       let g:mkdp_markdown_css = expand("~/.config/nvim/markdown/github-markdown.css")
+      let g:mkdp_browser = 'Safari'
     ]])
     end
   },
@@ -20,7 +21,7 @@ return {
       require("mdp").setup(
         {
           pdfviewer = "Skim",
-          template = "lecture"
+          template = "eisvogel"
         }
       )
     end
