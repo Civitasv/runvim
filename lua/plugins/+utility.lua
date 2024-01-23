@@ -206,25 +206,12 @@ return {
   },
   {
     "numToStr/Comment.nvim", -- Easily comment stuff
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     config = function()
-      local comment = require("Comment")
+      vim.g.skip_ts_context_commentstring_module = true
 
-      comment.setup {
-        pre_hook = function(ctx)
-          local U = require "Comment.utils"
-
-          local location = nil
-          if ctx.ctype == U.ctype.block then
-            location = require("ts_context_commentstring.utils").get_cursor_location()
-          elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-            location = require("ts_context_commentstring.utils").get_visual_start_location()
-          end
-
-          return require("ts_context_commentstring.internal").calculate_commentstring {
-            key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
-            location = location,
-          }
-        end,
+      require("Comment").setup {
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       }
     end
   },
@@ -349,7 +336,8 @@ return {
       local surround = require("nvim-surround")
 
       surround.setup({
-        keymaps = { -- vim-surround style keymaps
+        keymaps = {
+                    -- vim-surround style keymaps
           insert = "<C-g>s",
           normal = "ys",
           visual = "S",
@@ -695,7 +683,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
     },
     config = function()
       local configs = require("nvim-treesitter.configs")
@@ -704,7 +691,7 @@ return {
 
       configs.setup {
         -- A list of parser names, or "all"
-        ensure_installed = { "c", "lua", "cpp", "bash", "bibtex", "clojure", "css", "gitignore", "gitcommit", "git_rebase", "gitattributes", "json", "python", "scss", "scheme", "sql", "toml", "typescript", "yaml", "rust", "vue", "javascript", "markdown", "markdown_inline", "haskell" },
+        ensure_installed = { "c", "lua", "cpp", "bash", "bibtex", "clojure", "css", "gitignore", "gitcommit", "git_rebase", "gitattributes", "json", "python", "scss", "scheme", "sql", "toml", "typescript", "yaml", "rust", "vue", "javascript", "markdown", "markdown_inline", "haskell", "tsx" },
         auto_install = false,
         sync_install = false,                  -- install languages synchronously (only applied to `ensure_installed`)
         ignore_install = { "hack", "rnoweb" }, -- List of parsers to ignore installing
@@ -718,11 +705,6 @@ return {
         },
         indent = { enable = true, disable = { "yaml" } },
       }
-
-      vim.g.skip_ts_context_commentstring_module = true
-
-      require("ts_context_commentstring").setup {
-      }
     end
   },
   {
@@ -732,18 +714,19 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-      position = "bottom", -- position of the list can be: bottom, top, left, right
-      height = 10, -- height of the trouble list when position is top or bottom
-      width = 50, -- width of the list when position is left or right
-      icons = true, -- use devicons for filenames
+      position = "bottom",            -- position of the list can be: bottom, top, left, right
+      height = 10,                    -- height of the trouble list when position is top or bottom
+      width = 50,                     -- width of the list when position is left or right
+      icons = true,                   -- use devicons for filenames
       mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-      severity = nil, -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
-      fold_open = "", -- icon used for open folds
-      fold_closed = "", -- icon used for closed folds
-      group = true, -- group results by file
-      padding = true, -- add an extra new line on top of the list
-      cycle_results = true, -- cycle item list when reaching beginning or end of list
-      action_keys = { -- key mappings for actions in the trouble list
+      severity = nil,                 -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
+      fold_open = "",              -- icon used for open folds
+      fold_closed = "",            -- icon used for closed folds
+      group = true,                   -- group results by file
+      padding = true,                 -- add an extra new line on top of the list
+      cycle_results = true,           -- cycle item list when reaching beginning or end of list
+      action_keys = {
+                                      -- key mappings for actions in the trouble list
         -- map to {} to remove a mapping, for example:
         -- close = {},
         close = "q",                                                                        -- close the list
