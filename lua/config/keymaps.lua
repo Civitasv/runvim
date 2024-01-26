@@ -154,7 +154,7 @@ keymap("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", {
 -- lsp
 keymap("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", { desc = "Format" })
-keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "CodeLens Action" })
+keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "Codelens Action" })
 keymap("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
 
 -- markdown
