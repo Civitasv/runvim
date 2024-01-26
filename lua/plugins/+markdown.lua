@@ -16,13 +16,15 @@ return {
     end
   },
   {
-    --[[ dir = "~/.local/share/nvim/personal/mdp.nvim", ]]
+    -- dir = "~/.local/share/nvim/personal/mdp.nvim",
     "Civitasv/mdp.nvim",
     config = function()
       require("mdp").setup(
         {
           pdfviewer = "Skim",
-          template = "eisvogel"
+          template = "eisvogel",
+          CJKmainfont = "STHeiti",
+          args = {} -- passed to pandoc
         }
       )
     end

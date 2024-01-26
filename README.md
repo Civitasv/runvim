@@ -20,7 +20,7 @@
 
 ### Lsp
 
-> powerd by [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [Mason](https://github.com/williamboman/mason.nvim), [lspsaga](https://github.com/nvimdev/lspsaga.nvim)
+> powerd by [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [Mason](https://github.com/williamboman/mason.nvim)
 
 ![lsp](images/lsp.png)
 

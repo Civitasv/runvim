@@ -691,7 +691,7 @@ return {
 
       configs.setup {
         -- A list of parser names, or "all"
-        ensure_installed = { "c", "lua", "cpp", "bash", "bibtex", "clojure", "css", "gitignore", "gitcommit", "git_rebase", "gitattributes", "json", "python", "scss", "scheme", "sql", "toml", "typescript", "yaml", "rust", "vue", "javascript", "markdown", "markdown_inline", "haskell", "tsx" },
+        ensure_installed = { "c", "lua", "cpp", "bash", "bibtex", "clojure", "css", "gitignore", "gitcommit", "git_rebase", "gitattributes", "json", "python", "scss", "scheme", "sql", "toml", "typescript", "yaml", "rust", "vue", "javascript", "markdown", "markdown_inline", "haskell", "tsx", "vimdoc" },
         auto_install = false,
         sync_install = false,                  -- install languages synchronously (only applied to `ensure_installed`)
         ignore_install = { "hack", "rnoweb" }, -- List of parsers to ignore installing

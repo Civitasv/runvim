@@ -24,51 +24,24 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 local function lsp_keymaps(client, bufnr)
-  local keymap = function(mode, key, action)
-    vim.keymap.set(mode, key, action, { buffer = bufnr })
+  local keymap = function(mode, key, action, desc)
+    vim.keymap.set(mode, key, action, { buffer = bufnr, desc = desc })
   end
-
-  -- LSP finder - Find the symbol's definition
-  -- If there is no definition, it will instead be hidden
-  -- When you use an action in finder like "open vsplit",
-  -- you can use <C-t> to jump back
-  keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
   -- Peek definition
   -- You can edit the file containing the definition in the floating window
   -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
   -- It also supports tagstack
   -- Use <C-t> to jump back
-  keymap("n", "gD", "<cmd>Lspsaga peek_definition<CR>")
+  keymap("n", "gD", vim.lsp.buf.declaration, "Goto declaration")
 
   -- Go to definition
-  keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
-
-  -- Peek type definition
-  -- You can edit the file containing the type definition in the floating window
-  -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
-  -- It also supports tagstack
-  -- Use <C-t> to jump back
-  keymap("n", "gT", "<cmd>Lspsaga peek_type_definition<CR>")
-
-  -- Go to type definition
-  keymap("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
+  keymap("n", "gd", vim.lsp.buf.definition, "Go to definition")
 
   -- Diagnostic jump
   -- You can use <C-o> to jump back to your previous location
-  keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-  keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-
-  -- Diagnostic jump with filters such as only jumping to an error
-  keymap("n", "[e", function()
-    require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
-  end)
-  keymap("n", "]e", function()
-    require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
-  end)
-
-  -- Toggle outline
-  keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+  keymap("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
+  keymap("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic")
 
   -- If you want to keep the hover window in the top right hand corner,
   -- you can pass the ++keep argument
@@ -76,11 +49,7 @@ local function lsp_keymaps(client, bufnr)
   -- close the hover window. If you want to jump to the hover window
   -- you should use the wincmd command "<C-w>w"
 
-  if client.name == "rust_analyzer" then
-    keymap("n", "K", "<cmd>RustHoverActions<CR>")
-  else
-    keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-  end
+  keymap("n", "K", vim.lsp.buf.hover)
 
   if client.name == "clangd" then
     require("clangd_extensions.inlay_hints").setup_autocmd()

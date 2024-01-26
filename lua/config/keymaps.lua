@@ -152,10 +152,10 @@ keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", { desc
 keymap("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", { desc = "Undo Stage Hunk" })
 
 -- lsp
-keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
+keymap("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", { desc = "Format" })
 keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", { desc = "CodeLens Action" })
-keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
+keymap("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
 
 -- markdown
 keymap("n", "<leader>mp", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
@@ -193,7 +193,7 @@ keymap("i", "<F5>", function() require "dap".toggle_breakpoint() end, { silent =
 keymap(
   "i",
   "<F2>",
-  "<cmd>Lspsaga rename<CR>",
+  vim.lsp.buf.rename,
   { silent = true, desc = "rename" }
 )
 
