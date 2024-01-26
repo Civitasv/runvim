@@ -48,13 +48,10 @@
 │   └── ftplugin
 │       ├── NvimTree.lua
 │       ├── c.lua
-│       ├── cabal.lua
 │       ├── cpp.lua
 │       ├── dap-float.lua
-│       ├── haskell.lua
 │       ├── help.lua
-│       ├── rust.lua
-│       └── toml.lua
+│       └── rust.lua
 ├── init.lua
 ├── lua
 │   ├── config
@@ -70,7 +67,6 @@
 │   │   ├── +dap.lua         -- debug adapter
 │   │   ├── +filetree.lua    -- filetree
 │   │   ├── +git.lua         -- for git
-│   │   ├── +haskell.lua     -- for haskell
 │   │   ├── +latex.lua       -- for latex
 │   │   ├── +lsp.lua         -- lsp configuration
 │   │   ├── +markdown.lua    -- for markdown
