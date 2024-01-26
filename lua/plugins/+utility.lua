@@ -337,7 +337,7 @@ return {
 
       surround.setup({
         keymaps = {
-                    -- vim-surround style keymaps
+          -- vim-surround style keymaps
           insert = "<C-g>s",
           normal = "ys",
           visual = "S",
@@ -667,7 +667,7 @@ return {
       glow.term = Terminal:new({
         hidden = true,
         float_opts = { border = "double" },
-        on_exit = function(t)
+        on_exit = function(_)
           glow.id = nil
         end
       })
@@ -714,19 +714,19 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-      position = "bottom",            -- position of the list can be: bottom, top, left, right
-      height = 10,                    -- height of the trouble list when position is top or bottom
-      width = 50,                     -- width of the list when position is left or right
-      icons = true,                   -- use devicons for filenames
+      position = "bottom", -- position of the list can be: bottom, top, left, right
+      height = 10, -- height of the trouble list when position is top or bottom
+      width = 50, -- width of the list when position is left or right
+      icons = true, -- use devicons for filenames
       mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-      severity = nil,                 -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
-      fold_open = "",              -- icon used for open folds
-      fold_closed = "",            -- icon used for closed folds
-      group = true,                   -- group results by file
-      padding = true,                 -- add an extra new line on top of the list
-      cycle_results = true,           -- cycle item list when reaching beginning or end of list
+      severity = nil, -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
+      fold_open = "", -- icon used for open folds
+      fold_closed = "", -- icon used for closed folds
+      group = true, -- group results by file
+      padding = true, -- add an extra new line on top of the list
+      cycle_results = true, -- cycle item list when reaching beginning or end of list
       action_keys = {
-                                      -- key mappings for actions in the trouble list
+        -- key mappings for actions in the trouble list
         -- map to {} to remove a mapping, for example:
         -- close = {},
         close = "q",                                                                        -- close the list
