@@ -789,5 +789,54 @@ return {
         ["<leader>x"] = { name = "+trouble" },
       })
     end
+  },
+  {
+    "mrjones2014/smart-splits.nvim",
+    config = function()
+      require("smart-splits").setup({
+      })
+    end
+  },
+  {
+    "nvimtools/hydra.nvim",
+    config = function()
+      -- create hydras in here
+      local Hydra = require("hydra")
+      Hydra({
+        name = "Resize the window using h,j,k,l",
+        mode = { "n" },
+        body = "<leader>w",
+        heads = {
+          {
+            "h",
+            function()
+              require("smart-splits").resize_left(5)
+            end,
+            {}
+          },
+          {
+            "l",
+            function()
+              require("smart-splits").resize_right(5)
+            end,
+            {}
+          },
+          {
+            "j",
+            function()
+              require("smart-splits").resize_down(5)
+            end,
+            {}
+          },
+          {
+            "k",
+            function()
+              require("smart-splits").resize_up(5)
+            end,
+            {}
+          }
+        }
+      })
+    end
   }
 }

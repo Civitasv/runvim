@@ -179,11 +179,6 @@ vim.keymap.set("n", "<leader>:", function()
   end)
 end, { silent = true, desc = "Compile" })
 
--- window
-keymap({ "n", "t" }, "<leader>wh", function()
-  vim.o.winheight = 999
-end, { silent = true, desc = "Maximize current window " })
-
 -- terminal
 keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Node" })
 keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Python" })
