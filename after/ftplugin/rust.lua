@@ -8,3 +8,8 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr }
 )
+
+-- Cargo run
+vim.keymap.set("n", "<leader>rr", function()
+  vim.cmd.RustLsp("runnables")
+end, { silent = true, buffer = bufnr, desc = "Run" })

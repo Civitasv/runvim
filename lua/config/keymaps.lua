@@ -162,10 +162,27 @@ keymap("n", "<leader>mp", "<Plug>MarkdownPreview", { desc = "Preview Markdown" }
 keymap("n", "<leader>ms", "<Plug>MarkdownPreviewStop", { desc = "Stop Preview Markdown" })
 keymap("n", "<leader>mt", "<cmd>InsertToc<CR>", { desc = "Insert Tocs" })
 
--- code runner
-keymap("n", "<leader>rr", "<cmd>RunFile<CR>", { desc = "Run File" })
-keymap("n", "<leader>rp", "<cmd>RunProject<CR>", { desc = "Run Project" })
-keymap("n", "<leader>rc", "<cmd>RunClose<CR>", { desc = "Close" })
+-- compile
+vim.keymap.set("n", "<leader>:", function()
+  vim.ui.input({ prompt = "Compile command: " }, function(input)
+    local t = require("toggleterm.terminal").Terminal:new({
+      cmd = input,
+      direction = "horizontal",
+      hidden = false,
+      close_on_exit = false,
+      on_open = function(t)
+        keymap("t", "<ESC>", [[<C-\><C-n>]], { silent = true, buffer = t.bufnr })
+        keymap("t", "q", "<cmd>close<CR>", { silent = true, buffer = t.bufnr })
+      end,
+    })
+    t:toggle()
+  end)
+end, { silent = true, desc = "Compile" })
+
+-- window
+keymap({ "n", "t" }, "<leader>wh", function()
+  vim.o.winheight = 999
+end, { silent = true, desc = "Maximize current window " })
 
 -- terminal
 keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Node" })
