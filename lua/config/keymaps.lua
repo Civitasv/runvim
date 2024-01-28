@@ -165,17 +165,19 @@ keymap("n", "<leader>mt", "<cmd>InsertToc<CR>", { desc = "Insert Tocs" })
 -- compile
 vim.keymap.set("n", "<leader>:", function()
   vim.ui.input({ prompt = "Compile command: " }, function(input)
-    local t = require("toggleterm.terminal").Terminal:new({
-      cmd = input,
-      direction = "horizontal",
-      hidden = false,
-      close_on_exit = false,
-      on_open = function(t)
-        keymap("t", "<ESC>", [[<C-\><C-n>]], { silent = true, buffer = t.bufnr })
-        keymap("t", "q", "<cmd>close<CR>", { silent = true, buffer = t.bufnr })
-      end,
-    })
-    t:toggle()
+    if input then
+      local t = require("toggleterm.terminal").Terminal:new({
+        cmd = input,
+        direction = "horizontal",
+        hidden = false,
+        close_on_exit = false,
+        on_open = function(t)
+          keymap("t", "<ESC>", [[<C-\><C-n>]], { silent = true, buffer = t.bufnr })
+          keymap("t", "q", "<cmd>close<CR>", { silent = true, buffer = t.bufnr })
+        end,
+      })
+      t:toggle()
+    end
   end)
 end, { silent = true, desc = "Compile" })
 
