@@ -160,7 +160,7 @@ return {
         },
       },
       update_focused_file = {
-        enable = true,
+        enable = false,
         update_cwd = false,
         ignore_list = {},
       },
@@ -178,11 +178,11 @@ return {
         timeout = 500,
       },
       view = {
-        width = 30,
+        width = 45,
         side = "left",
         number = false,
         relativenumber = false,
-        preserve_window_proportions = true,
+        preserve_window_proportions = false,
       },
       trash = {
         cmd = "trash",

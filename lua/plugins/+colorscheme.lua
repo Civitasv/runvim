@@ -89,7 +89,9 @@ return {
         colors = {             -- add/modify theme and palette colors
           palette = {},
           theme = {
-            wave = {},
+            wave = {
+
+            },
             lotus = {},
             dragon = {},
             all = {

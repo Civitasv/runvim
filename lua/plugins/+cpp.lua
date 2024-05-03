@@ -116,8 +116,8 @@ return {
         cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },                  -- this will be passed when invoke `CMakeGenerate`
         cmake_build_options = { "-j4" },                                                   -- this will be passed when invoke `CMakeBuild`
         cmake_build_directory = "out/${variant:buildType}",                                -- this is used to specify generate directory for cmake
-        cmake_soft_link_compile_commands = true,                                          -- this will automatically make a soft link from compile commands file to project root dir
-        cmake_compile_commands_from_lsp = false,                                            -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
+        cmake_soft_link_compile_commands = true,                                           -- this will automatically make a soft link from compile commands file to project root dir
+        cmake_compile_commands_from_lsp = false,                                           -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
         cmake_kits_path = "/Users/civitasv/.local/share/CMakeTools/cmake-tools-kits.json", -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
         cmake_variants_message = {
           short = { show = true },                                                         -- whether to show short message
@@ -139,6 +139,7 @@ return {
               show = "always",         -- "always", "only_on_error"
               position = "belowright", -- "bottom", "top"
               size = 10,
+              auto_close_when_success = false, -- typically, you can use it with the true option; it will auto-close the quickfix buffer if the execution is successful.
             },
             toggleterm = {
               direction = "float",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
@@ -161,7 +162,7 @@ return {
               name = "Main Terminal",
               prefix_name = "[CMakeTools]: ", -- This must be included and must be unique, otherwise the terminals will not work. Do not use a simple spacebar " ", or any generic name
               split_direction = "horizontal", -- "horizontal", "vertical"
-              split_size = 11,
+              split_size = 10,
 
               -- Window handling
               single_terminal_per_instance = true,  -- Single instance, multiple windows
@@ -176,7 +177,7 @@ return {
           },
         },
         cmake_runner = {               -- runner to use
-          name = "overseer",           -- name of the runner
+          name = "toggleterm",         -- name of the runner
           opts = {},                   -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
           default_opts = {             -- a list of default and possible values for runners
             quickfix = {
@@ -184,7 +185,7 @@ return {
               position = "belowright", -- "bottom", "top"
               size = 10,
               encoding = "utf-8",
-              auto_close_when_success = false, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
+              auto_close_when_success = false, -- typically, you can use it with the true option; it will auto-close the quickfix buffer if the execution is successful.
             },
             toggleterm = {
               direction = "float",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
@@ -198,7 +199,7 @@ return {
                   direction = "float",
                   autos_croll = true
                 }
-              },                                -- options to pass into the `overseer.new_task` command
+              },                             -- options to pass into the `overseer.new_task` command
               on_new_task = function(_) end, -- a function that gets overseer.Task when it is created, before calling `task:start`
             },
             terminal = {
@@ -220,7 +221,7 @@ return {
           },
         },
         cmake_notifications = {
-          runner = { enabled = true },
+          runner = { enabled = false },
           executor = { enabled = true },
           spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }, -- icons used for progress display
           refresh_rate_ms = 100, -- how often to iterate icons
