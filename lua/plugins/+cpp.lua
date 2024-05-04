@@ -139,7 +139,7 @@ return {
               show = "always",         -- "always", "only_on_error"
               position = "belowright", -- "bottom", "top"
               size = 10,
-              auto_close_when_success = false, -- typically, you can use it with the true option; it will auto-close the quickfix buffer if the execution is successful.
+              auto_close_when_success = true, -- typically, you can use it with the true option; it will auto-close the quickfix buffer if the execution is successful.
             },
             toggleterm = {
               direction = "float",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
