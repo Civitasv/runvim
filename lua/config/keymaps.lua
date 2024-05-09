@@ -181,6 +181,21 @@ vim.keymap.set("n", "<leader>:", function()
   end)
 end, { silent = true, desc = "Compile" })
 
+-- magit
+vim.keymap.set("n", "<leader>e", function()
+  local t = require("toggleterm.terminal").Terminal:new({
+    cmd = "emacsclient -nw .",
+    direction = "tab",
+    hidden = false,
+    close_on_exit = false,
+    on_open = function(t)
+      keymap("t", "<ESC>", [[<C-\><C-n>]], { silent = true, buffer = t.bufnr })
+      keymap("t", "q", "", { silent = true, buffer = t.bufnr })
+    end,
+  })
+  t:toggle()
+end, { silent = true, desc = "Compile" })
+
 -- terminal
 keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Node" })
 keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Python" })
