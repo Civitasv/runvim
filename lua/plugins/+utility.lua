@@ -656,6 +656,28 @@ return {
         glow.term:send("glow " .. file .. " -p")
         glow.id = glow.term.job_id
       end
+
+      -- magit
+      local magit = require("toggleterm.terminal").Terminal:new({
+        cmd = "emacsclient -nw .",
+        direction = "float",
+        hidden = true,
+        float_opts = {
+          border = "double",
+        },
+        -- function to run on opening the terminal
+        on_open = function(_)
+          vim.cmd("startinsert!")
+        end,
+        -- function to run on closing the terminal
+        on_close = function(_)
+          vim.cmd("startinsert!")
+        end,
+      })
+
+      function _MAGIT_TOGGLE()
+        magit:toggle()
+      end
     end
   },
   {
