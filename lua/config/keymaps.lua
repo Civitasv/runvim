@@ -160,7 +160,6 @@ keymap("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
 -- markdown
 keymap("n", "<leader>mp", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
 keymap("n", "<leader>ms", "<Plug>MarkdownPreviewStop", { desc = "Stop Preview Markdown" })
-keymap("n", "<leader>mt", "<cmd>InsertToc<CR>", { desc = "Insert Tocs" })
 
 -- compile
 keymap("n", "<leader>:", function()

@@ -131,13 +131,13 @@ return {
           runInTerminal = true,
           console = "integratedTerminal",
         },
-        cmake_executor = {             -- executor to use
-          name = "quickfix",           -- name of the executor
-          opts = {},                   -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
-          default_opts = {             -- a list of default and possible values for executors
+        cmake_executor = {                    -- executor to use
+          name = "quickfix",                  -- name of the executor
+          opts = {},                          -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
+          default_opts = {                    -- a list of default and possible values for executors
             quickfix = {
-              show = "always",         -- "always", "only_on_error"
-              position = "belowright", -- "bottom", "top"
+              show = "always",                -- "always", "only_on_error"
+              position = "belowright",        -- "bottom", "top"
               size = 10,
               auto_close_when_success = true, -- typically, you can use it with the true option; it will auto-close the quickfix buffer if the execution is successful.
             },
@@ -226,6 +226,7 @@ return {
           spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }, -- icons used for progress display
           refresh_rate_ms = 100, -- how often to iterate icons
         },
+        cmake_virtual_text_support = true, -- Show the target related to current file using virtual text (at right corner)
       })
     end
   }
