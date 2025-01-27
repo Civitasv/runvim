@@ -344,7 +344,7 @@ return {
       local telescope = require("telescope")
       local icons = require("config.icons")
       local actions = require("telescope.actions")
-      local trouble = require("trouble.providers.telescope")
+      local trouble = require("trouble.sources.telescope")
 
       telescope.setup {
         defaults = {
@@ -411,7 +411,7 @@ return {
 
               ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
               ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-              ["<C-t>"] = trouble.open_with_trouble,
+              ["<C-t>"] = trouble.open,
             },
 
             n = {
@@ -420,7 +420,7 @@ return {
               ["<CR>"] = actions.select_default,
               ["<C-x>"] = actions.select_horizontal,
               ["<C-v>"] = actions.select_vertical,
-              ["<C-t>"] = trouble.open_with_trouble,
+              ["<C-t>"] = trouble.open,
 
               ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
               ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -796,19 +796,19 @@ return {
           border = "single"
         }
       })
-      which_key.register({
+      which_key.add({
         mode = { "n" },
-        ["<leader>b"] = { name = "+buffers" },
-        ["<leader>c"] = { name = "+cmake" },
-        ["<leader>d"] = { name = "+debug" },
-        ["<leader>f"] = { name = "+find" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>l"] = { name = "+lsp" },
-        ["<leader>m"] = { name = "+markdown" },
-        ["<leader>r"] = { name = "+rust" },
-        ["<leader>t"] = { name = "+terminal" },
-        ["<leader>w"] = { name = "+window" },
-        ["<leader>x"] = { name = "+trouble" },
+        { "<leader>b", group = "+buffers" },
+        {"<leader>c", group = "+cmake" },
+        {"<leader>d", group = "+debug" },
+        {"<leader>f", group = "+find" },
+        {"<leader>g", group = "+git" },
+        {"<leader>l", group = "+lsp" },
+        {"<leader>m", group = "+markdown" },
+        {"<leader>r", group = "+rust" },
+        {"<leader>t", group = "+terminal" },
+        {"<leader>w", group = "+window" },
+        {"<leader>x", group = "+trouble" },
       })
     end
   },
