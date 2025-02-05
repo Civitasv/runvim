@@ -799,11 +799,8 @@ return {
       which_key.add({
         mode = { "n" },
         { "<leader>b", group = "+buffers" },
-        {"<leader>c", group = "+cmake" },
-        {"<leader>d", group = "+debug" },
         {"<leader>f", group = "+find" },
         {"<leader>g", group = "+git" },
-        {"<leader>l", group = "+lsp" },
         {"<leader>m", group = "+markdown" },
         {"<leader>r", group = "+rust" },
         {"<leader>t", group = "+terminal" },
