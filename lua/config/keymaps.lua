@@ -96,6 +96,8 @@ keymap("n", "<leader>crc", "<cmd>CMakeCloseRunner<CR>", { desc = "Close CMake Ru
 keymap("n", "<leader>ci", "<cmd>CMakeInstall<CR>", { desc = "Intall CMake target" })
 keymap("n", "<leader>cn", "<cmd>CMakeClean<CR>", { desc = "Clean CMake target" })
 keymap("n", "<leader>cs", function()
+  -- vim.print(require("cmake-tools").get_build_target_path())
+  -- vim.print(require("cmake-tools").get_launch_target_path())
   vim.cmd([[CMakeStopRunner]])
   vim.cmd([[CMakeStopExecutor]])
 end, { desc = "Stop CMake Process" })
@@ -106,6 +108,7 @@ keymap("n", "<leader>dk", "<cmd>lua require'dap'.up()<CR>", { desc = "Stack up" 
 keymap("n", "<leader>dj", "<cmd>lua require'dap'.down()<CR>", { desc = "Stack down" })
 keymap("n", "<leader>dn", "<cmd>lua require'dap'.run_to_cursor()<CR>", { desc = "Run To Cursor" })
 keymap("n", "<leader>dq", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Terminate" })
+keymap("n", "<leader>dd", function() require "dap".toggle_breakpoint() end, { desc = "Toggle breakpoint" })
 --[[ .exit               Closes the REPL ]]
 --[[ .c or .continue     Same as |dap.continue| ]]
 --[[ .n or .next         Same as |dap.step_over| ]]
